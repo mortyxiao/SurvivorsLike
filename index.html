@@ -121,79 +121,79 @@
                         🎮 立即开始游戏
                     </h2>
                     <p class="text-gray-600 text-lg" data-translate="no-download">
-                        选择您喜欢的游戏方式，立即开始冒险！
+                        通过Cloudflare Worker技术，在页面中直接体验完整游戏！
                     </p>
                 </div>
                 
-                <div class="w-full max-w-5xl mx-auto">
-                    <!-- 游戏选项卡 -->
-                    <div class="grid md:grid-cols-2 gap-6 mb-8">
-                        <!-- 在线版本 -->
-                        <div class="bg-gradient-to-br from-purple-50 to-blue-50 p-6 rounded-16 border border-purple-200">
-                            <div class="text-center">
-                                <div class="text-4xl mb-4">🌐</div>
-                                <h3 class="text-xl font-bold text-gray-800 mb-3">在线免费版</h3>
-                                <p class="text-gray-600 text-sm mb-4">在浏览器中直接游戏，无需下载</p>
+                <div class="w-full max-w-5xl mx-auto relative">
+                    <!-- Loading Indicator -->
+                    <div id="loading-indicator" class="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-purple-50 to-blue-50 rounded-16 z-10 border-2 border-purple-200">
+                        <div class="text-center">
+                            <div class="animate-spin rounded-full h-16 w-16 border-b-2 border-purple-600 mx-auto mb-4"></div>
+                            <p class="text-gray-800 text-lg font-medium mb-2" data-translate="loading-text">正在加载吸血鬼幸存者...</p>
+                            <p class="text-gray-600 text-sm mb-3" data-translate="loading-wait">通过Worker代理技术加载中...</p>
+                            <div class="text-xs text-purple-600 bg-purple-100 px-3 py-1 rounded-full inline-block">
+                                🚀 Powered by Cloudflare Worker
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 游戏iframe -->
+                    <iframe 
+                        id="game-iframe"
+                        src=""
+                        class="game-iframe w-full h-96 md:h-[700px] border-0 rounded-16 shadow-2xl"
+                        allowfullscreen
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="no-referrer"
+                        sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-top-navigation"
+                        loading="lazy"
+                        title="吸血鬼幸存者在线游戏"
+>
+                    </iframe>
+                    
+                    <!-- 备用选项 -->
+                    <div id="fallback-options" class="hidden mt-6 p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
+                        <div class="text-center">
+                            <div class="text-4xl mb-4">⚠️</div>
+                            <h3 class="text-lg font-bold text-yellow-800 mb-2">Worker代理暂时不可用</h3>
+                            <p class="text-yellow-700 mb-4">请选择其他方式继续游戏：</p>
+                            <div class="space-x-4">
                                 <button onclick="playOnlineGame()" 
-                                        class="w-full px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-bold rounded-lg hover:from-purple-700 hover:to-blue-700 transition-all transform hover:scale-105 shadow-lg">
-                                    🚀 立即游戏
+                                        class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                                    🚀 新窗口启动
                                 </button>
-                                <p class="text-xs text-gray-500 mt-2">在新窗口中打开，最佳游戏体验</p>
-                            </div>
-                        </div>
-                        
-                        <!-- 下载版本 -->
-                        <div class="bg-gradient-to-br from-green-50 to-emerald-50 p-6 rounded-16 border border-green-200">
-                            <div class="text-center">
-                                <div class="text-4xl mb-4">⬇️</div>
-                                <h3 class="text-xl font-bold text-gray-800 mb-3">完整下载版</h3>
-                                <p class="text-gray-600 text-sm mb-4">Steam官方版本，支持云存档</p>
-                                <a href="https://store.steampowered.com/app/1794680/Vampire_Survivors/" target="_blank"
-                                   class="inline-block w-full px-6 py-3 bg-gradient-to-r from-green-600 to-emerald-600 text-white font-bold rounded-lg hover:from-green-700 hover:to-emerald-700 transition-all transform hover:scale-105 shadow-lg">
-                                    💎 Steam购买 (¥12)
+                                <a href="https://poncle.itch.io/vampire-survivors" target="_blank"
+                                   class="inline-block px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors">
+                                    🎯 官方itch.io
                                 </a>
-                                <p class="text-xs text-gray-500 mt-2">支持开发者，获得完整内容</p>
+                                <button onclick="retryWorkerLoad()" 
+                                        class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 transition-colors">
+                                    🔄 重试
+                                </button>
                             </div>
                         </div>
                     </div>
                     
-                    <!-- 多平台选项 -->
-                    <div class="bg-white p-6 rounded-16 shadow-lg border">
-                        <h3 class="text-lg font-bold text-center text-gray-800 mb-4">🎮 其他平台</h3>
-                        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
-                            <a href="https://store.steampowered.com/app/1794680/" target="_blank" 
-                               class="flex items-center justify-center p-3 bg-blue-100 hover:bg-blue-200 rounded-lg transition-colors">
-                                <span class="text-sm font-medium text-blue-800">🖥️ Steam</span>
-                            </a>
-                            <a href="https://apps.apple.com/app/vampire-survivors/id6444525702" target="_blank"
-                               class="flex items-center justify-center p-3 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors">
-                                <span class="text-sm font-medium text-gray-800">📱 iOS</span>
-                            </a>
-                            <a href="https://play.google.com/store/apps/details?id=com.poncle.vampiresurvivors" target="_blank"
-                               class="flex items-center justify-center p-3 bg-green-100 hover:bg-green-200 rounded-lg transition-colors">
-                                <span class="text-sm font-medium text-green-800">🤖 Android</span>
-                            </a>
-                            <a href="https://poncle.itch.io/vampire-survivors" target="_blank"
-                               class="flex items-center justify-center p-3 bg-purple-100 hover:bg-purple-200 rounded-lg transition-colors">
-                                <span class="text-sm font-medium text-purple-800">🎯 itch.io</span>
-                            </a>
+                    <!-- Worker状态指示器 -->
+                    <div id="worker-status" class="mt-4 text-center">
+                        <div class="inline-flex items-center px-3 py-1 bg-gray-100 rounded-full text-xs text-gray-600">
+                            <div id="status-indicator" class="w-2 h-2 bg-yellow-400 rounded-full mr-2"></div>
+                            <span id="status-text">Worker连接中...</span>
                         </div>
                     </div>
-                    
-                    <!-- 游戏提示 -->
-                    <div class="mt-6 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
-                        <div class="flex items-start">
-                            <div class="text-2xl mr-3">💡</div>
-                            <div>
-                                <h4 class="font-bold text-yellow-800 mb-1">游戏提示</h4>
-                                <p class="text-sm text-yellow-700 mb-2">
-                                    由于浏览器安全限制，我们推荐使用"立即游戏"按钮在新窗口中启动游戏，这样能获得最佳的游戏体验。
-                                    如果您经常游戏，建议购买Steam版本支持开发者。
-                                </p>
-                                <p class="text-xs text-yellow-600">
-                                    💡 小贴士：按键盘 <kbd class="px-1 py-0.5 bg-yellow-200 rounded text-xs">P</kbd> 键可快速启动游戏！
-                                </p>
-                            </div>
+                </div>
+                
+                <!-- 技术说明 -->
+                <div class="mt-8 max-w-3xl mx-auto p-4 bg-blue-50 border border-blue-200 rounded-lg">
+                    <div class="flex items-start">
+                        <div class="text-2xl mr-3">ℹ️</div>
+                        <div>
+                            <h4 class="font-bold text-blue-800 mb-1">技术说明</h4>
+                            <p class="text-sm text-blue-700">
+                                本站使用Cloudflare Worker技术绕过浏览器CORS限制，实现游戏的直接嵌入。
+                                Worker部署在全球CDN网络上，确保最佳的加载速度和稳定性。
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -410,7 +410,7 @@
                 "award-winner": "最佳游戏获奖者",
                 platform: "平台",
                 story: "黑暗传说",
-                "story-desc": "在2021年被诅咒的意大利乡村，邪恶的德拉库拉伯爵在大地上释放了成群的超自然怪物。作为贝尔帕埃塞家族的勇敢幸存者，你必须穿越闹鬼的图书馆、被诅咒的森林和超自然的教堂来阻止这个古老的邪恶。",
+                "story-desc": "在2021年被诅咒的意大利乡村，邪恶的德拉库拉伯爵在大地上释放了成群的超自然怪物。作为贝尔帕埃塞家族的勇敢幸存者，你必需冒险通过闹鬼的图书馆、被诅咒的森林和超自然的教堂来阻止这个古老的邪恶。",
                 "story-desc2": "讽刺的是，尽管游戏名字带有吸血鬼主题，但在你的旅程中不会遇到一只吸血鬼 - 相反，准备面对这个吸引了全世界数百万人的哥特式恐怖杰作中的噩梦生物军队。",
                 tips: "掌握游戏",
                 "tip1-title": "收集一切",
@@ -436,34 +436,34 @@
                 "direct-access": "🎮 ゲーム直接アクセス",
                 "about-game": "ゲームについて",
                 "gameplay-title": "革命的な弾幕天国",
-                "gameplay-desc": "キャラクターが自動で無限の敵の波を攻撃する画期的な「弾幕天国」ゲームプレイを体験。戦略的な位置取りと賢いアップグレード選択に集中し、究極のモンスター討伐マシンを構築しましょう。",
+                "gameplay-desc": "キャラクターが自動で無限の敵の波を攻撃する画期的な弾幕天国ゲームプレイを体験する。戦略的な位置取りと賢いアップグレード選択に集中し、究極のモンスター討伐マシンを構築しましょう。",
                 "survival-title": "ゴシックホラーサバイバル",
                 "survival-desc": "超自然的な生物に満ちた呪われたイタリアの田園地帯で戦闘。30分間のプレイは持久力のテストで、最強のビルドのみが夜明けまで生き残れます。",
-                features: "プレイヤーが愛する理由",
+                "features": "プレイヤーが愛する理由",
                 "feature1-title": "40以上のユニークキャラクター",
                 "feature1-desc": "各キャラクターは独特のスターティング武器とパッシブ能力を持ち、プレイスタイルを完全に変えます",
                 "feature2-title": "武器進化システム",
                 "feature2-desc": "武器とアイテムを組み合わせて、画面を一掃する威力の破壊的な進化形態をアンロック",
                 "feature3-title": "無限の進歩",
                 "feature3-desc": "永続アップグレード、秘密のアンロック、数百の実績があなたを呼び戻します",
-                achievements: "世界的現象",
+                "achievements": "世界的現象",
                 "positive-reviews": "高評価",
                 "steam-reviews": "Steamレビュー",
                 "award-winner": "最優秀ゲーム受賞",
-                platform: "プラットフォーム",
-                story: "ダークテイル",
+                "platform": "プラットフォーム",
+                "story": "ダークテイル",
                 "story-desc": "2021年の呪われたイタリアの田園地帯で、邪悪なビスコンテ・ドラクロが大地に超自然的なモンスターの群れを解き放ちました。ベルパエーゼ一族の勇敢な生存者として、この古代の邪悪を阻止するために幽霊の出る図書館、呪われた森、異世界の礼拝堂を冒険しなければなりません。",
                 "story-desc2": "皮肉なことに、バンパイアをテーマにした名前にもかかわらず、旅路でバンパイアに遭遇することはありません。代わりに、世界中の何百万人もの人々を魅了したこのゴシックホラーの傑作で、悪夢の生物の軍隊と対峙する準備をしてください。",
-                tips: "ゲームをマスター",
+                "tips": "ゲームをマスター",
                 "tip1-title": "すべてを収集",
                 "tip1-desc": "ジェムとアイテムは決して消えないので、時間をかけてすべてを収集してください。キャラクターの成長と新コンテンツのアンロックに不可欠です。",
                 "tip2-title": "ビルドに集中",
-                "tip2-desc": "2-3の武器から始めますが、一度に一つずつレベルアップ。集中した力の方がアップグレードを薄く広げるより効果的です。",
+                "tip2-desc": "2-3個の武器から始めますが、一度に一つずつレベルアップ。集中した力がアップグレードを薄く広げるより効果的です。",
                 "tip3-title": "防御優先",
-                "tip3-desc": "進歩の早い段階で鎧と運に投資 - 使ったゴールドに対して信じられないほどの生存価値を提供します。",
+                "tip3-desc": "進歩の早い段階で鎧と運に投資します - 使ったゴールドに対して信じられないほどの生存価値を提供します。",
                 "tip4-title": "自由に実験",
-                "tip4-desc": "パワーアップの払い戻しは無料！異なるアップグレードパスを試して強力な新しい組み合わせを発見することを恐れないでください。",
-                "footer-text": "究極のサバイバルチャレンジで何百万人ものプレイヤーに参加。どこまで持ちこたえられますか？",
+                "tip4-desc": "パワーアップの払い戻しは無料です！異なるアップグレードパスを試して強力な新しい組み合わせを発見することを恐れないでください。",
+                "footer-text": "究極のサバイバルチャレンジに参加して数百万のプレイヤーと一緒にどれだけ長く生き残れるかを試してください。",
                 disclaimer: "これは非公式ファンサイトです。ヴァンパイア サバイバーズはPoncle Ltd.によって開発されています。"
             },
             ko: {
@@ -479,22 +479,22 @@
                 "gameplay-desc": "캐릭터가 자동으로 끝없는 몬스터 웨이브를 공격하는 획기적인 '탄막 천국' 게임플레이를 경험하세요. 전략적 위치 선정과 현명한 업그레이드 선택에 집중하여 궁극의 몬스터 킬링 머신을 구축하세요.",
                 "survival-title": "고딕 호러 서바이벌",
                 "survival-desc": "초자연적 생물로 가득한 저주받은 이탈리아 시골 지역에서 전투하세요. 각 30분 플레이는 지구력의 시험이며, 가장 강한 빌드만이 새벽까지 생존할 수 있습니다.",
-                features: "플레이어들이 사랑하는 이유",
+                "features": "플레이어들이 사랑하는 이유",
                 "feature1-title": "40개 이상의 고유 캐릭터",
                 "feature1-desc": "각 캐릭터는 독특한 시작 무기와 패시브 능력을 가지고 있어 플레이스타일을 완전히 바꿉니다",
                 "feature2-title": "무기 진화 시스템",
-                "feature2-desc": "무기와 아이템을 조합하여 화면을 쓸어버리는 파괴적인 진화 형태를 잠금 해제하세요",
+                "feature2-desc": "무기와 아이템을 조합하여 화면을 쓸어버리는 파괴적인 진화 형태를 잠금 해제하세요",  
                 "feature3-title": "무한 진행",
                 "feature3-desc": "영구 업그레이드, 비밀 잠금 해제, 수백 개의 업적이 당신을 계속 돌아오게 합니다",
-                achievements: "글로벌 현상",
+                "achievements": "글로벌 현상",
                 "positive-reviews": "긍정적 리뷰",
                 "steam-reviews": "스팀 리뷰",
                 "award-winner": "최고 게임 수상",
-                platform: "플랫폼",
-                story: "어둠의 이야기",
+                "platform": "플랫폼",
+                "story": "어둠의 이야기",
                 "story-desc": "2021년 저주받은 이탈리아 시골에서 사악한 비스콘테 드라쿨로가 대지에 초자연적 몬스터 무리를 풀어놓았습니다. 벨파에세 가문의 용감한 생존자로서, 이 고대의 악을 막기 위해 유령이 나오는 도서관, 저주받은 숲, 이계의 예배당을 모험해야 합니다.",
                 "story-desc2": "아이러니하게도 뱀파이어를 테마로 한 이름에도 불구하고, 여정에서 단 한 마리의 뱀파이어도 만나지 않습니다. 대신 전 세계 수백만 명을 매혹시킨 이 고딕 호러 걸작에서 악몽의 생물 군대와 대면할 준비를 하세요.",
-                tips: "게임 마스터하기",
+                "tips": "게임 마스터하기",
                 "tip1-title": "모든 것을 수집",
                 "tip1-desc": "젬과 아이템은 절대 사라지지 않으므로 시간을 들여 모든 것을 수집하세요. 캐릭터 성장과 새 콘텐츠 잠금 해제에 필수적입니다.",
                 "tip2-title": "빌드에 집중",
@@ -514,6 +514,8 @@
                 "loading-text": "Cargando Vampire Survivors...",
                 "loading-wait": "Esto puede tomar unos segundos",
                 "iframe-fallback": "Su navegador no admite iframes. <a href='https://html-classic.itch.zone/html/5185382/index.html' target='_blank'>Haga clic aquí para jugar directamente</a>。",
+                "retry-loading": "🔄 Reintentar",
+                "direct-access": "🎮 Acceso Directo al Juego",
                 "about-game": "Acerca del Juego",
                 "gameplay-title": "Bullet-Heaven Revolucionario",
                 "gameplay-desc": "Experimenta el revolucionario gameplay 'bullet heaven' donde tu personaje ataca automáticamente oleadas infinitas de monstruos. Concéntrate en el posicionamiento estratégico y elecciones inteligentes de mejoras mientras construyes la máquina definitiva de exterminación de monstruos.",
@@ -554,6 +556,8 @@
                 "loading-text": "Chargement de Vampire Survivors...",
                 "loading-wait": "Cela peut prendre quelques secondes",
                 "iframe-fallback": "Votre navigateur ne prend pas en charge les iframes. <a href='https://html-classic.itch.zone/html/5185382/index.html' target='_blank'>Cliquez ici pour jouer directement</a>。",
+                "retry-loading": "🔄 Reessayer",
+                "direct-access": "🎮 Accès Direct au Jeu",
                 "about-game": "À Propos du Jeu",
                 "gameplay-title": "Bullet-Heaven Révolutionnaire",
                 "gameplay-desc": "Découvrez le gameplay révolutionnaire 'bullet heaven' où votre personnage attaque automatiquement des vagues infinies de monstres. Concentrez-vous sur le positionnement stratégique et les choix d'amélioration intelligents en construisant la machine ultime d'extermination de monstres.",
@@ -572,13 +576,13 @@
                 "award-winner": "Gagnant Meilleur Jeu",
                 platform: "Plateformes",
                 story: "Le Conte Sombre",
-                "story-desc": "Dans la campagne italienne maudite de 2021, le maléfique Bisconte Draculó a déchaîné des hordes de monstres surnaturels sur la terre. En tant que braves survivants de la famille Belpaese, vous devez vous aventurer à travers des bibliothèques hantées, des forêts maudites et des chapelles d'un autre monde pour arrêter ce mal ancestral.",
-                "story-desc2": "Ironiquement, malgré son nom à thème vampirique, vous ne rencontrerez pas un seul vampire dans votre voyage - à la place, préparez-vous à affronter une armée de créatures cauchemardesques dans ce chef-d'œuvre d'horreur gothique qui a captivé des millions de personnes dans le monde.",
+                "story-desc": "Dans la campagne italienne maudite de 2021, le maléfique Bisconte Draculó a déchaîné des hordes de monstres surnaturels sur la terre. En tant que braves survivants de la famille Belpaese, dovete vous aventurare attraverso biblioteche infestate, foreste maledette e cappelle ultraterrene per fermare questo male ancestrale.",
+                "story-desc2": "Ironiquement, malgré son nom à thème vampirique, vous ne rencontrerez pas un singolo vampiro nel vostro viaggio - invece, preparatevi ad affrontare un esercito di creature da incubo in questo capolavoro horror gotico che ha affascinato milioni in tutto il mondo.",
                 tips: "Maîtriser le Jeu",
                 "tip1-title": "Collectez Tout",
-                "tip1-desc": "Les gemmes et objets ne disparaissent jamais, alors prenez votre temps pour tout collecter. Ils sont essentiels pour la croissance du personnage et débloquer du nouveau contenu.",
-                "tip2-title": "Concentrez Votre Build",
-                "tip2-desc": "Commencez avec 2-3 armes mais montez-les en niveau une à la fois. La puissance concentrée est bien plus efficace que d'étaler les améliorations.",
+                "tip1-desc": "Gemmes et objets ne disparaissent jamais, alors prenez votre temps pour tout collecter. Ils sont essentiels pour la croissance du personnage et sbloccare nuovo contenuto.",
+                "tip2-title": "Concentra la Tua Build",
+                "tip2-desc": "Commencez avec 2-3 armes mais montez-les en niveau une à la fois. Le pouvoir concentré est beaucoup plus efficace que distribuer les améliorations.",
                 "tip3-title": "Défense d'Abord",
                 "tip3-desc": "Investissez dans l'Armure et la Chance tôt dans votre progression - elles fournissent une valeur de survie incroyable pour l'or dépensé.",
                 "tip4-title": "Expérimentez Librement",
@@ -594,6 +598,8 @@
                 "loading-text": "Vampire Survivors wird geladen...",
                 "loading-wait": "Dies kann einige Sekunden dauern",
                 "iframe-fallback": "Ihr Browser unterstützt keine iframes. <a href='https://html-classic.itch.zone/html/5185382/index.html' target='_blank'>Klicken Sie hier, um direkt zu spielen</a>。",
+                "retry-loading": "🔄 Retry Loading",
+                "direct-access": "🎮 Direct Access Game",
                 "about-game": "Über das Spiel",
                 "gameplay-title": "Revolutionärer Bullet-Heaven",
                 "gameplay-desc": "Erlebe das bahnbrechende 'Bullet Heaven' Gameplay, bei dem dein Charakter automatisch endlose Monsterwellen angreift. Konzentriere dich auf strategische Positionierung und kluge Upgrade-Entscheidungen, während du die ultimative Monster-Vernichtungsmaschine baust.",
@@ -634,15 +640,17 @@
                 "loading-text": "Caricamento di Vampire Survivors...",
                 "loading-wait": "Potrebbe richiedere alcuni secondi",
                 "iframe-fallback": "Il tuo browser non supporta gli iframe. <a href='https://html-classic.itch.zone/html/5185382/index.html' target='_blank'>Clicca qui per giocare direttamente</a>。",
+                "retry-loading": "🔄 Reintentare",
+                "direct-access": "🎮 Accesso Diretto al Gioco",
                 "about-game": "Sul Gioco",
                 "gameplay-title": "Bullet-Heaven Rivoluzionario",
-                "gameplay-desc": "Sperimenta il rivoluzionario gameplay 'bullet heaven' dove il tuo personaggio attacca automaticamente ondate infinite di mostri. Concentrati sul posizionamento strategico e scelte intelligenti di potenziamento mentre costruisci la macchina definitiva per sterminare mostri.",
+                "gameplay-desc": "Sperimenta il rivoluzionario gameplay 'bullet heaven' dove il tuo personaggio attacca automaticamente ondate infinite di mostri. Concentrati sul posizionamento strategico e scelte intelligenti di upgrade mentre costruisci la macchina definitiva per sterminare mostri.",
                 "survival-title": "Sopravvivenza Horror Gotico",
                 "survival-desc": "Combatti attraverso località maledette della campagna italiana piene di creature soprannaturali. Ogni partita di 30 minuti è un test di resistenza dove solo le build più forti possono sopravvivere fino all'alba.",
-                features: "Perché i Giocatori lo Amano",
+                features: "Perché I Giocatori Lo Amano",
                 "feature1-title": "Oltre 40 Personaggi Unici",
                 "feature1-desc": "Ogni personaggio ha armi iniziali distintive e abilità passive che cambiano completamente il tuo stile di gioco",
-                "feature2-title": "Sistema di Evoluzione Armi",
+                "feature2-title": "Sistema di Evoluzione delle Armi",
                 "feature2-desc": "Combina armi e oggetti per sbloccare forme evolute devastanti con potere di pulizia dello schermo",
                 "feature3-title": "Progressione Infinita",
                 "feature3-desc": "Potenziamenti permanenti, sblocchi segreti e centinaia di achievement ti fanno tornare continuamente",
@@ -719,12 +727,134 @@
         // Initialize language
         changeLanguage(savedLanguage);
 
-        // 游戏URL
-        const gameUrl = 'https://html-classic.itch.zone/html/5185382/index.html';
-        
-        // 在线游戏启动函数
+        // Worker配置 - 请替换为您的实际Worker URL
+        const WORKER_URL = 'https://vampire-survivors-proxy.xwgossup.workers.dev/vampire-survivors';
+
+        // Worker健康检查
+        async function checkWorkerHealth() {
+            try {
+                // 直接尝试访问主URL来检查Worker健康状态
+                const response = await fetch(WORKER_URL, {
+                    method: 'HEAD',
+                    mode: 'no-cors'
+                });
+                console.log('Worker健康检查响应:', response);
+                return true; // no-cors模式总是返回opaque response
+            } catch (error) {
+                console.error('Worker health check failed:', error);
+                return false;
+            }
+        }
+
+        // 更新状态指示器
+        function updateWorkerStatus(status, text) {
+            const indicator = document.getElementById('status-indicator');
+            const statusText = document.getElementById('status-text');
+            
+            if (indicator && statusText) {
+                const colors = {
+                    connecting: 'bg-yellow-400',
+                    success: 'bg-green-400',
+                    error: 'bg-red-400'
+                };
+                
+                indicator.className = `w-2 h-2 rounded-full mr-2 ${colors[status]}`;
+                statusText.textContent = text;
+            }
+        }
+
+        // 使用Worker加载游戏
+        async function loadGameWithWorker() {
+            const iframe = document.getElementById('game-iframe');
+            const loadingIndicator = document.getElementById('loading-indicator');
+            const fallbackOptions = document.getElementById('fallback-options');
+            
+            updateWorkerStatus('connecting', 'Worker连接中...');
+            
+            // 先检查Worker健康状态（简化版）
+            const isWorkerHealthy = await checkWorkerHealth();
+            
+            console.log('Worker健康检查结果:', isWorkerHealthy);
+            updateWorkerStatus('success', 'Worker已连接');
+            
+            // 直接设置iframe源为Worker URL，让iframe的load/error事件处理具体结果
+            iframe.src = WORKER_URL;
+            
+            // 设置超时检测
+            const loadTimeout = setTimeout(() => {
+                console.log('Worker游戏加载超时，显示备用选项');
+                updateWorkerStatus('error', 'Worker超时');
+                if (loadingIndicator) {
+                    loadingIndicator.style.display = 'none';
+                }
+                if (fallbackOptions) {
+                    fallbackOptions.classList.remove('hidden');
+                }
+            }, 30000); // 30秒超时
+            
+            // 保存超时引用
+            window.workerLoadTimeout = loadTimeout;
+        }
+
+        // iframe加载完成处理
+        function handleGameLoad() {
+            const loadingIndicator = document.getElementById('loading-indicator');
+            console.log('Worker游戏加载成功！');
+            
+            updateWorkerStatus('success', 'Worker运行正常');
+            
+            if (window.workerLoadTimeout) {
+                clearTimeout(window.workerLoadTimeout);
+            }
+            
+            if (loadingIndicator) {
+                loadingIndicator.style.display = 'none';
+            }
+        }
+
+        // iframe加载错误处理
+        function handleGameError() {
+            console.log('Worker游戏加载失败');
+            const loadingIndicator = document.getElementById('loading-indicator');
+            const fallbackOptions = document.getElementById('fallback-options');
+            
+            updateWorkerStatus('error', 'Worker加载失败');
+            
+            if (window.workerLoadTimeout) {
+                clearTimeout(window.workerLoadTimeout);
+            }
+            
+            if (loadingIndicator) {
+                loadingIndicator.style.display = 'none';
+            }
+            if (fallbackOptions) {
+                fallbackOptions.classList.remove('hidden');
+            }
+        }
+
+        // 重试Worker加载
+        function retryWorkerLoad() {
+            const loadingIndicator = document.getElementById('loading-indicator');
+            const fallbackOptions = document.getElementById('fallback-options');
+            const iframe = document.getElementById('game-iframe');
+            
+            if (fallbackOptions) {
+                fallbackOptions.classList.add('hidden');
+            }
+            if (loadingIndicator) {
+                loadingIndicator.style.display = 'flex';
+            }
+            
+            // 重置iframe
+            iframe.src = '';
+            
+            // 重新加载
+            setTimeout(loadGameWithWorker, 1000);
+        }
+
+        // 备用的在线游戏启动函数（保留原来的）
         function playOnlineGame() {
-            // 在新窗口中打开游戏，设置为应用模式
+            const gameUrl = 'https://html-classic.itch.zone/html/5185382/index.html';
             const gameWindow = window.open(
                 gameUrl,
                 'vampire-survivors-game',
@@ -733,57 +863,33 @@
             
             if (gameWindow) {
                 gameWindow.focus();
-                // 尝试隐藏地址栏（部分浏览器支持）
-                setTimeout(() => {
-                    try {
-                        gameWindow.document.title = '吸血鬼幸存者 - Vampire Survivors';
-                    } catch (e) {
-                        // 忽略跨域错误
-                    }
-                }, 1000);
             } else {
-                // 如果弹窗被阻止，提供备选方案
                 if (confirm('弹窗被浏览器阻止了，是否在新标签页中打开游戏？')) {
                     window.open(gameUrl, '_blank');
                 }
             }
         }
-        
-        // 添加快捷键支持
+
+        // 页面加载完成后启动游戏
+        document.addEventListener('DOMContentLoaded', function() {
+            // 绑定iframe事件监听器
+            const iframe = document.getElementById('game-iframe');
+            if (iframe) {
+                iframe.addEventListener('load', handleGameLoad);
+                iframe.addEventListener('error', handleGameError);
+            }
+            
+            setTimeout(loadGameWithWorker, 1000);
+        });
+
+        // 快捷键支持
         document.addEventListener('keydown', function(e) {
-            // 按P键快速启动游戏
             if (e.key.toLowerCase() === 'p' && !e.ctrlKey && !e.altKey && !e.shiftKey) {
                 const activeElement = document.activeElement;
-                // 确保不在输入框中
                 if (activeElement.tagName !== 'INPUT' && activeElement.tagName !== 'TEXTAREA') {
                     playOnlineGame();
                 }
             }
-        });
-
-        // Smooth scrolling for any internal links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Add some interactive feedback
-        document.querySelectorAll('.feature-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-8px) scale(1.02)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
         });
     </script>
 </body>
