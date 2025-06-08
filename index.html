@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vampire Survivors - Play Online Free | Bullet Hell Survival Game</title>
+    <meta name="description" content="Play Vampire Survivors online for free! The addictive bullet hell survival game that became a global phenomenon. No download required.">
+    <meta name="keywords" content="Vampire Survivors, online game, bullet hell, survival game, free game, roguelike">
+    <link rel="canonical" href="https://survivorslike.xyz">
+    <meta property="og:title" content="Vampire Survivors - Online Game">
+    <meta property="og:description" content="Play Vampire Survivors online now! Most popular bullet hell survival game">
+    <meta property="og:url" content="https://survivorslike.xyz">
+    <meta property="og:type" content="website">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary: #007AFF;
+            --secondary: #5856D6;
+            --accent: #FF3B30;
+            --success: #34C759;
+            --warning: #FF9500;
+            --background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        body {
+            background: var(--background);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        .game-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(30px);
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .feature-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(15px);
+            border-radius: 16px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        .lang-selector {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(15px);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .game-iframe {
+            border-radius: 16px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .game-iframe {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Language Selector -->
+    <div class="fixed top-6 right-6 z-50 lang-selector p-3">
+        <select id="languageSelect" class="bg-transparent border-none outline-none cursor-pointer text-sm font-medium">
+            <option value="en">🇺🇸 English</option>
+            <option value="zh">🇨🇳 中文</option>
+            <option value="ja">🇯🇵 日本語</option>
+            <option value="ko">🇰🇷 한국어</option>
+            <option value="es">🇪🇸 Español</option>
+            <option value="fr">🇫🇷 Français</option>
+            <option value="de">🇩🇪 Deutsch</option>
+            <option value="it">🇮🇹 Italiano</option>
+        </select>
+    </div>
+
+    <div class="py-8 px-4">
+        <div class="max-w-7xl mx-auto">
+            <!-- Header -->
+            <header class="text-center mb-16">
+                <h1 class="text-6xl md:text-8xl font-black gradient-text mb-8" data-translate="title">
+                    Vampire Survivors
+                </h1>
+                <p class="text-xl md:text-2xl text-white mb-8 max-w-4xl mx-auto leading-relaxed" data-translate="subtitle">
+                    The addictive bullet-hell masterpiece that lets you become the ultimate monster slayer!
+                </p>
+                <div class="flex justify-center space-x-4 text-white/80">
+                    <span class="px-4 py-2 bg-white/20 rounded-full">⭐ 98% Positive Reviews</span>
+                    <span class="px-4 py-2 bg-white/20 rounded-full">🏆 BAFTA Winner</span>
+                    <span class="px-4 py-2 bg-white/20 rounded-full">🎮 Free to Play</span>
+                </div>
+            </header>
+
+            <!-- Game Container -->
+            <div class="game-container p-8 mb-16">
+                <div class="text-center mb-8">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-4" data-translate="play-now">
+                        🎮 Play Now - Free Online
+                    </h2>
+                    <p class="text-gray-600 text-lg" data-translate="no-download">
+                        No download required! Play directly in your browser
+                    </p>
+                </div>
+                
+                <div class="w-full max-w-5xl mx-auto relative">
+                    <!-- Loading Indicator -->
+                    <div id="loading-indicator" class="absolute inset-0 flex items-center justify-center bg-gray-100 rounded-16 z-10">
+                        <div class="text-center">
+                            <div class="animate-spin rounded-full h-16 w-16 border-b-2 border-blue-600 mx-auto mb-4"></div>
+                            <p class="text-gray-600 text-lg font-medium">Loading Vampire Survivors...</p>
+                            <p class="text-gray-500 text-sm mt-2">This may take a few seconds</p>
+                        </div>
+                    </div>
+                    
+                    <iframe 
+                        src="https://html-classic.itch.zone/html/5185382/index.html" 
+                        class="game-iframe w-full h-96 md:h-[700px] border-0"
+                        allowfullscreen
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
+                        loading="lazy"
+                        title="Vampire Survivors Online Game">
+                        <p>Your browser does not support iframes. <a href="https://html-classic.itch.zone/html/5185382/index.html" target="_blank">Click here to play the game directly</a>.</p>
+                    </iframe>
+                </div>
+            </div>
+
+            <!-- About Section -->
+            <section class="mb-16">
+                <h2 class="text-5xl font-bold text-center text-white mb-12" data-translate="about-game">
+                    About the Game
+                </h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="feature-card p-8">
+                        <div class="text-5xl mb-6">🎯</div>
+                        <h3 class="text-2xl font-bold mb-4 gradient-text" data-translate="gameplay-title">
+                            Revolutionary Bullet-Heaven
+                        </h3>
+                        <p class="text-gray-700 text-lg leading-relaxed" data-translate="gameplay-desc">
+                            Experience the groundbreaking "bullet heaven" gameplay where your character automatically attacks endless waves of monsters. Focus on strategic positioning and smart upgrade choices as you build the ultimate monster-slaying machine.
+                        </p>
+                    </div>
+                    <div class="feature-card p-8">
+                        <div class="text-5xl mb-6">⚔️</div>
+                        <h3 class="text-2xl font-bold mb-4 gradient-text" data-translate="survival-title">
+                            Gothic Horror Survival
+                        </h3>
+                        <p class="text-gray-700 text-lg leading-relaxed" data-translate="survival-desc">
+                            Battle through cursed Italian countryside locations filled with supernatural creatures. Each 30-minute run is a test of endurance where only the strongest builds can survive until dawn breaks.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Features Grid -->
+            <section class="mb-16">
+                <h2 class="text-5xl font-bold text-center text-white mb-12" data-translate="features">
+                    Why Players Love It
+                </h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="feature-card p-8 text-center">
+                        <div class="text-6xl mb-6">🧛</div>
+                        <h3 class="text-xl font-bold mb-4 gradient-text" data-translate="feature1-title">40+ Unique Characters</h3>
+                        <p class="text-gray-600" data-translate="feature1-desc">Each character has distinct starting weapons and passive abilities that completely change your playstyle</p>
+                    </div>
+                    <div class="feature-card p-8 text-center">
+                        <div class="text-6xl mb-6">⚡</div>
+                        <h3 class="text-xl font-bold mb-4 gradient-text" data-translate="feature2-title">Weapon Evolution System</h3>
+                        <p class="text-gray-600" data-translate="feature2-desc">Combine weapons and items to unlock devastating evolved forms with screen-clearing power</p>
+                    </div>
+                    <div class="feature-card p-8 text-center">
+                        <div class="text-6xl mb-6">🏆</div>
+                        <h3 class="text-xl font-bold mb-4 gradient-text" data-translate="feature3-title">Endless Progression</h3>
+                        <p class="text-gray-600" data-translate="feature3-desc">Permanent upgrades, secret unlocks, and hundreds of achievements keep you coming back</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Stats Section -->
+            <section class="mb-16">
+                <h2 class="text-5xl font-bold text-center text-white mb-12" data-translate="achievements">
+                    Global Phenomenon
+                </h2>
+                <div class="grid md:grid-cols-4 gap-6">
+                    <div class="glass-card p-6 text-center text-white">
+                        <div class="text-4xl font-black mb-2">98%</div>
+                        <p class="opacity-80" data-translate="positive-reviews">Positive Reviews</p>
+                    </div>
+                    <div class="glass-card p-6 text-center text-white">
+                        <div class="text-4xl font-black mb-2">237K+</div>
+                        <p class="opacity-80" data-translate="steam-reviews">Steam Reviews</p>
+                    </div>
+                    <div class="glass-card p-6 text-center text-white">
+                        <div class="text-4xl font-black mb-2">BAFTA</div>
+                        <p class="opacity-80" data-translate="award-winner">Best Game Winner</p>
+                    </div>
+                    <div class="glass-card p-6 text-center text-white">
+                        <div class="text-4xl font-black mb-2">8</div>
+                        <p class="opacity-80" data-translate="platform">Platforms</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Story Section -->
+            <section class="mb-16">
+                <h2 class="text-5xl font-bold text-center text-white mb-12" data-translate="story">
+                    The Dark Tale
+                </h2>
+                <div class="glass-card p-10 max-w-5xl mx-auto text-white">
+                    <div class="text-center mb-8">
+                        <div class="text-6xl mb-4">🏰</div>
+                    </div>
+                    <p class="text-xl leading-relaxed mb-8" data-translate="story-desc">
+                        In the cursed Italian countryside of 2021, the evil Bisconte Draculó has unleashed hordes of supernatural monsters upon the land. As brave survivors from the Belpaese family, you must venture through haunted libraries, cursed forests, and otherworldly chapels to stop this ancient evil.
+                    </p>
+                    <p class="text-lg leading-relaxed opacity-90" data-translate="story-desc2">
+                        Ironically, despite its vampire-themed name, you won't encounter a single vampire in your journey - instead, prepare to face an army of nightmarish creatures in this Gothic horror masterpiece that has captivated millions worldwide.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Tips Section -->
+            <section class="mb-16">
+                <h2 class="text-5xl font-bold text-center text-white mb-12" data-translate="tips">
+                    Master the Game
+                </h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="feature-card p-8">
+                        <div class="text-4xl mb-4">💎</div>
+                        <h3 class="text-2xl font-bold mb-6 gradient-text" data-translate="tip1-title">Collect Everything</h3>
+                        <p class="text-gray-700 text-lg" data-translate="tip1-desc">Gems and items never disappear, so take your time to collect everything. They're essential for character growth and unlocking new content.</p>
+                    </div>
+                    <div class="feature-card p-8">
+                        <div class="text-4xl mb-4">⚔️</div>
+                        <h3 class="text-2xl font-bold mb-6 gradient-text" data-translate="tip2-title">Focus Your Build</h3>
+                        <p class="text-gray-700 text-lg" data-translate="tip2-desc">Start with 2-3 weapons but level them one at a time. Concentrated power is far more effective than spreading upgrades thin.</p>
+                    </div>
+                    <div class="feature-card p-8">
+                        <div class="text-4xl mb-4">🛡️</div>
+                        <h3 class="text-2xl font-bold mb-6 gradient-text" data-translate="tip3-title">Defense First</h3>
+                        <p class="text-gray-700 text-lg" data-translate="tip3-desc">Invest in Armor and Luck early in your progression - they provide incredible survival value for the gold spent.</p>
+                    </div>
+                    <div class="feature-card p-8">
+                        <div class="text-4xl mb-4">🔄</div>
+                        <h3 class="text-2xl font-bold mb-6 gradient-text" data-translate="tip4-title">Experiment Freely</h3>
+                        <p class="text-gray-700 text-lg" data-translate="tip4-desc">Refunding power-ups costs nothing! Don't be afraid to try different upgrade paths and discover powerful new combinations.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="text-center text-white mt-20">
+                <div class="glass-card p-8 max-w-2xl mx-auto">
+                    <h3 class="text-2xl font-bold mb-4 gradient-text">Ready to Survive?</h3>
+                    <p class="mb-6 text-lg" data-translate="footer-text">
+                        Join millions of players in the ultimate survival challenge. How long can you last?
+                    </p>
+                    <p class="text-sm opacity-75 border-t border-white/20 pt-4" data-translate="disclaimer">
+                        This is an unofficial fan site. Vampire Survivors is developed by Poncle Ltd.
+                    </p>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        // Multi-language support
+        const translations = {
+            en: {
+                title: "Vampire Survivors",
+                subtitle: "The addictive bullet-hell masterpiece that lets you become the ultimate monster slayer!",
+                "play-now": "🎮 Play Now - Free Online",
+                "no-download": "No download required! Play directly in your browser",
+                "about-game": "About the Game",
+                "gameplay-title": "Revolutionary Bullet-Heaven",
+                "gameplay-desc": "Experience the groundbreaking \"bullet heaven\" gameplay where your character automatically attacks endless waves of monsters. Focus on strategic positioning and smart upgrade choices as you build the ultimate monster-slaying machine.",
+                "survival-title": "Gothic Horror Survival",
+                "survival-desc": "Battle through cursed Italian countryside locations filled with supernatural creatures. Each 30-minute run is a test of endurance where only the strongest builds can survive until dawn breaks.",
+                features: "Why Players Love It",
+                "feature1-title": "40+ Unique Characters",
+                "feature1-desc": "Each character has distinct starting weapons and passive abilities that completely change your playstyle",
+                "feature2-title": "Weapon Evolution System",
+                "feature2-desc": "Combine weapons and items to unlock devastating evolved forms with screen-clearing power",
+                "feature3-title": "Endless Progression",
+                "feature3-desc": "Permanent upgrades, secret unlocks, and hundreds of achievements keep you coming back",
+                achievements: "Global Phenomenon",
+                "positive-reviews": "Positive Reviews",
+                "steam-reviews": "Steam Reviews",
+                "award-winner": "Best Game Winner",
+                platform: "Platforms",
+                story: "The Dark Tale",
+                "story-desc": "In the cursed Italian countryside of 2021, the evil Bisconte Draculó has unleashed hordes of supernatural monsters upon the land. As brave survivors from the Belpaese family, you must venture through haunted libraries, cursed forests, and otherworldly chapels to stop this ancient evil.",
+                "story-desc2": "Ironically, despite its vampire-themed name, you won't encounter a single vampire in your journey - instead, prepare to face an army of nightmarish creatures in this Gothic horror masterpiece that has captivated millions worldwide.",
+                tips: "Master the Game",
+                "tip1-title": "Collect Everything",
+                "tip1-desc": "Gems and items never disappear, so take your time to collect everything. They're essential for character growth and unlocking new content.",
+                "tip2-title": "Focus Your Build",
+                "tip2-desc": "Start with 2-3 weapons but level them one at a time. Concentrated power is far more effective than spreading upgrades thin.",
+                "tip3-title": "Defense First",
+                "tip3-desc": "Invest in Armor and Luck early in your progression - they provide incredible survival value for the gold spent.",
+                "tip4-title": "Experiment Freely",
+                "tip4-desc": "Refunding power-ups costs nothing! Don't be afraid to try different upgrade paths and discover powerful new combinations.",
+                "footer-text": "Join millions of players in the ultimate survival challenge. How long can you last?",
+                disclaimer: "This is an unofficial fan site. Vampire Survivors is developed by Poncle Ltd."
+            },
+            zh: {
+                title: "吸血鬼幸存者",
+                subtitle: "令人上瘾的子弹地狱杰作，让你成为终极怪物杀手！",
+                "play-now": "🎮 立即游戏 - 免费在线",
+                "no-download": "无需下载！直接在浏览器中游戏",
+                "about-game": "关于游戏",
+                "gameplay-title": "革命性的子弹天堂",
+                "gameplay-desc": "体验突破性的「子弹天堂」游戏玩法，你的角色自动攻击无尽的怪物波次。专注于战略定位和明智的升级选择，打造终极的怪物杀戮机器。",
+                "survival-title": "哥特式恐怖生存",
+                "survival-desc": "在充满超自然生物的意大利乡村诅咒之地战斗。每次30分钟的游戏都是一次耐力测试，只有最强的构建才能生存到黎明。",
+                features: "玩家喜爱的理由",
+                "feature1-title": "40+独特角色",
+                "feature1-desc": "每个角色都有独特的起始武器和被动能力，完全改变你的游戏风格",
+                "feature2-title": "武器进化系统",
+                "feature2-desc": "组合武器和物品以解锁具有清屏威力的毁灭性进化形态",
+                "feature3-title": "无尽进度",
+                "feature3-desc": "永久升级、秘密解锁和数百个成就让你不断回来",
+                achievements: "全球现象",
+                "positive-reviews": "好评率",
+                "steam-reviews": "Steam评价",
+                "award-winner": "最佳游戏获奖者",
+                platform: "平台",
+                story: "黑暗传说",
+                "story-desc": "在2021年被诅咒的意大利乡村，邪恶的德拉库拉伯爵在大地上释放了成群的超自然怪物。作为贝尔帕埃塞家族的勇敢幸存者，你必须穿越闹鬼的图书馆、被诅咒的森林和超自然的教堂来阻止这个古老的邪恶。",
+                "story-desc2": "讽刺的是，尽管游戏名字带有吸血鬼主题，但在你的旅程中不会遇到一只吸血鬼 - 相反，准备面对这个吸引了全世界数百万人的哥特式恐怖杰作中的噩梦生物军队。",
+                tips: "掌握游戏",
+                "tip1-title": "收集一切",
+                "tip1-desc": "宝石和物品永远不会消失，所以花时间收集一切。它们对角色成长和解锁新内容至关重要。",
+                "tip2-title": "专注构建",
+                "tip2-desc": "从2-3个武器开始，但一次升级一个。集中的力量比分散升级更有效。",
+                "tip3-title": "防御优先",
+                "tip3-desc": "在进度早期投资护甲和幸运 - 它们为花费的金币提供了难以置信的生存价值。",
+                "tip4-title": "自由实验",
+                "tip4-desc": "退还强化不花费任何东西！不要害怕尝试不同的升级路径并发现强大的新组合。",
+                "footer-text": "加入数百万玩家的终极生存挑战。你能坚持多久？",
+                disclaimer: "这是一个非官方粉丝网站。吸血鬼幸存者由Poncle Ltd开发。"
+            },
+            ja: {
+                title: "ヴァンパイア サバイバーズ",
+                subtitle: "究極のモンスター討伐者になれる中毒性の高い弾幕ゲームの傑作！",
+                "play-now": "🎮 今すぐプレイ - 無料オンライン",
+                "no-download": "ダウンロード不要！ブラウザで直接プレイ",
+                "about-game": "ゲームについて",
+                "gameplay-title": "革命的な弾幕天国",
+                "gameplay-desc": "キャラクターが自動で無限の敵の波を攻撃する画期的な「弾幕天国」ゲームプレイを体験。戦略的な位置取りと賢いアップグレード選択に集中し、究極のモンスター討伐マシンを構築しましょう。",
+                "survival-title": "ゴシックホラーサバイバル",
+                "survival-desc": "超自然的な生物に満ちた呪われたイタリアの田園地帯で戦闘。30分間のプレイは持久力のテストで、最強のビルドのみが夜明けまで生き残れます。",
+                features: "プレイヤーが愛する理由",
+                "feature1-title": "40以上のユニークキャラクター",
+                "feature1-desc": "各キャラクターは独特のスターティング武器とパッシブ能力を持ち、プレイスタイルを完全に変えます",
+                "feature2-title": "武器進化システム",
+                "feature2-desc": "武器とアイテムを組み合わせて、画面を一掃する威力の破壊的な進化形態をアンロック",
+                "feature3-title": "無限の進歩",
+                "feature3-desc": "永続アップグレード、秘密のアンロック、数百の実績があなたを呼び戻します",
+                achievements: "世界的現象",
+                "positive-reviews": "高評価",
+                "steam-reviews": "Steamレビュー",
+                "award-winner": "最優秀ゲーム受賞",
+                platform: "プラットフォーム",
+                story: "ダークテイル",
+                "story-desc": "2021年の呪われたイタリアの田園地帯で、邪悪なビスコンテ・ドラクロが大地に超自然的なモンスターの群れを解き放ちました。ベルパエーゼ一族の勇敢な生存者として、この古代の邪悪を阻止するために幽霊の出る図書館、呪われた森、異世界の礼拝堂を冒険しなければなりません。",
+                "story-desc2": "皮肉なことに、バンパイアをテーマにした名前にもかかわらず、旅路でバンパイアに遭遇することはありません。代わりに、世界中の何百万人もの人々を魅了したこのゴシックホラーの傑作で、悪夢の生物の軍隊と対峙する準備をしてください。",
+                tips: "ゲームをマスター",
+                "tip1-title": "すべてを収集",
+                "tip1-desc": "ジェムとアイテムは決して消えないので、時間をかけてすべてを収集してください。キャラクターの成長と新コンテンツのアンロックに不可欠です。",
+                "tip2-title": "ビルドに集中",
+                "tip2-desc": "2-3の武器から始めますが、一度に一つずつレベルアップ。集中した力の方がアップグレードを薄く広げるより効果的です。",
+                "tip3-title": "防御優先",
+                "tip3-desc": "進歩の早い段階で鎧と運に投資 - 使ったゴールドに対して信じられないほどの生存価値を提供します。",
+                "tip4-title": "自由に実験",
+                "tip4-desc": "パワーアップの払い戻しは無料！異なるアップグレードパスを試して強力な新しい組み合わせを発見することを恐れないでください。",
+                "footer-text": "究極のサバイバルチャレンジで何百万人ものプレイヤーに参加。どこまで持ちこたえられますか？",
+                disclaimer: "これは非公式ファンサイトです。ヴァンパイア サバイバーズはPoncle Ltd.によって開発されています。"
+            },
+            ko: {
+                title: "뱀파이어 서바이버즈",
+                subtitle: "궁극의 몬스터 킬러가 될 수 있는 중독성 높은 탄막 게임의 걸작!",
+                "play-now": "🎮 지금 플레이 - 무료 온라인",
+                "no-download": "다운로드 불필요! 브라우저에서 바로 플레이",
+                "about-game": "게임 소개",
+                "gameplay-title": "혁신적인 탄막 천국",
+                "gameplay-desc": "캐릭터가 자동으로 끝없는 몬스터 웨이브를 공격하는 획기적인 '탄막 천국' 게임플레이를 경험하세요. 전략적 위치 선정과 현명한 업그레이드 선택에 집중하여 궁극의 몬스터 킬링 머신을 구축하세요.",
+                "survival-title": "고딕 호러 서바이벌",
+                "survival-desc": "초자연적 생물로 가득한 저주받은 이탈리아 시골 지역에서 전투하세요. 각 30분 플레이는 지구력의 시험이며, 가장 강한 빌드만이 새벽까지 생존할 수 있습니다.",
+                features: "플레이어들이 사랑하는 이유",
+                "feature1-title": "40개 이상의 고유 캐릭터",
+                "feature1-desc": "각 캐릭터는 독특한 시작 무기와 패시브 능력을 가지고 있어 플레이스타일을 완전히 바꿉니다",
+                "feature2-title": "무기 진화 시스템",
+                "feature2-desc": "무기와 아이템을 조합하여 화면을 쓸어버리는 파괴적인 진화 형태를 잠금 해제하세요",
+                "feature3-title": "무한 진행",
+                "feature3-desc": "영구 업그레이드, 비밀 잠금 해제, 수백 개의 업적이 당신을 계속 돌아오게 합니다",
+                achievements: "글로벌 현상",
+                "positive-reviews": "긍정적 리뷰",
+                "steam-reviews": "스팀 리뷰",
+                "award-winner": "최고 게임 수상",
+                platform: "플랫폼",
+                story: "어둠의 이야기",
+                "story-desc": "2021년 저주받은 이탈리아 시골에서 사악한 비스콘테 드라쿨로가 대지에 초자연적 몬스터 무리를 풀어놓았습니다. 벨파에세 가문의 용감한 생존자로서, 이 고대의 악을 막기 위해 유령이 나오는 도서관, 저주받은 숲, 이계의 예배당을 모험해야 합니다.",
+                "story-desc2": "아이러니하게도 뱀파이어를 테마로 한 이름에도 불구하고, 여정에서 단 한 마리의 뱀파이어도 만나지 않습니다. 대신 전 세계 수백만 명을 매혹시킨 이 고딕 호러 걸작에서 악몽의 생물 군대와 대면할 준비를 하세요.",
+                tips: "게임 마스터하기",
+                "tip1-title": "모든 것을 수집",
+                "tip1-desc": "젬과 아이템은 절대 사라지지 않으므로 시간을 들여 모든 것을 수집하세요. 캐릭터 성장과 새 콘텐츠 잠금 해제에 필수적입니다.",
+                "tip2-title": "빌드에 집중",
+                "tip2-desc": "2-3개의 무기로 시작하되 한 번에 하나씩 레벨업하세요. 집중된 힘이 업그레이드를 얇게 퍼뜨리는 것보다 훨씬 효과적입니다.",
+                "tip3-title": "방어 우선",
+                "tip3-desc": "진행 초기에 방어구와 행운에 투자하세요 - 소비한 골드 대비 믿을 수 없는 생존 가치를 제공합니다.",
+                "tip4-title": "자유롭게 실험",
+                "tip4-desc": "파워업 환불은 무료입니다! 다른 업그레이드 경로를 시도하고 강력한 새 조합을 발견하는 것을 두려워하지 마세요.",
+                "footer-text": "궁극의 서바이벌 챌린지에서 수백만 플레이어와 함께하세요. 얼마나 오래 버틸 수 있을까요?",
+                disclaimer: "이것은 비공식 팬 사이트입니다. 뱀파이어 서바이버즈는 Poncle Ltd.에서 개발되었습니다."
+            },
+            es: {
+                title: "Vampire Survivors",
+                subtitle: "¡La obra maestra bullet-hell adictiva que te permite convertirte en el máximo exterminador de monstruos!",
+                "play-now": "🎮 Jugar Ahora - Gratis en Línea",
+                "no-download": "¡No requiere descarga! Juega directamente en tu navegador",
+                "about-game": "Acerca del Juego",
+                "gameplay-title": "Bullet-Heaven Revolucionario",
+                "gameplay-desc": "Experimenta el revolucionario gameplay 'bullet heaven' donde tu personaje ataca automáticamente oleadas infinitas de monstruos. Concéntrate en el posicionamiento estratégico y elecciones inteligentes de mejoras mientras construyes la máquina definitiva de exterminación de monstruos.",
+                "survival-title": "Supervivencia de Horror Gótico",
+                "survival-desc": "Batalla a través de ubicaciones malditas de la campiña italiana llenas de criaturas sobrenaturales. Cada partida de 30 minutos es una prueba de resistencia donde solo las construcciones más fuertes pueden sobrevivir hasta el amanecer.",
+                features: "Por Qué Los Jugadores Lo Aman",
+                "feature1-title": "Más de 40 Personajes Únicos",
+                "feature1-desc": "Cada personaje tiene armas iniciales distintivas y habilidades pasivas que cambian completamente tu estilo de juego",
+                "feature2-title": "Sistema de Evolución de Armas",
+                "feature2-desc": "Combina armas y objetos para desbloquear formas evolucionadas devastadoras con poder de limpieza de pantalla",
+                "feature3-title": "Progresión Infinita",
+                "feature3-desc": "Mejoras permanentes, desbloqueos secretos y cientos de logros te hacen volver constantemente",
+                achievements: "Fenómeno Global",
+                "positive-reviews": "Reseñas Positivas",
+                "steam-reviews": "Reseñas de Steam",
+                "award-winner": "Ganador Mejor Juego",
+                platform: "Plataformas",
+                story: "El Cuento Oscuro",
+                "story-desc": "En la maldita campiña italiana de 2021, el malvado Bisconte Draculó ha desatado hordas de monstruos sobrenaturales sobre la tierra. Como valientes supervivientes de la familia Belpaese, debes aventurarte a través de bibliotecas embrujadas, bosques malditos y capillas de otro mundo para detener este mal ancestral.",
+                "story-desc2": "Irónicamente, a pesar de su nombre temático de vampiros, no encontrarás ni un solo vampiro en tu viaje - en su lugar, prepárate para enfrentar un ejército de criaturas pesadillescas en esta obra maestra de horror gótico que ha cautivado a millones en todo el mundo.",
+                tips: "Domina el Juego",
+                "tip1-title": "Recolecta Todo",
+                "tip1-desc": "Las gemas y objetos nunca desaparecen, así que tómate tu tiempo para recolectar todo. Son esenciales para el crecimiento del personaje y desbloquear nuevo contenido.",
+                "tip2-title": "Enfócate en Tu Construcción",
+                "tip2-desc": "Comienza con 2-3 armas pero subelas de nivel una a la vez. El poder concentrado es mucho más efectivo que distribuir las mejoras.",
+                "tip3-title": "Defensa Primero",
+                "tip3-desc": "Invierte en Armadura y Suerte temprano en tu progresión - proporcionan un valor de supervivencia increíble por el oro gastado.",
+                "tip4-title": "Experimenta Libremente",
+                "tip4-desc": "¡Reembolsar mejoras no cuesta nada! No tengas miedo de probar diferentes rutas de mejora y descubrir combinaciones poderosas nuevas.",
+                "footer-text": "Únete a millones de jugadores en el desafío de supervivencia definitivo. ¿Cuánto tiempo puedes durar?",
+                disclaimer: "Este es un sitio de fans no oficial. Vampire Survivors es desarrollado por Poncle Ltd."
+            },
+            fr: {
+                title: "Vampire Survivors",
+                subtitle: "Le chef-d'œuvre bullet-hell addictif qui vous permet de devenir le tueur de monstres ultime !",
+                "play-now": "🎮 Jouer Maintenant - Gratuit en Ligne",
+                "no-download": "Aucun téléchargement requis ! Jouez directement dans votre navigateur",
+                "about-game": "À Propos du Jeu",
+                "gameplay-title": "Bullet-Heaven Révolutionnaire",
+                "gameplay-desc": "Découvrez le gameplay révolutionnaire 'bullet heaven' où votre personnage attaque automatiquement des vagues infinies de monstres. Concentrez-vous sur le positionnement stratégique et les choix d'amélioration intelligents en construisant la machine ultime d'extermination de monstres.",
+                "survival-title": "Survie d'Horreur Gothique",
+                "survival-desc": "Combattez à travers des lieux maudits de la campagne italienne remplis de créatures surnaturelles. Chaque partie de 30 minutes est un test d'endurance où seules les constructions les plus fortes peuvent survivre jusqu'à l'aube.",
+                features: "Pourquoi Les Joueurs L'Adorent",
+                "feature1-title": "Plus de 40 Personnages Uniques",
+                "feature1-desc": "Chaque personnage a des armes de départ distinctes et des capacités passives qui changent complètement votre style de jeu",
+                "feature2-title": "Système d'Évolution des Armes",
+                "feature2-desc": "Combinez armes et objets pour débloquer des formes évoluées dévastatrices avec un pouvoir de nettoyage d'écran",
+                "feature3-title": "Progression Infinie",
+                "feature3-desc": "Améliorations permanentes, déverrouillages secrets et centaines de succès vous font revenir sans cesse",
+                achievements: "Phénomène Mondial",
+                "positive-reviews": "Avis Positifs",
+                "steam-reviews": "Avis Steam",
+                "award-winner": "Gagnant Meilleur Jeu",
+                platform: "Plateformes",
+                story: "Le Conte Sombre",
+                "story-desc": "Dans la campagne italienne maudite de 2021, le maléfique Bisconte Draculó a déchaîné des hordes de monstres surnaturels sur la terre. En tant que braves survivants de la famille Belpaese, vous devez vous aventurer à travers des bibliothèques hantées, des forêts maudites et des chapelles d'un autre monde pour arrêter ce mal ancestral.",
+                "story-desc2": "Ironiquement, malgré son nom à thème vampirique, vous ne rencontrerez pas un seul vampire dans votre voyage - à la place, préparez-vous à affronter une armée de créatures cauchemardesques dans ce chef-d'œuvre d'horreur gothique qui a captivé des millions de personnes dans le monde.",
+                tips: "Maîtriser le Jeu",
+                "tip1-title": "Collectez Tout",
+                "tip1-desc": "Les gemmes et objets ne disparaissent jamais, alors prenez votre temps pour tout collecter. Ils sont essentiels pour la croissance du personnage et débloquer du nouveau contenu.",
+                "tip2-title": "Concentrez Votre Build",
+                "tip2-desc": "Commencez avec 2-3 armes mais montez-les en niveau une à la fois. La puissance concentrée est bien plus efficace que d'étaler les améliorations.",
+                "tip3-title": "Défense d'Abord",
+                "tip3-desc": "Investissez dans l'Armure et la Chance tôt dans votre progression - elles fournissent une valeur de survie incroyable pour l'or dépensé.",
+                "tip4-title": "Expérimentez Librement",
+                "tip4-desc": "Rembourser les améliorations ne coûte rien ! N'ayez pas peur d'essayer différents chemins d'amélioration et de découvrir de nouvelles combinaisons puissantes.",
+                "footer-text": "Rejoignez des millions de joueurs dans le défi de survie ultime. Combien de temps pouvez-vous tenir ?",
+                disclaimer: "Ceci est un site de fans non officiel. Vampire Survivors est développé par Poncle Ltd."
+            },
+            de: {
+                title: "Vampire Survivors",
+                subtitle: "Das süchtig machende Bullet-Hell-Meisterwerk, das dich zum ultimativen Monster-Killer macht!",
+                "play-now": "🎮 Jetzt Spielen - Kostenlos Online",
+                "no-download": "Kein Download erforderlich! Spiele direkt in deinem Browser",
+                "about-game": "Über das Spiel",
+                "gameplay-title": "Revolutionärer Bullet-Heaven",
+                "gameplay-desc": "Erlebe das bahnbrechende 'Bullet Heaven' Gameplay, bei dem dein Charakter automatisch endlose Monsterwellen angreift. Konzentriere dich auf strategische Positionierung und kluge Upgrade-Entscheidungen, während du die ultimative Monster-Vernichtungsmaschine baust.",
+                "survival-title": "Gothic Horror Survival",
+                "survival-desc": "Kämpfe dich durch verfluchte italienische Landschaftsorte voller übernatürlicher Kreaturen. Jeder 30-Minuten-Lauf ist ein Ausdauertest, bei dem nur die stärksten Builds bis zum Morgengrauen überleben können.",
+                features: "Warum Spieler es Lieben",
+                "feature1-title": "Über 40 Einzigartige Charaktere",
+                "feature1-desc": "Jeder Charakter hat unterschiedliche Startwaffen und passive Fähigkeiten, die deinen Spielstil vollständig verändern",
+                "feature2-title": "Waffen-Evolutionssystem",
+                "feature2-desc": "Kombiniere Waffen und Gegenstände, um verheerende evolvierte Formen mit bildschirmreinigender Kraft freizuschalten",
+                "feature3-title": "Endloser Fortschritt",
+                "feature3-desc": "Permanente Upgrades, geheime Freischaltungen und Hunderte von Erfolgen lassen dich immer wieder zurückkehren",
+                achievements: "Globales Phänomen",
+                "positive-reviews": "Positive Bewertungen",
+                "steam-reviews": "Steam-Bewertungen",
+                "award-winner": "Bestes Spiel Gewinner",
+                platform: "Plattformen",
+                story: "Die Dunkle Geschichte",
+                "story-desc": "In der verfluchten italienischen Landschaft von 2021 hat der böse Bisconte Draculó Horden übernatürlicher Monster über das Land entfesselt. Als tapfere Überlebende der Belpaese-Familie müsst ihr euch durch heimgesuchte Bibliotheken, verfluchte Wälder und jenseitige Kapellen wagen, um dieses uralte Böse zu stoppen.",
+                "story-desc2": "Ironischerweise werdet ihr trotz des vampir-thematischen Namens auf eurer Reise keinen einzigen Vampir antreffen - stattdessen bereitet euch darauf vor, einer Armee alptraumhafter Kreaturen in diesem Gothic-Horror-Meisterwerk gegenüberzustehen, das Millionen weltweit fesselte.",
+                tips: "Das Spiel Meistern",
+                "tip1-title": "Sammle Alles",
+                "tip1-desc": "Edelsteine und Gegenstände verschwinden nie, also nimm dir Zeit, alles zu sammeln. Sie sind essentiell für Charakterwachstum und das Freischalten neuer Inhalte.",
+                "tip2-title": "Fokussiere deinen Build",
+                "tip2-desc": "Beginne mit 2-3 Waffen, aber level sie einzeln auf. Konzentrierte Kraft ist viel effektiver als Upgrades dünn zu verteilen.",
+                "tip3-title": "Verteidigung Zuerst",
+                "tip3-desc": "Investiere früh in deinem Fortschritt in Rüstung und Glück - sie bieten unglaublichen Überlebenswert für das ausgegebene Gold.",
+                "tip4-title": "Experimentiere Frei",
+                "tip4-desc": "Power-up-Rückerstattungen kosten nichts! Hab keine Angst, verschiedene Upgrade-Pfade auszuprobieren und mächtige neue Kombinationen zu entdecken.",
+                "footer-text": "Schließe dich Millionen von Spielern in der ultimativen Überlebensherausforderung an. Wie lange kannst du durchhalten?",
+                disclaimer: "Dies ist eine inoffizielle Fan-Website. Vampire Survivors wird von Poncle Ltd. entwickelt."
+            },
+            it: {
+                title: "Vampire Survivors",
+                subtitle: "Il capolavoro bullet-hell che crea dipendenza e ti permette di diventare l'ultimo sterminatore di mostri!",
+                "play-now": "🎮 Gioca Ora - Gratis Online",
+                "no-download": "Nessun download richiesto! Gioca direttamente nel tuo browser",
+                "about-game": "Sul Gioco",
+                "gameplay-title": "Bullet-Heaven Rivoluzionario",
+                "gameplay-desc": "Sperimenta il rivoluzionario gameplay 'bullet heaven' dove il tuo personaggio attacca automaticamente ondate infinite di mostri. Concentrati sul posizionamento strategico e scelte intelligenti di potenziamento mentre costruisci la macchina definitiva per sterminare mostri.",
+                "survival-title": "Sopravvivenza Horror Gotico",
+                "survival-desc": "Combatti attraverso località maledette della campagna italiana piene di creature soprannaturali. Ogni partita di 30 minuti è un test di resistenza dove solo le build più forti possono sopravvivere fino all'alba.",
+                features: "Perché i Giocatori lo Amano",
+                "feature1-title": "Oltre 40 Personaggi Unici",
+                "feature1-desc": "Ogni personaggio ha armi iniziali distintive e abilità passive che cambiano completamente il tuo stile di gioco",
+                "feature2-title": "Sistema di Evoluzione Armi",
+                "feature2-desc": "Combina armi e oggetti per sbloccare forme evolute devastanti con potere di pulizia dello schermo",
+                "feature3-title": "Progressione Infinita",
+                "feature3-desc": "Potenziamenti permanenti, sblocchi segreti e centinaia di achievement ti fanno tornare continuamente",
+                achievements: "Fenomeno Globale",
+                "positive-reviews": "Recensioni Positive",
+                "steam-reviews": "Recensioni Steam",
+                "award-winner": "Vincitore Miglior Gioco",
+                platform: "Piattaforme",
+                story: "Il Racconto Oscuro",
+                "story-desc": "Nella maledetta campagna italiana del 2021, il malvagio Bisconte Draculó ha scatenato orde di mostri soprannaturali sulla terra. Come coraggiosi sopravvissuti della famiglia Belpaese, dovete avventurarvi attraverso biblioteche infestate, foreste maledette e cappelle ultraterrene per fermare questo male ancestrale.",
+                "story-desc2": "Ironicamente, nonostante il nome a tema vampiresco, non incontrerete un singolo vampiro nel vostro viaggio - invece, preparatevi ad affrontare un esercito di creature da incubo in questo capolavoro horror gotico che ha affascinato milioni in tutto il mondo.",
+                tips: "Padroneggiare il Gioco",
+                "tip1-title": "Raccogli Tutto",
+                "tip1-desc": "Gemme e oggetti non scompaiono mai, quindi prenditi il tempo per raccogliere tutto. Sono essenziali per la crescita del personaggio e sbloccare nuovo contenuto.",
+                "tip2-title": "Concentra la Tua Build",
+                "tip2-desc": "Inizia con 2-3 armi ma potenziale una alla volta. Il potere concentrato è molto più efficace che distribuire i potenziamenti.",
+                "tip3-title": "Difesa Prima",
+                "tip3-desc": "Investi in Armatura e Fortuna presto nella tua progressione - forniscono un valore di sopravvivenza incredibile per l'oro speso.",
+                "tip4-title": "Sperimenta Liberamente",
+                "tip4-desc": "Rimborsare i potenziamenti non costa nulla! Non aver paura di provare diversi percorsi di potenziamento e scoprire nuove combinazioni potenti.",
+                "footer-text": "Unisciti a milioni di giocatori nella sfida di sopravvivenza definitiva. Quanto a lungo puoi resistere?",
+                disclaimer: "Questo è un sito fan non ufficiale. Vampire Survivors è sviluppato da Poncle Ltd."
+            }
+        };
+
+        // Language switching functionality
+        const languageSelect = document.getElementById('languageSelect');
+        const savedLanguage = localStorage.getItem('selectedLanguage') || 'en';
+        languageSelect.value = savedLanguage;
+
+        function changeLanguage(lang) {
+            const elements = document.querySelectorAll('[data-translate]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+            
+            // Update page title and meta description
+            if (lang === 'zh') {
+                document.title = '吸血鬼幸存者 - 免费在线游戏 | 子弹地狱生存游戏';
+                document.querySelector('meta[name="description"]').setAttribute('content', '免费在线玩吸血鬼幸存者！令人上瘾的子弹地狱杰作，让你成为终极怪物杀手。无需下载。');
+            } else if (lang === 'ja') {
+                document.title = 'ヴァンパイア サバイバーズ - 無料オンラインゲーム | 弾幕サバイバルゲーム';
+                document.querySelector('meta[name="description"]').setAttribute('content', 'ヴァンパイア サバイバーズを無料でオンラインプレイ！究極のモンスター討伐者になれる中毒性の高い弾幕ゲームの傑作。ダウンロード不要。');
+            } else if (lang === 'ko') {
+                document.title = '뱀파이어 서바이버즈 - 무료 온라인 게임 | 탄막 서바이벌 게임';
+                document.querySelector('meta[name="description"]').setAttribute('content', '뱀파이어 서바이버즈를 무료로 온라인 플레이! 궁극의 몬스터 킬러가 될 수 있는 중독성 높은 탄막 게임의 걸작. 다운로드 불필요.');
+            } else if (lang === 'es') {
+                document.title = 'Vampire Survivors - Jugar Gratis en Línea | Juego de Supervivencia Bullet Hell';
+                document.querySelector('meta[name="description"]').setAttribute('content', '¡Juega Vampire Survivors gratis en línea! La obra maestra bullet-hell adictiva que te permite convertirte en el máximo exterminador de monstruos. Sin descarga.');
+            } else if (lang === 'fr') {
+                document.title = 'Vampire Survivors - Jouer Gratuitement en Ligne | Jeu de Survie Bullet Hell';
+                document.querySelector('meta[name="description"]').setAttribute('content', 'Jouez à Vampire Survivors gratuitement en ligne! Le chef-d\'œuvre bullet-hell addictif qui vous permet de devenir le tueur de monstres ultime. Aucun téléchargement.');
+            } else if (lang === 'de') {
+                document.title = 'Vampire Survivors - Kostenlos Online Spielen | Bullet Hell Survival Spiel';
+                document.querySelector('meta[name="description"]').setAttribute('content', 'Spiele Vampire Survivors kostenlos online! Das süchtig machende Bullet-Hell-Meisterwerk, das dich zum ultimativen Monster-Killer macht. Kein Download.');
+            } else if (lang === 'it') {
+                document.title = 'Vampire Survivors - Gioca Gratis Online | Gioco di Sopravvivenza Bullet Hell';
+                document.querySelector('meta[name="description"]').setAttribute('content', 'Gioca a Vampire Survivors gratis online! Il capolavoro bullet-hell che crea dipendenza e ti permette di diventare l\'ultimo sterminatore di mostri. Nessun download.');
+            } else {
+                document.title = 'Vampire Survivors - Play Online Free | Bullet Hell Survival Game';
+                document.querySelector('meta[name="description"]').setAttribute('content', 'Play Vampire Survivors online for free! The addictive bullet-hell masterpiece that lets you become the ultimate monster slayer. No download required.');
+            }
+            
+            localStorage.setItem('selectedLanguage', lang);
+        }
+
+        languageSelect.addEventListener('change', (e) => {
+            changeLanguage(e.target.value);
+        });
+
+        // Initialize language
+        changeLanguage(savedLanguage);
+
+        // Game loading optimization and error handling
+        const gameIframe = document.querySelector('.game-iframe');
+        const loadingIndicator = document.getElementById('loading-indicator');
+        let gameLoaded = false;
+
+        // Set timeout for loading
+        const loadingTimeout = setTimeout(() => {
+            if (!gameLoaded && loadingIndicator) {
+                loadingIndicator.innerHTML = `
+                    <div class="text-center">
+                        <div class="text-4xl mb-4">⚠️</div>
+                        <p class="text-gray-600 text-lg font-medium mb-2">Game is taking longer than expected</p>
+                        <p class="text-gray-500 text-sm mb-4">This might be due to slow internet or server issues</p>
+                        <a href="https://html-classic.itch.zone/html/5185382/index.html" target="_blank" 
+                           class="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                           Try Direct Link
+                        </a>
+                    </div>
+                `;
+            }
+        }, 10000); // 10 second timeout
+
+        gameIframe.addEventListener('load', function() {
+            if (!gameLoaded) {
+                console.log('Vampire Survivors game loaded successfully');
+                gameLoaded = true;
+                clearTimeout(loadingTimeout);
+                if (loadingIndicator) {
+                    loadingIndicator.style.display = 'none';
+                }
+            }
+        });
+
+        gameIframe.addEventListener('error', function() {
+            console.error('Failed to load Vampire Survivors game');
+            clearTimeout(loadingTimeout);
+            if (loadingIndicator) {
+                loadingIndicator.innerHTML = `
+                    <div class="text-center">
+                        <div class="text-4xl mb-4">❌</div>
+                        <h3 class="text-xl font-bold text-red-600 mb-4">Game Loading Failed</h3>
+                        <p class="text-red-700 mb-4">Unable to load the game. This might be due to:</p>
+                        <ul class="text-left text-red-600 mb-4 list-disc list-inside">
+                            <li>Network connection issues</li>
+                            <li>Browser security settings</li>
+                            <li>Adblocker interference</li>
+                            <li>CORS (Cross-Origin) restrictions</li>
+                        </ul>
+                        <div class="space-y-2">
+                            <a href="https://html-classic.itch.zone/html/5185382/index.html" target="_blank" 
+                               class="inline-block px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors mr-2">
+                               Play Game Directly
+                            </a>
+                            <button onclick="location.reload()" 
+                                    class="inline-block px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors">
+                               Retry
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }
+        });
+
+        // Smooth scrolling for any internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add some interactive feedback
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+</body>
+</html> 
