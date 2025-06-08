@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vampire Survivors - Gothic Horror Survival Game | Mow Down Thousands</title>
+    <meta name="description" content="Mow thousands of night creatures and survive until dawn! Vampire Survivors is a gothic horror casual game with rogue-lite elements. Play free online now!">
+    <meta name="keywords" content="vampire survivors, gothic horror, survival game, roguelike, casual game, night creatures, vampire game, free online game, bullet hell">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://survivorslike.xyz/games/vampire-survivors.html">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Vampire Survivors - Gothic Horror Survival Game">
+    <meta property="og:description" content="Mow thousands of night creatures and survive until dawn! Gothic horror casual game with rogue-lite elements.">
+    <meta property="og:url" content="https://survivorslike.xyz/games/vampire-survivors.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Survivors Like">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Vampire Survivors - Gothic Horror Survival Game">
+    <meta name="twitter:description" content="Mow thousands of night creatures and survive until dawn! Gothic horror casual game with rogue-lite elements.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'apple-blue': '#007AFF',
+                        'apple-gray': '#8E8E93',
+                        'apple-light-gray': '#F2F2F7',
+                        'apple-dark': '#1C1C1E',
+                        'vampire-red': '#8B0000',
+                        'gothic-purple': '#4B0082',
+                        'blood-crimson': '#DC143C',
+                        'shadow-black': '#1C1C1C'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .vampire-gradient {
+            background: linear-gradient(135deg, #1C1C1C 0%, #8B0000 50%, #4B0082 100%);
+        }
+        
+        .feature-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #007AFF, #5856D6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .vampire-text {
+            background: linear-gradient(135deg, #DC143C, #8B0000);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .game-iframe {
+            min-height: 600px;
+            border-radius: 16px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+        }
+        
+        @media (max-width: 768px) {
+            .game-iframe {
+                min-height: 400px;
+                border-radius: 12px;
+            }
+        }
+        
+        .canvas-warning {
+            background: linear-gradient(135deg, #ff6b6b, #ffa726);
+            color: white;
+            padding: 15px;
+            border-radius: 12px;
+            margin: 10px 0;
+            text-align: center;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen text-gray-900">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-bold gradient-text">Survivors Like</h1>
+                </div>
+                
+                <!-- Language Selector -->
+                <div class="flex items-center space-x-4">
+                    <select id="languageSelect" class="bg-apple-light-gray border border-gray-300 rounded-lg px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-apple-blue">
+                        <option value="en">🇺🇸 English</option>
+                        <option value="zh">🇨🇳 中文</option>
+                        <option value="ja">🇯🇵 日本語</option>
+                        <option value="ko">🇰🇷 한국어</option>
+                        <option value="es">🇪🇸 Español</option>
+                        <option value="fr">🇫🇷 Français</option>
+                        <option value="de">🇩🇪 Deutsch</option>
+                        <option value="it">🇮🇹 Italiano</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen py-16 vampire-gradient relative overflow-hidden">
+        <!-- Animated Background -->
+        <div class="absolute inset-0">
+            <div class="absolute top-20 left-10 w-4 h-4 bg-blood-crimson rounded-full animate-pulse"></div>
+            <div class="absolute top-40 right-20 w-2 h-2 bg-white rounded-full animate-ping"></div>
+            <div class="absolute bottom-32 left-1/4 w-3 h-3 bg-vampire-red rounded-full animate-bounce"></div>
+            <div class="absolute top-60 left-1/2 w-2 h-2 bg-white rounded-full animate-pulse"></div>
+            <div class="absolute bottom-20 right-1/3 w-4 h-4 bg-blood-crimson rounded-full animate-ping"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-12">
+                <h2 class="text-6xl font-bold text-white mb-6 vampire-text">
+                    🧛 <span data-translate="main-title">Vampire Survivors</span>
+                </h2>
+                <p class="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed" data-translate="subtitle">
+                    Mow thousands of night creatures and survive until dawn! Gothic horror casual game with rogue-lite elements!
+                </p>
+            </div>
+            
+            <!-- 游戏跳转区域 -->
+            <div class="max-w-4xl mx-auto">
+                <div class="glass-card p-8 rounded-3xl text-center">
+                    <!-- 游戏图标和描述 -->
+                    <div class="mb-8">
+                        <div class="text-8xl mb-6">🧛</div>
+                        <h3 class="text-3xl font-bold text-white mb-4 vampire-text" data-translate="play-on-itch">
+                            Play on itch.io
+                        </h3>
+                        <p class="text-white/80 text-lg mb-6" data-translate="itch-description">
+                            Experience the original vampire survival phenomenon! Play the demo version or get the full game on Steam!
+                        </p>
+                    </div>
+                    
+                    <!-- 主要游玩按钮 -->
+                    <div class="space-y-4">
+                        <a href="https://poncle.itch.io/vampire-survivors" 
+                           target="_blank" 
+                           class="inline-block w-full max-w-md px-8 py-6 bg-vampire-red text-white text-xl font-bold rounded-2xl hover:bg-red-700 transition-all duration-300 transform hover:scale-105 shadow-2xl border-4 border-red-500">
+                            <div class="flex items-center justify-center space-x-3">
+                                <span class="text-2xl">🎮</span>
+                                <span data-translate="play-now">Play Now on itch.io</span>
+                                <span class="text-2xl">🩸</span>
+                            </div>
+                        </a>
+                        
+                        <p class="text-sm text-white/60" data-translate="demo-info">
+                            Free demo version available - Play directly in your browser!
+                        </p>
+                    </div>
+                    
+                    <!-- 游戏特色 -->
+                    <div class="mt-8 grid md:grid-cols-3 gap-4 text-center">
+                        <div class="p-4 bg-white/10 rounded-lg">
+                            <div class="text-2xl mb-2">🌙</div>
+                            <div class="text-white text-sm" data-translate="feature1">Gothic Horror</div>
+                        </div>
+                        <div class="p-4 bg-white/10 rounded-lg">
+                            <div class="text-2xl mb-2">⚔️</div>
+                            <div class="text-white text-sm" data-translate="feature2">22 Weapons</div>
+                        </div>
+                        <div class="p-4 bg-white/10 rounded-lg">
+                            <div class="text-2xl mb-2">👤</div>
+                            <div class="text-white text-sm" data-translate="feature3">7 Characters</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Game Info -->
+                <div class="mt-8 max-w-3xl mx-auto p-4 bg-red-50 border border-red-200 rounded-lg">
+                    <div class="flex items-start">
+                        <div class="text-2xl mr-3">🧛</div>
+                        <div>
+                            <h4 class="font-bold text-red-800 mb-1" data-translate="game-info-title">Game Information</h4>
+                            <p class="text-sm text-red-700" data-translate="game-info-desc">
+                                Vampire Survivors is a gothic horror casual game with minimalistic gameplay and roguelite elements. 
+                                There's no place to hide - survive a cursed night and get as much gold as possible for the next survivor, 
+                                before Death inevitably puts an end to your struggles. Rated 4.8/5 stars by over 1,500 players!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-5xl font-bold text-center text-gray-900 mb-12" data-translate="about-game">
+                About the Game
+            </h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="feature-card p-8 rounded-2xl">
+                    <div class="text-5xl mb-6">🧛</div>
+                    <h3 class="text-2xl font-bold mb-4 vampire-text" data-translate="survival-story-title">
+                        Cursed Night Survival
+                    </h3>
+                    <p class="text-gray-700 text-lg leading-relaxed" data-translate="survival-story-desc">
+                        The year 2021, Rural Italy - evil Bisconte Draculó has created a world of famine and suffering. 
+                        It's up to the Belpaese family to end his reign of terror and return good food to the table.
+                    </p>
+                </div>
+                <div class="feature-card p-8 rounded-2xl">
+                    <div class="text-5xl mb-6">⚔️</div>
+                    <h3 class="text-2xl font-bold mb-4 vampire-text" data-translate="minimalist-gameplay-title">
+                        Minimalistic Gameplay
+                    </h3>
+                    <p class="text-gray-700 text-lg leading-relaxed" data-translate="minimalist-gameplay-desc">
+                        Time survival game with minimalistic gameplay and roguelite elements. 
+                        No complex controls - just survive, collect gold, and prepare for the next survivor.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section class="py-16 bg-apple-light-gray">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-5xl font-bold text-center text-gray-900 mb-12" data-translate="features">
+                Game Features
+            </h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="feature-card p-8 text-center rounded-2xl">
+                    <div class="text-6xl mb-6">⚔️</div>
+                    <h3 class="text-xl font-bold mb-4 vampire-text" data-translate="weapons-title">22 Weapons & 12 Power-ups</h3>
+                    <p class="text-gray-600" data-translate="weapons-desc">Vast arsenal of weapons and power-ups to discover and master</p>
+                </div>
+                <div class="feature-card p-8 text-center rounded-2xl">
+                    <div class="text-6xl mb-6">👤</div>
+                    <h3 class="text-xl font-bold mb-4 vampire-text" data-translate="characters-title">7 Unique Characters</h3>
+                    <p class="text-gray-600" data-translate="characters-desc">Each character offers different starting abilities and playstyles</p>
+                </div>
+                <div class="feature-card p-8 text-center rounded-2xl">
+                    <div class="text-6xl mb-6">🏆</div>
+                    <h3 class="text-xl font-bold mb-4 vampire-text" data-translate="achievements-title">23 Achievements</h3>
+                    <p class="text-gray-600" data-translate="achievements-desc">Challenge yourself with various achievement goals and rewards</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tips Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-5xl font-bold text-center text-gray-900 mb-12" data-translate="tips">
+                Survival Tips
+            </h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="feature-card p-8 rounded-2xl">
+                    <div class="text-4xl mb-4">💎</div>
+                    <h3 class="text-2xl font-bold mb-6 vampire-text" data-translate="tip1-title">Take Your Time with Gems</h3>
+                    <p class="text-gray-700 text-lg" data-translate="tip1-desc">Don't rush to collect gems and items - they won't disappear. Plan your movements carefully around the battlefield.</p>
+                </div>
+                <div class="feature-card p-8 rounded-2xl">
+                    <div class="text-4xl mb-4">⚡</div>
+                    <h3 class="text-2xl font-bold mb-6 vampire-text" data-translate="tip2-title">Focus on Few Weapons</h3>
+                    <p class="text-gray-700 text-lg" data-translate="tip2-desc">Get just two or three offensive weapons, but focus on leveling them up one at a time for maximum effectiveness.</p>
+                </div>
+                <div class="feature-card p-8 rounded-2xl">
+                    <div class="text-4xl mb-4">🛡️</div>
+                    <h3 class="text-2xl font-bold mb-6 vampire-text" data-translate="tip3-title">Invest in Armor & Luck</h3>
+                    <p class="text-gray-700 text-lg" data-translate="tip3-desc">Armor and Luck are good starting power-ups to spend money on. They provide solid defensive and utility benefits.</p>
+                </div>
+                <div class="feature-card p-8 rounded-2xl">
+                    <div class="text-4xl mb-4">🎮</div>
+                    <h3 class="text-2xl font-bold mb-6 vampire-text" data-translate="tip4-title">Multiple Input Support</h3>
+                    <p class="text-gray-700 text-lg" data-translate="tip4-desc">Game supports mouse, keyboard, controller, and touch screen. Choose your preferred control method for optimal gameplay.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 vampire-gradient text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="glass-card p-8 max-w-2xl mx-auto rounded-2xl">
+                <h3 class="text-2xl font-bold mb-4 vampire-text">Ready to Face the Night?</h3>
+                <p class="mb-6 text-lg" data-translate="footer-text">
+                    Experience the gothic horror survival phenomenon that started it all! Can you survive until dawn?
+                </p>
+                <p class="text-sm opacity-75 border-t border-white/20 pt-4" data-translate="disclaimer">
+                    This is an unofficial game portal. All games are property of their respective developers.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Multi-language support
+        const translations = {
+            en: {
+                "main-title": "Vampire Survivors",
+                "subtitle": "Mow thousands of night creatures and survive until dawn! Gothic horror casual game with rogue-lite elements!",
+                "play-on-itch": "Play on itch.io",
+                "itch-description": "Experience the original vampire survival phenomenon! Play the demo version or get the full game on Steam!",
+                "play-now": "Play Now on itch.io",
+                "demo-info": "Free demo version available - Play directly in your browser!",
+                "feature1": "Gothic Horror",
+                "feature2": "22 Weapons",
+                "feature3": "7 Characters",
+                "game-info-title": "Game Information",
+                "game-info-desc": "Vampire Survivors is a gothic horror casual game with minimalistic gameplay and roguelite elements. There's no place to hide - survive a cursed night and get as much gold as possible for the next survivor, before Death inevitably puts an end to your struggles. Rated 4.8/5 stars by over 1,500 players!",
+                "about-game": "About the Game",
+                "survival-story-title": "Cursed Night Survival",
+                "survival-story-desc": "The year 2021, Rural Italy - evil Bisconte Draculó has created a world of famine and suffering. It's up to the Belpaese family to end his reign of terror and return good food to the table.",
+                "minimalist-gameplay-title": "Minimalistic Gameplay",
+                "minimalist-gameplay-desc": "Time survival game with minimalistic gameplay and roguelite elements. No complex controls - just survive, collect gold, and prepare for the next survivor.",
+                "features": "Game Features",
+                "weapons-title": "22 Weapons & 12 Power-ups",
+                "weapons-desc": "Vast arsenal of weapons and power-ups to discover and master",
+                "characters-title": "7 Unique Characters",
+                "characters-desc": "Each character offers different starting abilities and playstyles",
+                "achievements-title": "23 Achievements",
+                "achievements-desc": "Challenge yourself with various achievement goals and rewards",
+                "tips": "Survival Tips",
+                "tip1-title": "Take Your Time with Gems",
+                "tip1-desc": "Don't rush to collect gems and items - they won't disappear. Plan your movements carefully around the battlefield.",
+                "tip2-title": "Focus on Few Weapons",
+                "tip2-desc": "Get just two or three offensive weapons, but focus on leveling them up one at a time for maximum effectiveness.",
+                "tip3-title": "Invest in Armor & Luck",
+                "tip3-desc": "Armor and Luck are good starting power-ups to spend money on. They provide solid defensive and utility benefits.",
+                "tip4-title": "Multiple Input Support",
+                "tip4-desc": "Game supports mouse, keyboard, controller, and touch screen. Choose your preferred control method for optimal gameplay.",
+                "footer-text": "Experience the gothic horror survival phenomenon that started it all! Can you survive until dawn?",
+                "disclaimer": "This is an unofficial game portal. All games are property of their respective developers."
+            },
+            zh: {
+                "main-title": "吸血鬼幸存者",
+                "subtitle": "消灭数千夜间生物，生存到黎明！哥特式恐怖休闲游戏，带有Rogue-lite元素！",
+                "play-on-itch": "在itch.io上游玩",
+                "itch-description": "体验原版吸血鬼生存现象级游戏！免费试玩演示版或在Steam获取完整版！",
+                "play-now": "立即在itch.io上游玩",
+                "demo-info": "免费演示版可用 - 直接在浏览器中游玩！",
+                "feature1": "哥特恐怖",
+                "feature2": "22种武器",
+                "feature3": "7个角色",
+                "game-info-title": "游戏信息",
+                "game-info-desc": "吸血鬼幸存者是一款极简玩法和Roguelite元素的哥特式恐怖休闲游戏。没有地方可以隐藏 - 在被诅咒的夜晚中生存，为下一个幸存者收集尽可能多的金币，直到死亡不可避免地结束你的挣扎。超过1,500名玩家给出4.8/5星评价！",
+                "about-game": "关于游戏",
+                "survival-story-title": "诅咒之夜生存",
+                "survival-story-desc": "2021年，意大利乡村 - 邪恶的Bisconte Draculó创造了一个充满饥荒和痛苦的世界。现在轮到Belpaese家族结束他的恐怖统治，让美食重回餐桌。",
+                "minimalist-gameplay-title": "极简玩法",
+                "minimalist-gameplay-desc": "具有极简玩法和Roguelite元素的时间生存游戏。没有复杂的控制 - 只需生存，收集金币，为下一个幸存者做准备。",
+                "features": "游戏特色",
+                "weapons-title": "22种武器和12种强化",
+                "weapons-desc": "庞大的武器和强化道具库等待发现和掌握",
+                "characters-title": "7个独特角色",
+                "characters-desc": "每个角色都提供不同的起始能力和游戏风格",
+                "achievements-title": "23项成就",
+                "achievements-desc": "通过各种成就目标和奖励挑战自己",
+                "tips": "生存技巧",
+                "tip1-title": "慢慢收集宝石",
+                "tip1-desc": "不要急着收集宝石和物品 - 它们不会消失。在战场上仔细规划你的移动。",
+                "tip2-title": "专注少数武器",
+                "tip2-desc": "只获得两到三种攻击性武器，但专注于一次升级一种以获得最大效果。",
+                "tip3-title": "投资护甲和幸运",
+                "tip3-desc": "护甲和幸运是很好的起始强化道具。它们提供稳固的防御和实用效益。",
+                "tip4-title": "多种输入支持",
+                "tip4-desc": "游戏支持鼠标、键盘、手柄和触屏。选择你偏好的控制方式以获得最佳游戏体验。",
+                "footer-text": "体验开创一切的哥特恐怖生存现象级游戏！你能生存到黎明吗？",
+                "disclaimer": "这是一个非官方游戏门户。所有游戏均为其各自开发者的财产。"
+            }
+        };
+
+        // Language functionality
+        const languageSelect = document.getElementById('languageSelect');
+        const savedLanguage = localStorage.getItem('selectedLanguage') || 'en';
+        languageSelect.value = savedLanguage;
+
+        function changeLanguage(lang) {
+            const elements = document.querySelectorAll('[data-translate]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[lang] && translations[lang][key]) {
+                    if (element.tagName === 'INPUT' && element.type === 'placeholder') {
+                        element.placeholder = translations[lang][key];
+                    } else {
+                        element.textContent = translations[lang][key];
+                    }
+                }
+            });
+
+            // Update page title and meta description
+            if (lang === 'zh') {
+                document.title = '吸血鬼幸存者 - 哥特恐怖生存游戏 | 消灭数千生物';
+                document.querySelector('meta[name="description"]').setAttribute('content', '消灭数千夜间生物，生存到黎明！吸血鬼幸存者是一款带有Rogue-lite元素的哥特式恐怖休闲游戏。免费在线游戏，立即开始！');
+            } else {
+                document.title = 'Vampire Survivors - Gothic Horror Survival Game | Mow Down Thousands';
+                document.querySelector('meta[name="description"]').setAttribute('content', 'Mow thousands of night creatures and survive until dawn! Vampire Survivors is a gothic horror casual game with rogue-lite elements. Play free online now!');
+            }
+            
+            localStorage.setItem('selectedLanguage', lang);
+        }
+
+        languageSelect.addEventListener('change', (e) => {
+            changeLanguage(e.target.value);
+        });
+
+        // Initialize language
+        changeLanguage(savedLanguage);
+
+        // Page initialization
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Vampire Survivors page loaded successfully');
+        });
+    </script>
+</body>
+</html>
