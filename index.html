@@ -87,7 +87,7 @@
     <div class="fixed top-6 right-6 z-50 lang-selector p-3">
         <select id="languageSelect" class="bg-transparent border-none outline-none cursor-pointer text-sm font-medium">
             <option value="en">🇺🇸 English</option>
-            <option value="zh">🇨🇳 中文1</option>
+            <option value="zh">🇨🇳 中文</option>
             <option value="ja">🇯🇵 日本語</option>
             <option value="ko">🇰🇷 한국어</option>
             <option value="es">🇪🇸 Español</option>
@@ -118,36 +118,84 @@
             <div class="game-container p-8 mb-16">
                 <div class="text-center mb-8">
                     <h2 class="text-4xl font-bold text-gray-800 mb-4" data-translate="play-now">
-                        🎮 Play Now - Free Online
+                        🎮 立即开始游戏
                     </h2>
                     <p class="text-gray-600 text-lg" data-translate="no-download">
-                        No download required! Play directly in your browser
+                        选择您喜欢的游戏方式，立即开始冒险！
                     </p>
                 </div>
                 
-                <div class="w-full max-w-5xl mx-auto relative">
-                    <!-- Loading Indicator -->
-                    <div id="loading-indicator" class="absolute inset-0 flex items-center justify-center bg-gray-100 rounded-16 z-10">
-                        <div class="text-center">
-                            <div class="animate-spin rounded-full h-16 w-16 border-b-2 border-blue-600 mx-auto mb-4"></div>
-                            <p class="text-gray-600 text-lg font-medium" data-translate="loading-text">正在加载吸血鬼幸存者...</p>
-                            <p class="text-gray-500 text-sm mt-2" data-translate="loading-wait">这可能需要几秒钟</p>
+                <div class="w-full max-w-5xl mx-auto">
+                    <!-- 游戏选项卡 -->
+                    <div class="grid md:grid-cols-2 gap-6 mb-8">
+                        <!-- 在线版本 -->
+                        <div class="bg-gradient-to-br from-purple-50 to-blue-50 p-6 rounded-16 border border-purple-200">
+                            <div class="text-center">
+                                <div class="text-4xl mb-4">🌐</div>
+                                <h3 class="text-xl font-bold text-gray-800 mb-3">在线免费版</h3>
+                                <p class="text-gray-600 text-sm mb-4">在浏览器中直接游戏，无需下载</p>
+                                <button onclick="playOnlineGame()" 
+                                        class="w-full px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-bold rounded-lg hover:from-purple-700 hover:to-blue-700 transition-all transform hover:scale-105 shadow-lg">
+                                    🚀 立即游戏
+                                </button>
+                                <p class="text-xs text-gray-500 mt-2">在新窗口中打开，最佳游戏体验</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 下载版本 -->
+                        <div class="bg-gradient-to-br from-green-50 to-emerald-50 p-6 rounded-16 border border-green-200">
+                            <div class="text-center">
+                                <div class="text-4xl mb-4">⬇️</div>
+                                <h3 class="text-xl font-bold text-gray-800 mb-3">完整下载版</h3>
+                                <p class="text-gray-600 text-sm mb-4">Steam官方版本，支持云存档</p>
+                                <a href="https://store.steampowered.com/app/1794680/Vampire_Survivors/" target="_blank"
+                                   class="inline-block w-full px-6 py-3 bg-gradient-to-r from-green-600 to-emerald-600 text-white font-bold rounded-lg hover:from-green-700 hover:to-emerald-700 transition-all transform hover:scale-105 shadow-lg">
+                                    💎 Steam购买 (¥12)
+                                </a>
+                                <p class="text-xs text-gray-500 mt-2">支持开发者，获得完整内容</p>
+                            </div>
                         </div>
                     </div>
                     
-                    <iframe 
-                        id="game-iframe"
-                        src="about:blank" 
-                        class="game-iframe w-full h-96 md:h-[700px] border-0"
-                        allowfullscreen
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="no-referrer"
-                        sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-top-navigation"
-                        loading="lazy"
-                        title="吸血鬼幸存者在线游戏"
-                        onload="handleGameLoad()">
-                        <p data-translate="iframe-fallback">您的浏览器不支持iframe。<a href="https://html-classic.itch.zone/html/5185382/index.html" target="_blank">点击这里直接游戏</a>。</p>
-                    </iframe>
+                    <!-- 多平台选项 -->
+                    <div class="bg-white p-6 rounded-16 shadow-lg border">
+                        <h3 class="text-lg font-bold text-center text-gray-800 mb-4">🎮 其他平台</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                            <a href="https://store.steampowered.com/app/1794680/" target="_blank" 
+                               class="flex items-center justify-center p-3 bg-blue-100 hover:bg-blue-200 rounded-lg transition-colors">
+                                <span class="text-sm font-medium text-blue-800">🖥️ Steam</span>
+                            </a>
+                            <a href="https://apps.apple.com/app/vampire-survivors/id6444525702" target="_blank"
+                               class="flex items-center justify-center p-3 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors">
+                                <span class="text-sm font-medium text-gray-800">📱 iOS</span>
+                            </a>
+                            <a href="https://play.google.com/store/apps/details?id=com.poncle.vampiresurvivors" target="_blank"
+                               class="flex items-center justify-center p-3 bg-green-100 hover:bg-green-200 rounded-lg transition-colors">
+                                <span class="text-sm font-medium text-green-800">🤖 Android</span>
+                            </a>
+                            <a href="https://poncle.itch.io/vampire-survivors" target="_blank"
+                               class="flex items-center justify-center p-3 bg-purple-100 hover:bg-purple-200 rounded-lg transition-colors">
+                                <span class="text-sm font-medium text-purple-800">🎯 itch.io</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- 游戏提示 -->
+                    <div class="mt-6 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+                        <div class="flex items-start">
+                            <div class="text-2xl mr-3">💡</div>
+                            <div>
+                                <h4 class="font-bold text-yellow-800 mb-1">游戏提示</h4>
+                                <p class="text-sm text-yellow-700 mb-2">
+                                    由于浏览器安全限制，我们推荐使用"立即游戏"按钮在新窗口中启动游戏，这样能获得最佳的游戏体验。
+                                    如果您经常游戏，建议购买Steam版本支持开发者。
+                                </p>
+                                <p class="text-xs text-yellow-600">
+                                    💡 小贴士：按键盘 <kbd class="px-1 py-0.5 bg-yellow-200 rounded text-xs">P</kbd> 键可快速启动游戏！
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -295,11 +343,13 @@
             en: {
                 title: "Vampire Survivors",
                 subtitle: "The addictive bullet-hell masterpiece that lets you become the ultimate monster slayer!",
-                "play-now": "🎮 Play Now - Free Online",
-                "no-download": "No download required! Play directly in your browser",
+                "play-now": "🎮 Start Playing Now",
+                "no-download": "Choose your preferred way to play and start your adventure!",
                 "loading-text": "Loading Vampire Survivors...",
                 "loading-wait": "This may take a few seconds",
                 "iframe-fallback": "Your browser does not support iframes. <a href='https://html-classic.itch.zone/html/5185382/index.html' target='_blank'>Click here to play the game directly</a>.",
+                "retry-loading": "🔄 Retry Loading",
+                "direct-access": "🎮 Direct Access Game",
                 "about-game": "About the Game",
                 "gameplay-title": "Revolutionary Bullet-Heaven",
                 "gameplay-desc": "Experience the groundbreaking \"bullet heaven\" gameplay where your character automatically attacks endless waves of monsters. Focus on strategic positioning and smart upgrade choices as you build the ultimate monster-slaying machine.",
@@ -335,11 +385,13 @@
             zh: {
                 title: "吸血鬼幸存者",
                 subtitle: "令人上瘾的子弹地狱杰作，让你成为终极怪物杀手！",
-                "play-now": "🎮 立即游戏 - 免费在线",
-                "no-download": "无需下载！直接在浏览器中游戏",
+                "play-now": "🎮 立即开始游戏",
+                "no-download": "选择您喜欢的游戏方式，立即开始冒险！",
                 "loading-text": "正在加载吸血鬼幸存者...",
                 "loading-wait": "这可能需要几秒钟",
                 "iframe-fallback": "您的浏览器不支持iframe。<a href='https://html-classic.itch.zone/html/5185382/index.html' target='_blank'>点击这里直接游戏</a>。",
+                "retry-loading": "🔄 重试加载",
+                "direct-access": "🎮 直接访问游戏",
                 "about-game": "关于游戏",
                 "gameplay-title": "革命性的子弹天堂",
                 "gameplay-desc": "体验突破性的「子弹天堂」游戏玩法，你的角色自动攻击无尽的怪物波次。专注于战略定位和明智的升级选择，打造终极的怪物杀戮机器。",
@@ -380,6 +432,8 @@
                 "loading-text": "ヴァンパイア サバイバーズを読み込み中...",
                 "loading-wait": "数秒かかる場合があります",
                 "iframe-fallback": "お使いのブラウザはiframeをサポートしていません。<a href='https://html-classic.itch.zone/html/5185382/index.html' target='_blank'>こちらをクリックして直接ゲームをプレイしてください</a>。",
+                "retry-loading": "🔄 再読み込み",
+                "direct-access": "🎮 ゲーム直接アクセス",
                 "about-game": "ゲームについて",
                 "gameplay-title": "革命的な弾幕天国",
                 "gameplay-desc": "キャラクターが自動で無限の敵の波を攻撃する画期的な「弾幕天国」ゲームプレイを体験。戦略的な位置取りと賢いアップグレード選択に集中し、究極のモンスター討伐マシンを構築しましょう。",
@@ -665,160 +719,45 @@
         // Initialize language
         changeLanguage(savedLanguage);
 
-        // 游戏加载处理函数
-        function loadGame() {
-            const iframe = document.getElementById('game-iframe');
-            const loadingIndicator = document.getElementById('loading-indicator');
+        // 游戏URL
+        const gameUrl = 'https://html-classic.itch.zone/html/5185382/index.html';
+        
+        // 在线游戏启动函数
+        function playOnlineGame() {
+            // 在新窗口中打开游戏，设置为应用模式
+            const gameWindow = window.open(
+                gameUrl,
+                'vampire-survivors-game',
+                'width=1200,height=800,scrollbars=no,toolbar=no,location=no,status=no,menubar=no,resizable=yes'
+            );
             
-            try {
-                // 创建包含游戏的HTML内容，去除referrer
-                const gameContent = `
-                    <!DOCTYPE html>
-                    <html>
-                    <head>
-                        <meta charset="UTF-8">
-                        <meta name="referrer" content="no-referrer">
-                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                        <title>吸血鬼幸存者</title>
-                        <style>
-                            body { 
-                                margin: 0; 
-                                padding: 0; 
-                                overflow: hidden; 
-                                background: #000;
-                            }
-                            iframe { 
-                                width: 100%; 
-                                height: 100vh; 
-                                border: none;
-                                display: block;
-                            }
-                            .error-message {
-                                color: white;
-                                text-align: center;
-                                padding: 50px;
-                                font-family: Arial, sans-serif;
-                            }
-                        </style>
-                    </head>
-                    <body>
-                        <iframe 
-                            src="https://html-classic.itch.zone/html/5185382/index.html" 
-                            referrerpolicy="no-referrer"
-                            sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-top-navigation"
-                            allowfullscreen
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            onerror="document.body.innerHTML='<div class=\\"error-message\\">游戏加载失败，请稍后重试</div>'">
-                        </iframe>
-                    </body>
-                    </html>
-                `;
-                
-                // 创建Blob并设置为iframe的src
-                const blob = new Blob([gameContent], { type: 'text/html' });
-                const url = URL.createObjectURL(blob);
-                iframe.src = url;
-                
-                // 设置超时隐藏loading
+            if (gameWindow) {
+                gameWindow.focus();
+                // 尝试隐藏地址栏（部分浏览器支持）
                 setTimeout(() => {
-                    if (loadingIndicator) {
-                        loadingIndicator.style.display = 'none';
+                    try {
+                        gameWindow.document.title = '吸血鬼幸存者 - Vampire Survivors';
+                    } catch (e) {
+                        // 忽略跨域错误
                     }
-                }, 8000);
-                
-            } catch (error) {
-                console.error('游戏加载错误:', error);
-                if (loadingIndicator) {
-                    loadingIndicator.innerHTML = `
-                        <div class="text-center">
-                            <div class="text-red-500 text-6xl mb-4">⚠️</div>
-                            <p class="text-red-600 text-lg font-medium">游戏加载失败</p>
-                            <p class="text-gray-500 text-sm mt-2">请刷新页面重试</p>
-                            <button onclick="location.reload()" class="mt-4 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
-                                刷新页面
-                            </button>
-                        </div>
-                    `;
+                }, 1000);
+            } else {
+                // 如果弹窗被阻止，提供备选方案
+                if (confirm('弹窗被浏览器阻止了，是否在新标签页中打开游戏？')) {
+                    window.open(gameUrl, '_blank');
                 }
             }
         }
-
-        // iframe加载完成处理
-        function handleGameLoad() {
-            const loadingIndicator = document.getElementById('loading-indicator');
-            setTimeout(() => {
-                if (loadingIndicator) {
-                    loadingIndicator.style.display = 'none';
+        
+        // 添加快捷键支持
+        document.addEventListener('keydown', function(e) {
+            // 按P键快速启动游戏
+            if (e.key.toLowerCase() === 'p' && !e.ctrlKey && !e.altKey && !e.shiftKey) {
+                const activeElement = document.activeElement;
+                // 确保不在输入框中
+                if (activeElement.tagName !== 'INPUT' && activeElement.tagName !== 'TEXTAREA') {
+                    playOnlineGame();
                 }
-            }, 2000);
-        }
-
-        // 页面加载完成后启动游戏
-        document.addEventListener('DOMContentLoaded', function() {
-            // 延迟加载游戏，确保页面完全渲染
-            setTimeout(loadGame, 1000);
-        });
-
-        // Game loading optimization and error handling
-        const gameIframe = document.querySelector('.game-iframe');
-        const loadingIndicator = document.getElementById('loading-indicator');
-        let gameLoaded = false;
-
-        // Set timeout for loading
-        const loadingTimeout = setTimeout(() => {
-            if (!gameLoaded && loadingIndicator) {
-                loadingIndicator.innerHTML = `
-                    <div class="text-center">
-                        <div class="text-4xl mb-4">⚠️</div>
-                        <p class="text-gray-600 text-lg font-medium mb-2">Game is taking longer than expected</p>
-                        <p class="text-gray-500 text-sm mb-4">This might be due to slow internet or server issues</p>
-                        <a href="https://html-classic.itch.zone/html/5185382/index.html" target="_blank" 
-                           class="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
-                           Try Direct Link
-                        </a>
-                    </div>
-                `;
-            }
-        }, 10000); // 10 second timeout
-
-        gameIframe.addEventListener('load', function() {
-            if (!gameLoaded) {
-                console.log('Vampire Survivors game loaded successfully');
-                gameLoaded = true;
-                clearTimeout(loadingTimeout);
-                if (loadingIndicator) {
-                    loadingIndicator.style.display = 'none';
-                }
-            }
-        });
-
-        gameIframe.addEventListener('error', function() {
-            console.error('Failed to load Vampire Survivors game');
-            clearTimeout(loadingTimeout);
-            if (loadingIndicator) {
-                loadingIndicator.innerHTML = `
-                    <div class="text-center">
-                        <div class="text-4xl mb-4">❌</div>
-                        <h3 class="text-xl font-bold text-red-600 mb-4">Game Loading Failed</h3>
-                        <p class="text-red-700 mb-4">Unable to load the game. This might be due to:</p>
-                        <ul class="text-left text-red-600 mb-4 list-disc list-inside">
-                            <li>Network connection issues</li>
-                            <li>Browser security settings</li>
-                            <li>Adblocker interference</li>
-                            <li>CORS (Cross-Origin) restrictions</li>
-                        </ul>
-                        <div class="space-y-2">
-                            <a href="https://html-classic.itch.zone/html/5185382/index.html" target="_blank" 
-                               class="inline-block px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors mr-2">
-                               Play Game Directly
-                            </a>
-                            <button onclick="location.reload()" 
-                                    class="inline-block px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors">
-                               Retry
-                            </button>
-                        </div>
-                    </div>
-                `;
             }
         });
 
