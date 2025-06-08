@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics-based Medieval Melee - Free Online Game | Survivors Like</title>
+    <meta name="description" content="Experience the ultimate physics-based medieval combat! Fight with realistic weapon mechanics, dynamic battles, and immersive medieval warfare. Play free online now!">
+    <meta name="keywords" content="physics medieval game, online medieval combat, physics-based fighting, medieval melee, survivors like, free online game">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://survivorslike.xyz/">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Physics-based Medieval Melee - Free Online Game">
+    <meta property="og:description" content="Experience realistic medieval combat with advanced physics mechanics. Play free online now!">
+    <meta property="og:url" content="https://survivorslike.xyz/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Survivors Like">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Physics-based Medieval Melee - Free Online Game">
+    <meta name="twitter:description" content="Experience realistic medieval combat with advanced physics mechanics. Play free online now!">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'apple-blue': '#007AFF',
+                        'apple-gray': '#8E8E93',
+                        'apple-light-gray': '#F2F2F7',
+                        'apple-dark': '#1C1C1E',
+                        'medieval-gold': '#D4AF37',
+                        'medieval-bronze': '#CD7F32',
+                        'medieval-steel': '#71797E'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .medieval-gradient {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 50%, #3c6478 100%);
+        }
+        
+        .feature-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #007AFF, #5856D6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .game-iframe {
+            min-height: 600px;
+            border-radius: 16px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+        }
+        
+        @media (max-width: 768px) {
+            .game-iframe {
+                min-height: 400px;
+                border-radius: 12px;
+            }
+        }
+        
+        .canvas-warning {
+            background: linear-gradient(135deg, #ff6b6b, #ffa726);
+            color: white;
+            padding: 15px;
+            border-radius: 12px;
+            margin: 10px 0;
+            text-align: center;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen text-gray-900">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-bold gradient-text">Survivors Like</h1>
+                </div>
+                
+                <!-- Language Selector -->
+                <div class="flex items-center space-x-4">
+                    <select id="languageSelect" class="bg-apple-light-gray border border-gray-300 rounded-lg px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-apple-blue">
+                        <option value="en">🇺🇸 English</option>
+                        <option value="zh">🇨🇳 中文</option>
+                        <option value="ja">🇯🇵 日本語</option>
+                        <option value="ko">🇰🇷 한국어</option>
+                        <option value="es">🇪🇸 Español</option>
+                        <option value="fr">🇫🇷 Français</option>
+                        <option value="de">🇩🇪 Deutsch</option>
+                        <option value="it">🇮🇹 Italiano</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-20 pb-12 medieval-gradient">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h1 class="text-6xl md:text-7xl font-black text-white mb-6" data-translate="main-title">
+                    Physics-based Medieval Melee
+                </h1>
+                <p class="text-2xl md:text-3xl text-gray-200 mb-8 font-light" data-translate="subtitle">
+                    Experience authentic medieval combat with realistic physics and dynamic sword fighting!
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4 mb-8">
+                    <button onclick="playOnlineGame()" class="px-8 py-4 bg-medieval-gold text-white font-bold rounded-2xl hover:bg-yellow-600 transform hover:scale-105 transition-all duration-300 shadow-lg" data-translate="play-now">
+                        ⚔️ Play Medieval Combat Now
+                    </button>
+                </div>
+                <p class="text-lg text-gray-300" data-translate="no-download">
+                    No download required! Experience realistic medieval warfare in your browser
+                </p>
+            </div>
+
+            <!-- Game Container -->
+            <div class="max-w-5xl mx-auto">
+                <div class="relative">
+                    <!-- Loading Indicator -->
+                    <div id="loading-indicator" class="flex flex-col items-center justify-center py-12">
+                        <div class="w-16 h-16 border-4 border-white/30 border-t-white rounded-full animate-spin mb-4"></div>
+                        <p class="text-white text-lg" data-translate="loading-text">Loading Medieval Combat Game...</p>
+                        <p class="text-gray-300 text-sm mt-2" data-translate="loading-wait">This may take a few seconds</p>
+                    </div>
+                    
+                    <!-- Game Canvas Warning -->
+                    <div id="canvas-warning" class="canvas-warning hidden">
+                        <div class="flex items-center justify-center gap-2">
+                            <span>⚠️</span>
+                            <span data-translate="canvas-warning">Your browser needs Canvas support for this game. Please try a modern browser like Chrome, Firefox, or Safari.</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Game iframe -->
+                    <iframe id="game-iframe"
+                        class="game-iframe w-full h-96 md:h-[700px] border-0 rounded-16 shadow-2xl hidden"
+                        allowfullscreen
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="no-referrer"
+                        sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-top-navigation"
+                        loading="lazy"
+                        title="Physics-based Medieval Melee Online Game"
+                        src="https://html-classic.itch.zone/html/13774666/index.html">
+                        <p class="text-white text-center p-8" data-translate="iframe-fallback">
+                            Your browser doesn't support iframes. <a href="https://html-classic.itch.zone/html/13774666/index.html" target="_blank" class="text-medieval-gold underline">Click here to play directly</a>.
+                        </p>
+                    </iframe>
+                    
+                    <!-- Fallback Options -->
+                    <div id="fallback-options" class="hidden mt-6 p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
+                        <div class="text-center">
+                            <div class="text-4xl mb-4">⚠️</div>
+                            <h3 class="text-lg font-bold text-yellow-800 mb-2" data-translate="game-loading-issue">Game Loading Issues</h3>
+                            <p class="text-yellow-700 mb-4" data-translate="try-alternatives">Please try one of these alternatives:</p>
+                            <div class="space-x-4">
+                                <button onclick="playOnlineGame()" 
+                                        class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors" data-translate="new-window">
+                                    🚀 Open in New Window
+                                </button>
+                                <a href="https://html-classic.itch.zone/html/13774666/index.html" target="_blank"
+                                   class="inline-block px-6 py-3 bg-medieval-gold text-white rounded-lg hover:bg-yellow-600 transition-colors" data-translate="direct-access">
+                                    🎮 Direct Game Access
+                                </a>
+                                <button onclick="retryLoad()" 
+                                        class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 transition-colors" data-translate="retry-loading">
+                                    🔄 Retry Loading
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Game Info -->
+                <div class="mt-8 max-w-3xl mx-auto p-4 bg-blue-50 border border-blue-200 rounded-lg">
+                    <div class="flex items-start">
+                        <div class="text-2xl mr-3">ℹ️</div>
+                        <div>
+                            <h4 class="font-bold text-blue-800 mb-1" data-translate="game-info-title">Game Information</h4>
+                            <p class="text-sm text-blue-700" data-translate="game-info-desc">
+                                This medieval combat game features advanced physics simulation for realistic sword fighting and weapon dynamics. 
+                                Best experienced on desktop with a modern browser supporting HTML5 Canvas.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-5xl font-bold text-center text-gray-900 mb-12" data-translate="about-game">
+                About the Game
+            </h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="feature-card p-8 rounded-2xl">
+                    <div class="text-5xl mb-6">⚔️</div>
+                    <h3 class="text-2xl font-bold mb-4 gradient-text" data-translate="physics-combat-title">
+                        Realistic Physics Combat
+                    </h3>
+                    <p class="text-gray-700 text-lg leading-relaxed" data-translate="physics-combat-desc">
+                        Experience authentic medieval combat with advanced physics simulation. Every sword swing, shield block, and weapon collision feels realistic and impactful.
+                    </p>
+                </div>
+                <div class="feature-card p-8 rounded-2xl">
+                    <div class="text-5xl mb-6">🏰</div>
+                    <h3 class="text-2xl font-bold mb-4 gradient-text" data-translate="medieval-setting-title">
+                        Immersive Medieval Setting
+                    </h3>
+                    <p class="text-gray-700 text-lg leading-relaxed" data-translate="medieval-setting-desc">
+                        Battle in authentic medieval environments with period-accurate weapons, armor, and combat techniques that transport you to the Middle Ages.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section class="py-16 bg-apple-light-gray">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-5xl font-bold text-center text-gray-900 mb-12" data-translate="features">
+                Game Features
+            </h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="feature-card p-8 text-center rounded-2xl">
+                    <div class="text-6xl mb-6">🗡️</div>
+                    <h3 class="text-xl font-bold mb-4 gradient-text" data-translate="feature1-title">Dynamic Weapon System</h3>
+                    <p class="text-gray-600" data-translate="feature1-desc">Master different medieval weapons each with unique physics properties and combat styles</p>
+                </div>
+                <div class="feature-card p-8 text-center rounded-2xl">
+                    <div class="text-6xl mb-6">⚡</div>
+                    <h3 class="text-xl font-bold mb-4 gradient-text" data-translate="feature2-title">Advanced Physics Engine</h3>
+                    <p class="text-gray-600" data-translate="feature2-desc">Realistic collision detection, momentum, and force simulation for authentic combat feel</p>
+                </div>
+                <div class="feature-card p-8 text-center rounded-2xl">
+                    <div class="text-6xl mb-6">🏆</div>
+                    <h3 class="text-xl font-bold mb-4 gradient-text" data-translate="feature3-title">Skill-Based Combat</h3>
+                    <p class="text-gray-600" data-translate="feature3-desc">Master timing, distance, and technique to become a legendary medieval warrior</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tips Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-5xl font-bold text-center text-gray-900 mb-12" data-translate="tips">
+                Combat Tips
+            </h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="feature-card p-8 rounded-2xl">
+                    <div class="text-4xl mb-4">🛡️</div>
+                    <h3 class="text-2xl font-bold mb-6 gradient-text" data-translate="tip1-title">Master Defense</h3>
+                    <p class="text-gray-700 text-lg" data-translate="tip1-desc">Perfect your blocking and parrying timing. A well-timed defense can create openings for devastating counterattacks.</p>
+                </div>
+                <div class="feature-card p-8 rounded-2xl">
+                    <div class="text-4xl mb-4">⚔️</div>
+                    <h3 class="text-2xl font-bold mb-6 gradient-text" data-translate="tip2-title">Weapon Reach</h3>
+                    <p class="text-gray-700 text-lg" data-translate="tip2-desc">Understanding each weapon's reach and swing arc is crucial. Longer weapons have advantages at distance but are slower to recover.</p>
+                </div>
+                <div class="feature-card p-8 rounded-2xl">
+                    <div class="text-4xl mb-4">💨</div>
+                    <h3 class="text-2xl font-bold mb-6 gradient-text" data-translate="tip3-title">Movement Matters</h3>
+                    <p class="text-gray-700 text-lg" data-translate="tip3-desc">Use footwork to your advantage. Circle around enemies, maintain optimal distance, and use terrain to your benefit.</p>
+                </div>
+                <div class="feature-card p-8 rounded-2xl">
+                    <div class="text-4xl mb-4">🎯</div>
+                    <h3 class="text-2xl font-bold mb-6 gradient-text" data-translate="tip4-title">Target Weak Points</h3>
+                    <p class="text-gray-700 text-lg" data-translate="tip4-desc">Aim for gaps in armor and unprotected areas. Precision strikes deal more damage than wild swinging.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 medieval-gradient text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="glass-card p-8 max-w-2xl mx-auto rounded-2xl">
+                <h3 class="text-2xl font-bold mb-4 gradient-text">Ready for Medieval Combat?</h3>
+                <p class="mb-6 text-lg" data-translate="footer-text">
+                    Step into the arena and test your skills in realistic physics-based medieval combat!
+                </p>
+                <p class="text-sm opacity-75 border-t border-white/20 pt-4" data-translate="disclaimer">
+                    This is an unofficial game portal. All games are property of their respective developers.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Multi-language support
+        const translations = {
+            en: {
+                "main-title": "Physics-based Medieval Melee",
+                "subtitle": "Experience authentic medieval combat with realistic physics and dynamic sword fighting!",
+                "play-now": "⚔️ Play Medieval Combat Now",
+                "no-download": "No download required! Experience realistic medieval warfare in your browser",
+                "loading-text": "Loading Medieval Combat Game...",
+                "loading-wait": "This may take a few seconds",
+                "canvas-warning": "Your browser needs Canvas support for this game. Please try a modern browser like Chrome, Firefox, or Safari.",
+                "iframe-fallback": "Your browser doesn't support iframes. Click here to play directly.",
+                "game-loading-issue": "Game Loading Issues",
+                "try-alternatives": "Please try one of these alternatives:",
+                "new-window": "🚀 Open in New Window",
+                "direct-access": "🎮 Direct Game Access",
+                "retry-loading": "🔄 Retry Loading",
+                "game-info-title": "Game Information",
+                "game-info-desc": "This medieval combat game features advanced physics simulation for realistic sword fighting and weapon dynamics. Best experienced on desktop with a modern browser supporting HTML5 Canvas.",
+                "about-game": "About the Game",
+                "physics-combat-title": "Realistic Physics Combat",
+                "physics-combat-desc": "Experience authentic medieval combat with advanced physics simulation. Every sword swing, shield block, and weapon collision feels realistic and impactful.",
+                "medieval-setting-title": "Immersive Medieval Setting",
+                "medieval-setting-desc": "Battle in authentic medieval environments with period-accurate weapons, armor, and combat techniques that transport you to the Middle Ages.",
+                "features": "Game Features",
+                "feature1-title": "Dynamic Weapon System",
+                "feature1-desc": "Master different medieval weapons each with unique physics properties and combat styles",
+                "feature2-title": "Advanced Physics Engine",
+                "feature2-desc": "Realistic collision detection, momentum, and force simulation for authentic combat feel",
+                "feature3-title": "Skill-Based Combat",
+                "feature3-desc": "Master timing, distance, and technique to become a legendary medieval warrior",
+                "tips": "Combat Tips",
+                "tip1-title": "Master Defense",
+                "tip1-desc": "Perfect your blocking and parrying timing. A well-timed defense can create openings for devastating counterattacks.",
+                "tip2-title": "Weapon Reach",
+                "tip2-desc": "Understanding each weapon's reach and swing arc is crucial. Longer weapons have advantages at distance but are slower to recover.",
+                "tip3-title": "Movement Matters",
+                "tip3-desc": "Use footwork to your advantage. Circle around enemies, maintain optimal distance, and use terrain to your benefit.",
+                "tip4-title": "Target Weak Points",
+                "tip4-desc": "Aim for gaps in armor and unprotected areas. Precision strikes deal more damage than wild swinging.",
+                "footer-text": "Step into the arena and test your skills in realistic physics-based medieval combat!",
+                "disclaimer": "This is an unofficial game portal. All games are property of their respective developers."
+            },
+            zh: {
+                "main-title": "基于物理的中世纪近战",
+                "subtitle": "体验真实的中世纪战斗，具有逼真的物理效果和动态剑战！",
+                "play-now": "⚔️ 立即开始中世纪战斗",
+                "no-download": "无需下载！在浏览器中体验真实的中世纪战争",
+                "loading-text": "正在加载中世纪战斗游戏...",
+                "loading-wait": "这可能需要几秒钟",
+                "canvas-warning": "您的浏览器需要Canvas支持才能运行此游戏。请尝试Chrome、Firefox或Safari等现代浏览器。",
+                "iframe-fallback": "您的浏览器不支持iframe。点击这里直接游戏。",
+                "game-loading-issue": "游戏加载问题",
+                "try-alternatives": "请尝试以下替代方案：",
+                "new-window": "🚀 在新窗口打开",
+                "direct-access": "🎮 直接访问游戏",
+                "retry-loading": "🔄 重新加载",
+                "game-info-title": "游戏信息",
+                "game-info-desc": "这款中世纪战斗游戏具有先进的物理模拟，可实现逼真的剑战和武器动力学。在支持HTML5 Canvas的现代浏览器上桌面体验最佳。",
+                "about-game": "关于游戏",
+                "physics-combat-title": "真实物理战斗",
+                "physics-combat-desc": "通过先进的物理模拟体验真实的中世纪战斗。每次挥剑、盾牌格挡和武器碰撞都感觉真实而有冲击力。",
+                "medieval-setting-title": "沉浸式中世纪设定",
+                "medieval-setting-desc": "在真实的中世纪环境中战斗，配备符合时代的武器、盔甲和战斗技术，将您带入中世纪。",
+                "features": "游戏特色",
+                "feature1-title": "动态武器系统",
+                "feature1-desc": "掌握不同的中世纪武器，每种都有独特的物理属性和战斗风格",
+                "feature2-title": "先进物理引擎",
+                "feature2-desc": "真实的碰撞检测、动量和力的模拟，带来真实的战斗感受",
+                "feature3-title": "技能型战斗",
+                "feature3-desc": "掌握时机、距离和技巧，成为传奇的中世纪战士",
+                "tips": "战斗技巧",
+                "tip1-title": "掌握防御",
+                "tip1-desc": "完善您的格挡和招架时机。适时的防御可以为毁灭性的反击创造机会。",
+                "tip2-title": "武器射程",
+                "tip2-desc": "了解每种武器的射程和挥舞弧度至关重要。较长的武器在远距离有优势，但恢复较慢。",
+                "tip3-title": "移动很重要",
+                "tip3-desc": "利用步法优势。绕着敌人转圈，保持最佳距离，利用地形为自己谋利。",
+                "tip4-title": "瞄准弱点",
+                "tip4-desc": "瞄准盔甲的缝隙和无保护区域。精确打击比胡乱挥舞造成更多伤害。",
+                "footer-text": "踏入竞技场，在基于真实物理的中世纪战斗中测试您的技能！",
+                "disclaimer": "这是一个非官方游戏门户。所有游戏均为其各自开发者的财产。"
+            }
+        };
+
+        // Language functionality
+        const languageSelect = document.getElementById('languageSelect');
+        const savedLanguage = localStorage.getItem('selectedLanguage') || 'en';
+        languageSelect.value = savedLanguage;
+
+        function changeLanguage(lang) {
+            const elements = document.querySelectorAll('[data-translate]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[lang] && translations[lang][key]) {
+                    if (element.tagName === 'INPUT' && element.type === 'placeholder') {
+                        element.placeholder = translations[lang][key];
+                    } else {
+                        element.textContent = translations[lang][key];
+                    }
+                }
+            });
+
+            // Update page title and meta description
+            if (lang === 'zh') {
+                document.title = '基于物理的中世纪近战 - 免费在线游戏 | Survivors Like';
+                document.querySelector('meta[name="description"]').setAttribute('content', '体验真实的中世纪战斗！具有逼真物理效果和动态剑战的在线游戏。无需下载，立即开始游戏！');
+            } else {
+                document.title = 'Physics-based Medieval Melee - Free Online Game | Survivors Like';
+                document.querySelector('meta[name="description"]').setAttribute('content', 'Experience the ultimate physics-based medieval combat! Fight with realistic weapon mechanics, dynamic battles, and immersive medieval warfare. Play free online now!');
+            }
+            
+            localStorage.setItem('selectedLanguage', lang);
+        }
+
+        languageSelect.addEventListener('change', (e) => {
+            changeLanguage(e.target.value);
+        });
+
+        // Initialize language
+        changeLanguage(savedLanguage);
+
+        // Game loading functionality
+        let loadingTimeout;
+        
+        function handleGameLoad() {
+            const loadingIndicator = document.getElementById('loading-indicator');
+            const gameIframe = document.getElementById('game-iframe');
+            const canvasWarning = document.getElementById('canvas-warning');
+            
+            console.log('Game iframe loaded successfully');
+            
+            // Clear loading timeout
+            if (loadingTimeout) {
+                clearTimeout(loadingTimeout);
+            }
+            
+            if (loadingIndicator) {
+                loadingIndicator.style.display = 'none';
+            }
+            if (gameIframe) {
+                gameIframe.classList.remove('hidden');
+            }
+            
+            // Check if canvas is supported
+            try {
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                if (!ctx) {
+                    if (canvasWarning) {
+                        canvasWarning.classList.remove('hidden');
+                    }
+                }
+            } catch (e) {
+                if (canvasWarning) {
+                    canvasWarning.classList.remove('hidden');
+                }
+            }
+        }
+
+        function handleGameError() {
+            console.log('Game iframe failed to load');
+            const loadingIndicator = document.getElementById('loading-indicator');
+            const fallbackOptions = document.getElementById('fallback-options');
+            
+            // Clear loading timeout
+            if (loadingTimeout) {
+                clearTimeout(loadingTimeout);
+            }
+            
+            if (loadingIndicator) {
+                loadingIndicator.style.display = 'none';
+            }
+            if (fallbackOptions) {
+                fallbackOptions.classList.remove('hidden');
+            }
+        }
+
+        function startLoadingTimeout() {
+            // Set a 15-second timeout for loading
+            loadingTimeout = setTimeout(() => {
+                console.log('Game loading timeout - showing fallback options');
+                handleGameError();
+            }, 15000);
+        }
+
+        function playOnlineGame() {
+            const gameUrl = 'https://html-classic.itch.zone/html/13774666/index.html';
+            const gameWindow = window.open(
+                gameUrl,
+                'medieval-melee-game',
+                'width=1200,height=800,scrollbars=no,toolbar=no,location=no,status=no,menubar=no,resizable=yes'
+            );
+            
+            if (gameWindow) {
+                gameWindow.focus();
+            } else {
+                if (confirm('弹窗被浏览器阻止。在新标签页打开游戏吗？')) {
+                    window.open(gameUrl, '_blank');
+                }
+            }
+        }
+
+        function retryLoad() {
+            // Reset UI state
+            const loadingIndicator = document.getElementById('loading-indicator');
+            const fallbackOptions = document.getElementById('fallback-options');
+            const iframe = document.getElementById('game-iframe');
+            
+            if (loadingIndicator) {
+                loadingIndicator.style.display = 'flex';
+            }
+            if (fallbackOptions) {
+                fallbackOptions.classList.add('hidden');
+            }
+            if (iframe) {
+                iframe.classList.add('hidden');
+                iframe.src = 'about:blank'; // Clear iframe
+                
+                // Reload iframe after short delay
+                setTimeout(() => {
+                    iframe.src = 'https://html-classic.itch.zone/html/13774666/index.html';
+                    startLoadingTimeout();
+                }, 500);
+            }
+        }
+
+        // Page load initialization
+        document.addEventListener('DOMContentLoaded', function() {
+            const iframe = document.getElementById('game-iframe');
+            
+            // Set up iframe event listeners
+            iframe.addEventListener('load', function() {
+                // Small delay to ensure iframe content is actually loaded
+                setTimeout(handleGameLoad, 1000);
+            });
+            iframe.addEventListener('error', handleGameError);
+            
+            // Start loading timeout
+            startLoadingTimeout();
+            
+            // Load game immediately
+            iframe.src = 'https://html-classic.itch.zone/html/13774666/index.html';
+        });
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            if (e.key.toLowerCase() === 'p' && !e.ctrlKey && !e.altKey && !e.shiftKey) {
+                const activeElement = document.activeElement;
+                if (activeElement.tagName !== 'INPUT' && activeElement.tagName !== 'TEXTAREA') {
+                    playOnlineGame();
+                }
+            }
+        });
+    </script>
+</body>
+</html> 

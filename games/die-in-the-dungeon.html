@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Die in the Dungeon - Roguelike Card Game | Vampire Survivors Like Experience</title>
+    <meta name="description" content="Enter the deadly dungeon! Strategic roguelike card game with deck building, monster battles, and endless exploration. Play this unique vampire survivors like experience online free!">
+    <meta name="keywords" content="die in the dungeon, roguelike card game, deck building, dungeon crawler, vampire survivors like, strategy game, free online game">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://survivorslike.xyz/games/die-in-the-dungeon.html">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Die in the Dungeon - Roguelike Card Game">
+    <meta property="og:description" content="Strategic roguelike card game with deck building and dungeon exploration. Unique vampire survivors like experience!">
+    <meta property="og:url" content="https://survivorslike.xyz/games/die-in-the-dungeon.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Survivors Like">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Die in the Dungeon - Roguelike Card Game">
+    <meta name="twitter:description" content="Strategic roguelike card game with deck building and dungeon exploration. Unique vampire survivors like experience!">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'apple-blue': '#007AFF',
+                        'apple-gray': '#8E8E93',
+                        'apple-light-gray': '#F2F2F7',
+                        'apple-dark': '#1C1C1E',
+                        'dungeon-purple': '#6B46C1',
+                        'dungeon-gold': '#F59E0B',
+                        'dungeon-red': '#DC2626'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .dungeon-gradient {
+            background: linear-gradient(135deg, #1f1632 0%, #2d1b4e 50%, #4c1d6b 100%);
+        }
+        
+        .feature-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #007AFF, #5856D6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .game-iframe {
+            min-height: 600px;
+            border-radius: 16px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+        }
+        
+        @media (max-width: 768px) {
+            .game-iframe {
+                min-height: 400px;
+                border-radius: 12px;
+            }
+        }
+        
+        .canvas-warning {
+            background: linear-gradient(135deg, #ff6b6b, #ffa726);
+            color: white;
+            padding: 15px;
+            border-radius: 12px;
+            margin: 10px 0;
+            text-align: center;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen text-gray-900">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-bold gradient-text">Survivors Like</h1>
+                </div>
+                
+                <!-- Language Selector -->
+                <div class="flex items-center space-x-4">
+                    <select id="languageSelect" class="bg-apple-light-gray border border-gray-300 rounded-lg px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-apple-blue">
+                        <option value="en">🇺🇸 English</option>
+                        <option value="zh">🇨🇳 中文</option>
+                        <option value="ja">🇯🇵 日本語</option>
+                        <option value="ko">🇰🇷 한국어</option>
+                        <option value="es">🇪🇸 Español</option>
+                        <option value="fr">🇫🇷 Français</option>
+                        <option value="de">🇩🇪 Deutsch</option>
+                        <option value="it">🇮🇹 Italiano</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-20 pb-12 dungeon-gradient">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h1 class="text-6xl md:text-7xl font-black text-white mb-6" data-translate="main-title">
+                    Die in the Dungeon
+                </h1>
+                <p class="text-2xl md:text-3xl text-gray-200 mb-8 font-light" data-translate="subtitle">
+                    Strategic roguelike card game! Build your deck, explore dungeons, and survive endless challenges!
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4 mb-8">
+                    <button onclick="playOnlineGame()" class="px-8 py-4 bg-dungeon-gold text-black font-bold rounded-2xl hover:bg-yellow-600 transform hover:scale-105 transition-all duration-300 shadow-lg" data-translate="play-now">
+                        🃏 Enter the Dungeon Now
+                    </button>
+                </div>
+                <p class="text-lg text-gray-300" data-translate="no-download">
+                    No download required! Experience strategic dungeon exploration in your browser
+                </p>
+            </div>
+
+            <!-- Game Container -->
+            <div class="max-w-5xl mx-auto">
+                <div class="relative">
+                    <!-- Loading Indicator -->
+                    <div id="loading-indicator" class="flex flex-col items-center justify-center py-12">
+                        <div class="w-16 h-16 border-4 border-white/30 border-t-white rounded-full animate-spin mb-4"></div>
+                        <p class="text-white text-lg" data-translate="loading-text">Loading Die in the Dungeon...</p>
+                        <p class="text-gray-300 text-sm mt-2" data-translate="loading-wait">This may take a few seconds</p>
+                    </div>
+                    
+                    <!-- Game Canvas Warning -->
+                    <div id="canvas-warning" class="canvas-warning hidden">
+                        <div class="flex items-center justify-center gap-2">
+                            <span>⚠️</span>
+                            <span data-translate="canvas-warning">Your browser needs Canvas support for this game. Please try a modern browser like Chrome, Firefox, or Safari.</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Game iframe -->
+                    <iframe id="game-iframe"
+                        class="game-iframe w-full h-96 md:h-[700px] border-0 rounded-16 shadow-2xl hidden"
+                        allowfullscreen
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="no-referrer"
+                        sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-top-navigation"
+                        loading="lazy"
+                        title="Die in the Dungeon Online Game"
+                        src="https://html-classic.itch.zone/html/7330268/Die%20in%20the%20Dungeon%201.6.2f%20[WEB]/index.html?v=1732313661">
+                        <p class="text-white text-center p-8" data-translate="iframe-fallback">
+                            Your browser doesn't support iframes. <a href="https://html-classic.itch.zone/html/7330268/Die%20in%20the%20Dungeon%201.6.2f%20[WEB]/index.html?v=1732313661" target="_blank" class="text-dungeon-gold underline">Click here to play directly</a>.
+                        </p>
+                    </iframe>
+                    
+                    <!-- Fallback Options -->
+                    <div id="fallback-options" class="hidden mt-6 p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
+                        <div class="text-center">
+                            <div class="text-4xl mb-4">⚠️</div>
+                            <h3 class="text-lg font-bold text-yellow-800 mb-2" data-translate="game-loading-issue">Game Loading Issues</h3>
+                            <p class="text-yellow-700 mb-4" data-translate="try-alternatives">Please try one of these alternatives:</p>
+                            <div class="space-x-4">
+                                <button onclick="playOnlineGame()" 
+                                        class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors" data-translate="new-window">
+                                    🚀 Open in New Window
+                                </button>
+                                <a href="https://html-classic.itch.zone/html/7330268/Die%20in%20the%20Dungeon%201.6.2f%20[WEB]/index.html?v=1732313661" target="_blank"
+                                   class="inline-block px-6 py-3 bg-dungeon-gold text-black rounded-lg hover:bg-yellow-600 transition-colors" data-translate="direct-access">
+                                    🃏 Direct Game Access
+                                </a>
+                                <button onclick="retryLoad()" 
+                                        class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 transition-colors" data-translate="retry-loading">
+                                    🔄 Retry Loading
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Game Info -->
+                <div class="mt-8 max-w-3xl mx-auto p-4 bg-blue-50 border border-blue-200 rounded-lg">
+                    <div class="flex items-start">
+                        <div class="text-2xl mr-3">ℹ️</div>
+                        <div>
+                            <h4 class="font-bold text-blue-800 mb-1" data-translate="game-info-title">Game Information</h4>
+                            <p class="text-sm text-blue-700" data-translate="game-info-desc">
+                                Die in the Dungeon is a strategic roguelike card game that combines deck building with dungeon exploration. 
+                                Build powerful card combinations, battle monsters, and survive as long as possible in procedurally generated dungeons.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-5xl font-bold text-center text-gray-900 mb-12" data-translate="about-game">
+                About the Game
+            </h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="feature-card p-8 rounded-2xl">
+                    <div class="text-5xl mb-6">🃏</div>
+                    <h3 class="text-2xl font-bold mb-4 gradient-text" data-translate="card-strategy-title">
+                        Strategic Card Combat
+                    </h3>
+                    <p class="text-gray-700 text-lg leading-relaxed" data-translate="card-strategy-desc">
+                        Build your deck strategically and use tactical card play to overcome challenging encounters. Every decision matters in this roguelike adventure.
+                    </p>
+                </div>
+                <div class="feature-card p-8 rounded-2xl">
+                    <div class="text-5xl mb-6">🏰</div>
+                    <h3 class="text-2xl font-bold mb-4 gradient-text" data-translate="dungeon-exploration-title">
+                        Endless Dungeon Exploration
+                    </h3>
+                    <p class="text-gray-700 text-lg leading-relaxed" data-translate="dungeon-exploration-desc">
+                        Explore procedurally generated dungeons filled with monsters, treasures, and secrets. Each run offers unique challenges and rewards.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section class="py-16 bg-apple-light-gray">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-5xl font-bold text-center text-gray-900 mb-12" data-translate="features">
+                Game Features
+            </h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="feature-card p-8 text-center rounded-2xl">
+                    <div class="text-6xl mb-6">🎯</div>
+                    <h3 class="text-xl font-bold mb-4 gradient-text" data-translate="feature1-title">Deck Building System</h3>
+                    <p class="text-gray-600" data-translate="feature1-desc">Collect and customize your deck with powerful cards and unique combinations</p>
+                </div>
+                <div class="feature-card p-8 text-center rounded-2xl">
+                    <div class="text-6xl mb-6">🎲</div>
+                    <h3 class="text-xl font-bold mb-4 gradient-text" data-translate="feature2-title">Roguelike Progression</h3>
+                    <p class="text-gray-600" data-translate="feature2-desc">Procedurally generated levels with permanent upgrades and unlockable content</p>
+                </div>
+                <div class="feature-card p-8 text-center rounded-2xl">
+                    <div class="text-6xl mb-6">⚔️</div>
+                    <h3 class="text-xl font-bold mb-4 gradient-text" data-translate="feature3-title">Turn-Based Combat</h3>
+                    <p class="text-gray-600" data-translate="feature3-desc">Strategic turn-based battles that require careful planning and resource management</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tips Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-5xl font-bold text-center text-gray-900 mb-12" data-translate="tips">
+                Strategy Tips
+            </h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="feature-card p-8 rounded-2xl">
+                    <div class="text-4xl mb-4">🧠</div>
+                    <h3 class="text-2xl font-bold mb-6 gradient-text" data-translate="tip1-title">Plan Your Deck</h3>
+                    <p class="text-gray-700 text-lg" data-translate="tip1-desc">Focus on synergies between cards. A smaller, focused deck is often better than a large, unfocused one.</p>
+                </div>
+                <div class="feature-card p-8 rounded-2xl">
+                    <div class="text-4xl mb-4">💎</div>
+                    <h3 class="text-2xl font-bold mb-6 gradient-text" data-translate="tip2-title">Resource Management</h3>
+                    <p class="text-gray-700 text-lg" data-translate="tip2-desc">Manage your energy and health carefully. Sometimes it's better to take small damage than waste resources.</p>
+                </div>
+                <div class="feature-card p-8 rounded-2xl">
+                    <div class="text-4xl mb-4">🎯</div>
+                    <h3 class="text-2xl font-bold mb-6 gradient-text" data-translate="tip3-title">Know Your Enemies</h3>
+                    <p class="text-gray-700 text-lg" data-translate="tip3-desc">Learn enemy patterns and behaviors. Each monster type has specific weaknesses you can exploit.</p>
+                </div>
+                <div class="feature-card p-8 rounded-2xl">
+                    <div class="text-4xl mb-4">🔄</div>
+                    <h3 class="text-2xl font-bold mb-6 gradient-text" data-translate="tip4-title">Adapt Your Strategy</h3>
+                    <p class="text-gray-700 text-lg" data-translate="tip4-desc">Be flexible with your strategy. What works in one run might not work in another due to different card rewards.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 dungeon-gradient text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="glass-card p-8 max-w-2xl mx-auto rounded-2xl">
+                <h3 class="text-2xl font-bold mb-4 gradient-text">Ready to Enter the Dungeon?</h3>
+                <p class="mb-6 text-lg" data-translate="footer-text">
+                    Test your strategic skills in this challenging roguelike card game! Build your deck and conquer the dungeon!
+                </p>
+                <p class="text-sm opacity-75 border-t border-white/20 pt-4" data-translate="disclaimer">
+                    This is an unofficial game portal. All games are property of their respective developers.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Multi-language support
+        const translations = {
+            en: {
+                "main-title": "Die in the Dungeon",
+                "subtitle": "Strategic roguelike card game! Build your deck, explore dungeons, and survive endless challenges!",
+                "play-now": "🃏 Enter the Dungeon Now",
+                "no-download": "No download required! Experience strategic dungeon exploration in your browser",
+                "loading-text": "Loading Die in the Dungeon...",
+                "loading-wait": "This may take a few seconds",
+                "canvas-warning": "Your browser needs Canvas support for this game. Please try a modern browser like Chrome, Firefox, or Safari.",
+                "iframe-fallback": "Your browser doesn't support iframes. Click here to play directly.",
+                "game-loading-issue": "Game Loading Issues",
+                "try-alternatives": "Please try one of these alternatives:",
+                "new-window": "🚀 Open in New Window",
+                "direct-access": "🃏 Direct Game Access",
+                "retry-loading": "🔄 Retry Loading",
+                "game-info-title": "Game Information",
+                "game-info-desc": "Die in the Dungeon is a strategic roguelike card game that combines deck building with dungeon exploration. Build powerful card combinations, battle monsters, and survive as long as possible in procedurally generated dungeons.",
+                "about-game": "About the Game",
+                "card-strategy-title": "Strategic Card Combat",
+                "card-strategy-desc": "Build your deck strategically and use tactical card play to overcome challenging encounters. Every decision matters in this roguelike adventure.",
+                "dungeon-exploration-title": "Endless Dungeon Exploration",
+                "dungeon-exploration-desc": "Explore procedurally generated dungeons filled with monsters, treasures, and secrets. Each run offers unique challenges and rewards.",
+                "features": "Game Features",
+                "feature1-title": "Deck Building System",
+                "feature1-desc": "Collect and customize your deck with powerful cards and unique combinations",
+                "feature2-title": "Roguelike Progression",
+                "feature2-desc": "Procedurally generated levels with permanent upgrades and unlockable content",
+                "feature3-title": "Turn-Based Combat",
+                "feature3-desc": "Strategic turn-based battles that require careful planning and resource management",
+                "tips": "Strategy Tips",
+                "tip1-title": "Plan Your Deck",
+                "tip1-desc": "Focus on synergies between cards. A smaller, focused deck is often better than a large, unfocused one.",
+                "tip2-title": "Resource Management",
+                "tip2-desc": "Manage your energy and health carefully. Sometimes it's better to take small damage than waste resources.",
+                "tip3-title": "Know Your Enemies",
+                "tip3-desc": "Learn enemy patterns and behaviors. Each monster type has specific weaknesses you can exploit.",
+                "tip4-title": "Adapt Your Strategy",
+                "tip4-desc": "Be flexible with your strategy. What works in one run might not work in another due to different card rewards.",
+                "footer-text": "Test your strategic skills in this challenging roguelike card game! Build your deck and conquer the dungeon!",
+                "disclaimer": "This is an unofficial game portal. All games are property of their respective developers."
+            },
+            zh: {
+                "main-title": "地牢求死",
+                "subtitle": "策略类Roguelike卡牌游戏！构建您的牌组，探索地牢，在无尽挑战中生存！",
+                "play-now": "🃏 立即进入地牢",
+                "no-download": "无需下载！在浏览器中体验策略地牢探索",
+                "loading-text": "正在加载地牢求死...",
+                "loading-wait": "这可能需要几秒钟",
+                "canvas-warning": "您的浏览器需要Canvas支持才能运行此游戏。请尝试Chrome、Firefox或Safari等现代浏览器。",
+                "iframe-fallback": "您的浏览器不支持iframe。点击这里直接游戏。",
+                "game-loading-issue": "游戏加载问题",
+                "try-alternatives": "请尝试以下替代方案：",
+                "new-window": "🚀 在新窗口打开",
+                "direct-access": "🃏 直接访问游戏",
+                "retry-loading": "🔄 重新加载",
+                "game-info-title": "游戏信息",
+                "game-info-desc": "地牢求死是一款策略类Roguelike卡牌游戏，结合了组牌构建和地牢探索。构建强大的卡牌组合，与怪物战斗，在程序生成的地牢中尽可能长地生存。",
+                "about-game": "关于游戏",
+                "card-strategy-title": "策略卡牌战斗",
+                "card-strategy-desc": "策略性地构建您的牌组，使用战术卡牌玩法克服挑战性遭遇。在这个Roguelike冒险中，每个决定都很重要。",
+                "dungeon-exploration-title": "无尽地牢探索",
+                "dungeon-exploration-desc": "探索充满怪物、宝藏和秘密的程序生成地牢。每次运行都提供独特的挑战和奖励。",
+                "features": "游戏特色",
+                "feature1-title": "组牌构建系统",
+                "feature1-desc": "收集和自定义您的牌组，使用强大的卡牌和独特的组合",
+                "feature2-title": "Roguelike进度",
+                "feature2-desc": "程序生成的关卡，具有永久升级和可解锁内容",
+                "feature3-title": "回合制战斗",
+                "feature3-desc": "需要仔细规划和资源管理的策略回合制战斗",
+                "tips": "策略技巧",
+                "tip1-title": "规划您的牌组",
+                "tip1-desc": "专注于卡牌之间的协同效应。较小、专注的牌组通常比大而散乱的牌组更好。",
+                "tip2-title": "资源管理",
+                "tip2-desc": "仔细管理您的能量和生命值。有时承受小伤害比浪费资源更好。",
+                "tip3-title": "了解您的敌人",
+                "tip3-desc": "学习敌人的模式和行为。每种怪物类型都有您可以利用的特定弱点。",
+                "tip4-title": "调整您的策略",
+                "tip4-desc": "灵活调整您的策略。由于不同的卡牌奖励，在一次运行中有效的策略在另一次中可能无效。",
+                "footer-text": "在这个具有挑战性的Roguelike卡牌游戏中测试您的策略技能！构建您的牌组并征服地牢！",
+                "disclaimer": "这是一个非官方游戏门户。所有游戏均为其各自开发者的财产。"
+            }
+        };
+
+        // Language functionality
+        const languageSelect = document.getElementById('languageSelect');
+        const savedLanguage = localStorage.getItem('selectedLanguage') || 'en';
+        languageSelect.value = savedLanguage;
+
+        function changeLanguage(lang) {
+            const elements = document.querySelectorAll('[data-translate]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[lang] && translations[lang][key]) {
+                    if (element.tagName === 'INPUT' && element.type === 'placeholder') {
+                        element.placeholder = translations[lang][key];
+                    } else {
+                        element.textContent = translations[lang][key];
+                    }
+                }
+            });
+
+            // Update page title and meta description
+            if (lang === 'zh') {
+                document.title = '地牢求死 - Roguelike卡牌游戏 | 类吸血鬼生存者体验';
+                document.querySelector('meta[name="description"]').setAttribute('content', '进入致命地牢！策略类Roguelike卡牌游戏，具有组牌构建、怪物战斗和无尽探索。免费在线游戏！');
+            } else {
+                document.title = 'Die in the Dungeon - Roguelike Card Game | Vampire Survivors Like Experience';
+                document.querySelector('meta[name="description"]').setAttribute('content', 'Enter the deadly dungeon! Strategic roguelike card game with deck building, monster battles, and endless exploration. Play this unique vampire survivors like experience online free!');
+            }
+            
+            localStorage.setItem('selectedLanguage', lang);
+        }
+
+        languageSelect.addEventListener('change', (e) => {
+            changeLanguage(e.target.value);
+        });
+
+        // Initialize language
+        changeLanguage(savedLanguage);
+
+        // Game loading functionality
+        let loadingTimeout;
+        
+        function handleGameLoad() {
+            const loadingIndicator = document.getElementById('loading-indicator');
+            const gameIframe = document.getElementById('game-iframe');
+            const canvasWarning = document.getElementById('canvas-warning');
+            
+            console.log('Game iframe loaded successfully');
+            
+            if (loadingTimeout) {
+                clearTimeout(loadingTimeout);
+            }
+            
+            if (loadingIndicator) {
+                loadingIndicator.style.display = 'none';
+            }
+            if (gameIframe) {
+                gameIframe.classList.remove('hidden');
+            }
+            
+            try {
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                if (!ctx) {
+                    if (canvasWarning) {
+                        canvasWarning.classList.remove('hidden');
+                    }
+                }
+            } catch (e) {
+                if (canvasWarning) {
+                    canvasWarning.classList.remove('hidden');
+                }
+            }
+        }
+
+        function handleGameError() {
+            console.log('Game iframe failed to load');
+            const loadingIndicator = document.getElementById('loading-indicator');
+            const fallbackOptions = document.getElementById('fallback-options');
+            
+            if (loadingTimeout) {
+                clearTimeout(loadingTimeout);
+            }
+            
+            if (loadingIndicator) {
+                loadingIndicator.style.display = 'none';
+            }
+            if (fallbackOptions) {
+                fallbackOptions.classList.remove('hidden');
+            }
+        }
+
+        function startLoadingTimeout() {
+            loadingTimeout = setTimeout(() => {
+                console.log('Game loading timeout - showing fallback options');
+                handleGameError();
+            }, 15000);
+        }
+
+        function playOnlineGame() {
+            const gameUrl = 'https://html-classic.itch.zone/html/7330268/Die%20in%20the%20Dungeon%201.6.2f%20[WEB]/index.html?v=1732313661';
+            const gameWindow = window.open(
+                gameUrl,
+                'die-in-the-dungeon',
+                'width=1200,height=800,scrollbars=no,toolbar=no,location=no,status=no,menubar=no,resizable=yes'
+            );
+            
+            if (gameWindow) {
+                gameWindow.focus();
+            } else {
+                if (confirm('弹窗被浏览器阻止。在新标签页打开游戏吗？')) {
+                    window.open(gameUrl, '_blank');
+                }
+            }
+        }
+
+        function retryLoad() {
+            const loadingIndicator = document.getElementById('loading-indicator');
+            const fallbackOptions = document.getElementById('fallback-options');
+            const iframe = document.getElementById('game-iframe');
+            
+            if (loadingIndicator) {
+                loadingIndicator.style.display = 'flex';
+            }
+            if (fallbackOptions) {
+                fallbackOptions.classList.add('hidden');
+            }
+            if (iframe) {
+                iframe.classList.add('hidden');
+                iframe.src = 'about:blank';
+                
+                setTimeout(() => {
+                    iframe.src = 'https://html-classic.itch.zone/html/7330268/Die%20in%20the%20Dungeon%201.6.2f%20[WEB]/index.html?v=1732313661';
+                    startLoadingTimeout();
+                }, 500);
+            }
+        }
+
+        // Page load initialization
+        document.addEventListener('DOMContentLoaded', function() {
+            const iframe = document.getElementById('game-iframe');
+            
+            iframe.addEventListener('load', function() {
+                setTimeout(handleGameLoad, 1000);
+            });
+            iframe.addEventListener('error', handleGameError);
+            
+            startLoadingTimeout();
+            iframe.src = 'https://html-classic.itch.zone/html/7330268/Die%20in%20the%20Dungeon%201.6.2f%20[WEB]/index.html?v=1732313661';
+        });
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            if (e.key.toLowerCase() === 'p' && !e.ctrlKey && !e.altKey && !e.shiftKey) {
+                const activeElement = document.activeElement;
+                if (activeElement.tagName !== 'INPUT' && activeElement.tagName !== 'TEXTAREA') {
+                    playOnlineGame();
+                }
+            }
+        });
+    </script>
+</body>
+</html> 

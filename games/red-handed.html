@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Handed - Action Crime Game | Vampire Survivors Like Intensity</title>
+    <meta name="description" content="Get caught Red Handed! Intense action crime game with stealth mechanics, strategic gameplay, and thrilling missions. Experience vampire survivors like excitement online free!">
+    <meta name="keywords" content="red handed, action crime game, stealth game, vampire survivors like, tactical action, free online game, crime thriller">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://survivorslike.xyz/games/red-handed.html">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Red Handed - Action Crime Game">
+    <meta property="og:description" content="Intense action crime game with stealth mechanics and strategic gameplay. Vampire survivors like excitement!">
+    <meta property="og:url" content="https://survivorslike.xyz/games/red-handed.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Survivors Like">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Red Handed - Action Crime Game">
+    <meta name="twitter:description" content="Intense action crime game with stealth mechanics and strategic gameplay. Vampire survivors like excitement!">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'apple-blue': '#007AFF',
+                        'apple-gray': '#8E8E93',
+                        'apple-light-gray': '#F2F2F7',
+                        'apple-dark': '#1C1C1E',
+                        'crime-red': '#DC2626',
+                        'crime-black': '#1F2937',
+                        'crime-gold': '#F59E0B'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .crime-gradient {
+            background: linear-gradient(135deg, #1f1f1f 0%, #2d1b1b 50%, #4a1414 100%);
+        }
+        
+        .feature-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #007AFF, #5856D6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .game-iframe {
+            min-height: 600px;
+            border-radius: 16px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+        }
+        
+        @media (max-width: 768px) {
+            .game-iframe {
+                min-height: 400px;
+                border-radius: 12px;
+            }
+        }
+        
+        .canvas-warning {
+            background: linear-gradient(135deg, #ff6b6b, #ffa726);
+            color: white;
+            padding: 15px;
+            border-radius: 12px;
+            margin: 10px 0;
+            text-align: center;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen text-gray-900">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-bold gradient-text">Survivors Like</h1>
+                </div>
+                
+                <!-- Language Selector -->
+                <div class="flex items-center space-x-4">
+                    <select id="languageSelect" class="bg-apple-light-gray border border-gray-300 rounded-lg px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-apple-blue">
+                        <option value="en">🇺🇸 English</option>
+                        <option value="zh">🇨🇳 中文</option>
+                        <option value="ja">🇯🇵 日本語</option>
+                        <option value="ko">🇰🇷 한국어</option>
+                        <option value="es">🇪🇸 Español</option>
+                        <option value="fr">🇫🇷 Français</option>
+                        <option value="de">🇩🇪 Deutsch</option>
+                        <option value="it">🇮🇹 Italiano</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-20 pb-12 crime-gradient">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h1 class="text-6xl md:text-7xl font-black text-white mb-6" data-translate="main-title">
+                    Red Handed
+                </h1>
+                <p class="text-2xl md:text-3xl text-gray-200 mb-8 font-light" data-translate="subtitle">
+                    Master stealth and strategy in this intense action crime thriller with vampire survivors like excitement!
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4 mb-8">
+                    <button onclick="playOnlineGame()" class="px-8 py-4 bg-crime-red text-white font-bold rounded-2xl hover:bg-red-700 transform hover:scale-105 transition-all duration-300 shadow-lg" data-translate="play-now">
+                        🕵️ Play Red Handed Now
+                    </button>
+                </div>
+                <p class="text-lg text-gray-300" data-translate="no-download">
+                    No download required! Experience thrilling crime action in your browser
+                </p>
+            </div>
+
+            <!-- Game Container -->
+            <div class="max-w-5xl mx-auto">
+                <div class="relative">
+                    <!-- Loading Indicator -->
+                    <div id="loading-indicator" class="flex flex-col items-center justify-center py-12">
+                        <div class="w-16 h-16 border-4 border-white/30 border-t-white rounded-full animate-spin mb-4"></div>
+                        <p class="text-white text-lg" data-translate="loading-text">Loading Red Handed...</p>
+                        <p class="text-gray-300 text-sm mt-2" data-translate="loading-wait">This may take a few seconds</p>
+                    </div>
+                    
+                    <!-- Game Canvas Warning -->
+                    <div id="canvas-warning" class="canvas-warning hidden">
+                        <div class="flex items-center justify-center gap-2">
+                            <span>⚠️</span>
+                            <span data-translate="canvas-warning">Your browser needs Canvas support for this game. Please try a modern browser like Chrome, Firefox, or Safari.</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Game iframe -->
+                    <iframe id="game-iframe"
+                        class="game-iframe w-full h-96 md:h-[700px] border-0 rounded-16 shadow-2xl hidden"
+                        allowfullscreen
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="no-referrer"
+                        sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-top-navigation"
+                        loading="lazy"
+                        title="Red Handed Online Game"
+                        src="https://html-classic.itch.zone/html/3872485/Red%20Handed%20v1.1%20(WEBGL)/index.html?v=1732313766">
+                        <p class="text-white text-center p-8" data-translate="iframe-fallback">
+                            Your browser doesn't support iframes. <a href="https://html-classic.itch.zone/html/3872485/Red%20Handed%20v1.1%20(WEBGL)/index.html?v=1732313766" target="_blank" class="text-crime-red underline">Click here to play directly</a>.
+                        </p>
+                    </iframe>
+                    
+                    <!-- Fallback Options -->
+                    <div id="fallback-options" class="hidden mt-6 p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
+                        <div class="text-center">
+                            <div class="text-4xl mb-4">⚠️</div>
+                            <h3 class="text-lg font-bold text-yellow-800 mb-2" data-translate="game-loading-issue">Game Loading Issues</h3>
+                            <p class="text-yellow-700 mb-4" data-translate="try-alternatives">Please try one of these alternatives:</p>
+                            <div class="space-x-4">
+                                <button onclick="playOnlineGame()" 
+                                        class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors" data-translate="new-window">
+                                    🚀 Open in New Window
+                                </button>
+                                <a href="https://html-classic.itch.zone/html/3872485/Red%20Handed%20v1.1%20(WEBGL)/index.html?v=1732313766" target="_blank"
+                                   class="inline-block px-6 py-3 bg-crime-red text-white rounded-lg hover:bg-red-700 transition-colors" data-translate="direct-access">
+                                    🕵️ Direct Game Access
+                                </a>
+                                <button onclick="retryLoad()" 
+                                        class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 transition-colors" data-translate="retry-loading">
+                                    🔄 Retry Loading
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Game Info -->
+                <div class="mt-8 max-w-3xl mx-auto p-4 bg-blue-50 border border-blue-200 rounded-lg">
+                    <div class="flex items-start">
+                        <div class="text-2xl mr-3">ℹ️</div>
+                        <div>
+                            <h4 class="font-bold text-blue-800 mb-1" data-translate="game-info-title">Game Information</h4>
+                            <p class="text-sm text-blue-700" data-translate="game-info-desc">
+                                Red Handed is an action-packed crime thriller featuring stealth mechanics, strategic gameplay, and intense missions. 
+                                Navigate through challenging scenarios and master the art of not getting caught red-handed.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-5xl font-bold text-center text-gray-900 mb-12" data-translate="about-game">
+                About the Game
+            </h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="feature-card p-8 rounded-2xl">
+                    <div class="text-5xl mb-6">🕵️</div>
+                    <h3 class="text-2xl font-bold mb-4 gradient-text" data-translate="stealth-action-title">
+                        Stealth & Strategy
+                    </h3>
+                    <p class="text-gray-700 text-lg leading-relaxed" data-translate="stealth-action-desc">
+                        Master the art of stealth and strategic thinking. Plan your moves carefully to avoid detection and complete challenging missions.
+                    </p>
+                </div>
+                <div class="feature-card p-8 rounded-2xl">
+                    <div class="text-5xl mb-6">⚡</div>
+                    <h3 class="text-2xl font-bold mb-4 gradient-text" data-translate="intense-gameplay-title">
+                        Intense Crime Action
+                    </h3>
+                    <p class="text-gray-700 text-lg leading-relaxed" data-translate="intense-gameplay-desc">
+                        Experience heart-pounding action sequences with the same intensity as vampire survivors games, but in a crime thriller setting.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section class="py-16 bg-apple-light-gray">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-5xl font-bold text-center text-gray-900 mb-12" data-translate="features">
+                Game Features
+            </h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="feature-card p-8 text-center rounded-2xl">
+                    <div class="text-6xl mb-6">🎭</div>
+                    <h3 class="text-xl font-bold mb-4 gradient-text" data-translate="feature1-title">Stealth Mechanics</h3>
+                    <p class="text-gray-600" data-translate="feature1-desc">Use shadows, timing, and cunning to avoid detection and complete objectives</p>
+                </div>
+                <div class="feature-card p-8 text-center rounded-2xl">
+                    <div class="text-6xl mb-6">🎯</div>
+                    <h3 class="text-xl font-bold mb-4 gradient-text" data-translate="feature2-title">Strategic Missions</h3>
+                    <p class="text-gray-600" data-translate="feature2-desc">Plan and execute complex heists and operations with multiple approaches</p>
+                </div>
+                <div class="feature-card p-8 text-center rounded-2xl">
+                    <div class="text-6xl mb-6">🔥</div>
+                    <h3 class="text-xl font-bold mb-4 gradient-text" data-translate="feature3-title">Thrilling Action</h3>
+                    <p class="text-gray-600" data-translate="feature3-desc">Heart-racing sequences that keep you on the edge like vampire survivors games</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tips Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-5xl font-bold text-center text-gray-900 mb-12" data-translate="tips">
+                Crime Tips
+            </h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="feature-card p-8 rounded-2xl">
+                    <div class="text-4xl mb-4">👤</div>
+                    <h3 class="text-2xl font-bold mb-6 gradient-text" data-translate="tip1-title">Stay in Shadows</h3>
+                    <p class="text-gray-700 text-lg" data-translate="tip1-desc">Use the environment to your advantage. Shadows and cover are your best friends when avoiding detection.</p>
+                </div>
+                <div class="feature-card p-8 rounded-2xl">
+                    <div class="text-4xl mb-4">⏰</div>
+                    <h3 class="text-2xl font-bold mb-6 gradient-text" data-translate="tip2-title">Perfect Timing</h3>
+                    <p class="text-gray-700 text-lg" data-translate="tip2-desc">Observe patrol patterns and timing. Success often depends on making your move at the perfect moment.</p>
+                </div>
+                <div class="feature-card p-8 rounded-2xl">
+                    <div class="text-4xl mb-4">🧠</div>
+                    <h3 class="text-2xl font-bold mb-6 gradient-text" data-translate="tip3-title">Think Ahead</h3>
+                    <p class="text-gray-700 text-lg" data-translate="tip3-desc">Plan your escape route before starting any mission. Always have a backup plan when things go wrong.</p>
+                </div>
+                <div class="feature-card p-8 rounded-2xl">
+                    <div class="text-4xl mb-4">🎯</div>
+                    <h3 class="text-2xl font-bold mb-6 gradient-text" data-translate="tip4-title">Stay Calm</h3>
+                    <p class="text-gray-700 text-lg" data-translate="tip4-desc">Keep your cool under pressure. Panic leads to mistakes, and mistakes get you caught red-handed.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 crime-gradient text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="glass-card p-8 max-w-2xl mx-auto rounded-2xl">
+                <h3 class="text-2xl font-bold mb-4 gradient-text">Ready for Crime Action?</h3>
+                <p class="mb-6 text-lg" data-translate="footer-text">
+                    Master stealth and strategy in this thrilling crime game! Can you complete the mission without getting caught?
+                </p>
+                <p class="text-sm opacity-75 border-t border-white/20 pt-4" data-translate="disclaimer">
+                    This is an unofficial game portal. All games are property of their respective developers.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Multi-language support
+        const translations = {
+            en: {
+                "main-title": "Red Handed",
+                "subtitle": "Master stealth and strategy in this intense action crime thriller with vampire survivors like excitement!",
+                "play-now": "🕵️ Play Red Handed Now",
+                "no-download": "No download required! Experience thrilling crime action in your browser",
+                "loading-text": "Loading Red Handed...",
+                "loading-wait": "This may take a few seconds",
+                "canvas-warning": "Your browser needs Canvas support for this game. Please try a modern browser like Chrome, Firefox, or Safari.",
+                "iframe-fallback": "Your browser doesn't support iframes. Click here to play directly.",
+                "game-loading-issue": "Game Loading Issues",
+                "try-alternatives": "Please try one of these alternatives:",
+                "new-window": "🚀 Open in New Window",
+                "direct-access": "🕵️ Direct Game Access",
+                "retry-loading": "🔄 Retry Loading",
+                "game-info-title": "Game Information",
+                "game-info-desc": "Red Handed is an action-packed crime thriller featuring stealth mechanics, strategic gameplay, and intense missions. Navigate through challenging scenarios and master the art of not getting caught red-handed.",
+                "about-game": "About the Game",
+                "stealth-action-title": "Stealth & Strategy",
+                "stealth-action-desc": "Master the art of stealth and strategic thinking. Plan your moves carefully to avoid detection and complete challenging missions.",
+                "intense-gameplay-title": "Intense Crime Action",
+                "intense-gameplay-desc": "Experience heart-pounding action sequences with the same intensity as vampire survivors games, but in a crime thriller setting.",
+                "features": "Game Features",
+                "feature1-title": "Stealth Mechanics",
+                "feature1-desc": "Use shadows, timing, and cunning to avoid detection and complete objectives",
+                "feature2-title": "Strategic Missions",
+                "feature2-desc": "Plan and execute complex heists and operations with multiple approaches",
+                "feature3-title": "Thrilling Action",
+                "feature3-desc": "Heart-racing sequences that keep you on the edge like vampire survivors games",
+                "tips": "Crime Tips",
+                "tip1-title": "Stay in Shadows",
+                "tip1-desc": "Use the environment to your advantage. Shadows and cover are your best friends when avoiding detection.",
+                "tip2-title": "Perfect Timing",
+                "tip2-desc": "Observe patrol patterns and timing. Success often depends on making your move at the perfect moment.",
+                "tip3-title": "Think Ahead",
+                "tip3-desc": "Plan your escape route before starting any mission. Always have a backup plan when things go wrong.",
+                "tip4-title": "Stay Calm",
+                "tip4-desc": "Keep your cool under pressure. Panic leads to mistakes, and mistakes get you caught red-handed.",
+                "footer-text": "Master stealth and strategy in this thrilling crime game! Can you complete the mission without getting caught?",
+                "disclaimer": "This is an unofficial game portal. All games are property of their respective developers."
+            },
+            zh: {
+                "main-title": "被当场抓获",
+                "subtitle": "在这款具有类吸血鬼生存者般刺激的紧张动作犯罪惊悚游戏中掌握潜行和策略！",
+                "play-now": "🕵️ 立即开始被当场抓获",
+                "no-download": "无需下载！在浏览器中体验惊险的犯罪动作",
+                "loading-text": "正在加载被当场抓获...",
+                "loading-wait": "这可能需要几秒钟",
+                "canvas-warning": "您的浏览器需要Canvas支持才能运行此游戏。请尝试Chrome、Firefox或Safari等现代浏览器。",
+                "iframe-fallback": "您的浏览器不支持iframe。点击这里直接游戏。",
+                "game-loading-issue": "游戏加载问题",
+                "try-alternatives": "请尝试以下替代方案：",
+                "new-window": "🚀 在新窗口打开",
+                "direct-access": "🕵️ 直接访问游戏",
+                "retry-loading": "🔄 重新加载",
+                "game-info-title": "游戏信息",
+                "game-info-desc": "被当场抓获是一款充满动作的犯罪惊悚游戏，具有潜行机制、策略玩法和紧张任务。在充满挑战的场景中导航，掌握不被当场抓获的艺术。",
+                "about-game": "关于游戏",
+                "stealth-action-title": "潜行与策略",
+                "stealth-action-desc": "掌握潜行和战略思维的艺术。仔细计划你的行动以避免被发现并完成具有挑战性的任务。",
+                "intense-gameplay-title": "紧张犯罪动作",
+                "intense-gameplay-desc": "体验与吸血鬼生存者游戏相同强度的心跳加速动作序列，但在犯罪惊悚设定中。",
+                "features": "游戏特色",
+                "feature1-title": "潜行机制",
+                "feature1-desc": "使用阴影、时机和狡猾来避免被发现并完成目标",
+                "feature2-title": "策略任务",
+                "feature2-desc": "计划和执行复杂的抢劫和行动，有多种方法",
+                "feature3-title": "惊险动作",
+                "feature3-desc": "像吸血鬼生存者游戏一样让你紧张的心跳序列",
+                "tips": "犯罪技巧",
+                "tip1-title": "躲在阴影中",
+                "tip1-desc": "利用环境优势。阴影和掩护是你避免被发现的最好朋友。",
+                "tip2-title": "完美时机",
+                "tip2-desc": "观察巡逻模式和时机。成功往往取决于在完美的时刻采取行动。",
+                "tip3-title": "提前思考",
+                "tip3-desc": "在开始任何任务之前计划你的逃脱路线。当事情出错时总有备用计划。",
+                "tip4-title": "保持冷静",
+                "tip4-desc": "在压力下保持冷静。恐慌导致错误，错误让你被当场抓获。",
+                "footer-text": "在这个惊险的犯罪游戏中掌握潜行和策略！你能在不被抓住的情况下完成任务吗？",
+                "disclaimer": "这是一个非官方游戏门户。所有游戏均为其各自开发者的财产。"
+            }
+        };
+
+        // Language functionality
+        const languageSelect = document.getElementById('languageSelect');
+        const savedLanguage = localStorage.getItem('selectedLanguage') || 'en';
+        languageSelect.value = savedLanguage;
+
+        function changeLanguage(lang) {
+            const elements = document.querySelectorAll('[data-translate]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[lang] && translations[lang][key]) {
+                    if (element.tagName === 'INPUT' && element.type === 'placeholder') {
+                        element.placeholder = translations[lang][key];
+                    } else {
+                        element.textContent = translations[lang][key];
+                    }
+                }
+            });
+
+            // Update page title and meta description
+            if (lang === 'zh') {
+                document.title = '被当场抓获 - 动作犯罪游戏 | 类吸血鬼生存者强度';
+                document.querySelector('meta[name="description"]').setAttribute('content', '被当场抓获！具有潜行机制、策略玩法和惊险任务的紧张动作犯罪游戏。免费在线体验类吸血鬼生存者的刺激！');
+            } else {
+                document.title = 'Red Handed - Action Crime Game | Vampire Survivors Like Intensity';
+                document.querySelector('meta[name="description"]').setAttribute('content', 'Get caught Red Handed! Intense action crime game with stealth mechanics, strategic gameplay, and thrilling missions. Experience vampire survivors like excitement online free!');
+            }
+            
+            localStorage.setItem('selectedLanguage', lang);
+        }
+
+        languageSelect.addEventListener('change', (e) => {
+            changeLanguage(e.target.value);
+        });
+
+        // Initialize language
+        changeLanguage(savedLanguage);
+
+        // Game loading functionality
+        let loadingTimeout;
+        
+        function handleGameLoad() {
+            const loadingIndicator = document.getElementById('loading-indicator');
+            const gameIframe = document.getElementById('game-iframe');
+            const canvasWarning = document.getElementById('canvas-warning');
+            
+            console.log('Game iframe loaded successfully');
+            
+            if (loadingTimeout) {
+                clearTimeout(loadingTimeout);
+            }
+            
+            if (loadingIndicator) {
+                loadingIndicator.style.display = 'none';
+            }
+            if (gameIframe) {
+                gameIframe.classList.remove('hidden');
+            }
+            
+            try {
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                if (!ctx) {
+                    if (canvasWarning) {
+                        canvasWarning.classList.remove('hidden');
+                    }
+                }
+            } catch (e) {
+                if (canvasWarning) {
+                    canvasWarning.classList.remove('hidden');
+                }
+            }
+        }
+
+        function handleGameError() {
+            console.log('Game iframe failed to load');
+            const loadingIndicator = document.getElementById('loading-indicator');
+            const fallbackOptions = document.getElementById('fallback-options');
+            
+            if (loadingTimeout) {
+                clearTimeout(loadingTimeout);
+            }
+            
+            if (loadingIndicator) {
+                loadingIndicator.style.display = 'none';
+            }
+            if (fallbackOptions) {
+                fallbackOptions.classList.remove('hidden');
+            }
+        }
+
+        function startLoadingTimeout() {
+            loadingTimeout = setTimeout(() => {
+                console.log('Game loading timeout - showing fallback options');
+                handleGameError();
+            }, 15000);
+        }
+
+        function playOnlineGame() {
+            const gameUrl = 'https://html-classic.itch.zone/html/3872485/Red%20Handed%20v1.1%20(WEBGL)/index.html?v=1732313766';
+            const gameWindow = window.open(
+                gameUrl,
+                'red-handed-game',
+                'width=1200,height=800,scrollbars=no,toolbar=no,location=no,status=no,menubar=no,resizable=yes'
+            );
+            
+            if (gameWindow) {
+                gameWindow.focus();
+            } else {
+                if (confirm('弹窗被浏览器阻止。在新标签页打开游戏吗？')) {
+                    window.open(gameUrl, '_blank');
+                }
+            }
+        }
+
+        function retryLoad() {
+            const loadingIndicator = document.getElementById('loading-indicator');
+            const fallbackOptions = document.getElementById('fallback-options');
+            const iframe = document.getElementById('game-iframe');
+            
+            if (loadingIndicator) {
+                loadingIndicator.style.display = 'flex';
+            }
+            if (fallbackOptions) {
+                fallbackOptions.classList.add('hidden');
+            }
+            if (iframe) {
+                iframe.classList.add('hidden');
+                iframe.src = 'about:blank';
+                
+                setTimeout(() => {
+                    iframe.src = 'https://html-classic.itch.zone/html/3872485/Red%20Handed%20v1.1%20(WEBGL)/index.html?v=1732313766';
+                    startLoadingTimeout();
+                }, 500);
+            }
+        }
+
+        // Page load initialization
+        document.addEventListener('DOMContentLoaded', function() {
+            const iframe = document.getElementById('game-iframe');
+            
+            iframe.addEventListener('load', function() {
+                setTimeout(handleGameLoad, 1000);
+            });
+            iframe.addEventListener('error', handleGameError);
+            
+            startLoadingTimeout();
+            iframe.src = 'https://html-classic.itch.zone/html/3872485/Red%20Handed%20v1.1%20(WEBGL)/index.html?v=1732313766';
+        });
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            if (e.key.toLowerCase() === 'p' && !e.ctrlKey && !e.altKey && !e.shiftKey) {
+                const activeElement = document.activeElement;
+                if (activeElement.tagName !== 'INPUT' && activeElement.tagName !== 'TEXTAREA') {
+                    playOnlineGame();
+                }
+            }
+        });
+    </script>
+</body>
+</html> 

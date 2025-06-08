@@ -3,114 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Physics-based Medieval Melee - Free Online Game | Survivors Like</title>
-    <meta name="description" content="Experience the ultimate physics-based medieval combat! Fight with realistic weapon mechanics, dynamic battles, and immersive medieval warfare. Play free online now!">
-    <meta name="keywords" content="physics medieval game, online medieval combat, physics-based fighting, medieval melee, survivors like, free online game">
-    <meta name="robots" content="index, follow">
+    <title data-en="Vampire Survivors Like Games Collection | SurvivorsLike.xyz" data-zh="吸血鬼生存者类游戏大全 - Vampire Survivors Like Games | SurvivorsLike.xyz">Vampire Survivors Like Games Collection | SurvivorsLike.xyz</title>
+    <meta name="description" content="The ultimate collection of Vampire Survivors like games! Play free online Vampire Survivors-style games including survival, bullet hell, and roguelike games. Constantly updated with the latest popular games!" data-en="The ultimate collection of Vampire Survivors like games! Play free online Vampire Survivors-style games including survival, bullet hell, and roguelike games. Constantly updated with the latest popular games!" data-zh="最全的吸血鬼生存者类游戏合集！免费在线游玩Vampire Survivors Like游戏，包括类似玩法的生存、弹幕、Roguelike游戏。持续更新最新热门游戏！">
+    <meta name="keywords" content="Vampire Survivors like, vampire survivors games, survival games, bullet hell games, roguelike, free online games, similar games" data-en="Vampire Survivors like, vampire survivors games, survival games, bullet hell games, roguelike, free online games, similar games" data-zh="Vampire Survivors like, 吸血鬼生存者, 生存游戏, 弹幕游戏, Roguelike, 免费在线游戏, 类似游戏">
+    <meta name="author" content="SurvivorsLike.xyz">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://survivorslike.xyz/">
+    <meta property="og:title" content="Vampire Survivors Like Games Collection" data-en="Vampire Survivors Like Games Collection" data-zh="吸血鬼生存者类游戏大全 - Vampire Survivors Like Games">
+    <meta property="og:description" content="The ultimate collection of Vampire Survivors like games! Play free online Vampire Survivors-style games" data-en="The ultimate collection of Vampire Survivors like games! Play free online Vampire Survivors-style games" data-zh="最全的吸血鬼生存者类游戏合集！免费在线游玩Vampire Survivors Like游戏">
+    <meta property="og:image" content="https://survivorslike.xyz/images/vampire-survivors-like-games.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://survivorslike.xyz/">
+    <meta property="twitter:title" content="Vampire Survivors Like Games Collection" data-en="Vampire Survivors Like Games Collection" data-zh="吸血鬼生存者类游戏大全 - Vampire Survivors Like Games">
+    <meta property="twitter:description" content="The ultimate collection of Vampire Survivors like games! Play free online Vampire Survivors-style games" data-en="The ultimate collection of Vampire Survivors like games! Play free online Vampire Survivors-style games" data-zh="最全的吸血鬼生存者类游戏合集！免费在线游玩Vampire Survivors Like游戏">
+    <meta property="twitter:image" content="https://survivorslike.xyz/images/vampire-survivors-like-games.jpg">
+    
+    <!-- 结构化数据 -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "SurvivorsLike.xyz",
+        "description": "The ultimate collection of Vampire Survivors like games",
+        "url": "https://survivorslike.xyz/",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://survivorslike.xyz/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+    
+    <!-- Canonical URL -->
     <link rel="canonical" href="https://survivorslike.xyz/">
     
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Physics-based Medieval Melee - Free Online Game">
-    <meta property="og:description" content="Experience realistic medieval combat with advanced physics mechanics. Play free online now!">
-    <meta property="og:url" content="https://survivorslike.xyz/">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Survivors Like">
+    <!-- 网站图标 -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Physics-based Medieval Melee - Free Online Game">
-    <meta name="twitter:description" content="Experience realistic medieval combat with advanced physics mechanics. Play free online now!">
-    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'apple-blue': '#007AFF',
-                        'apple-gray': '#8E8E93',
-                        'apple-light-gray': '#F2F2F7',
-                        'apple-dark': '#1C1C1E',
-                        'medieval-gold': '#D4AF37',
-                        'medieval-bronze': '#CD7F32',
-                        'medieval-steel': '#71797E'
+                        'vampire-red': '#8B0000',
+                        'blood-red': '#DC143C',
+                        'dark-purple': '#301934',
+                        'gothic-black': '#1a1a1a'
                     }
                 }
             }
         }
     </script>
     
+    <!-- 自定义CSS -->
     <style>
         .gradient-bg {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #1a1a1a 0%, #301934 50%, #8B0000 100%);
         }
-        
-        .medieval-gradient {
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 50%, #3c6478 100%);
+        .game-card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(139, 0, 0, 0.3);
         }
-        
-        .feature-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+        .floating-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .lang-switch {
             transition: all 0.3s ease;
         }
-        
-        .feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-        
-        .glass-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .gradient-text {
-            background: linear-gradient(135deg, #007AFF, #5856D6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .game-iframe {
-            min-height: 600px;
-            border-radius: 16px;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
-        }
-        
-        @media (max-width: 768px) {
-            .game-iframe {
-                min-height: 400px;
-                border-radius: 12px;
-            }
-        }
-        
-        .canvas-warning {
-            background: linear-gradient(135deg, #ff6b6b, #ffa726);
-            color: white;
-            padding: 15px;
-            border-radius: 12px;
-            margin: 10px 0;
-            text-align: center;
-            font-weight: 600;
+        .lang-switch:hover {
+            transform: scale(1.05);
         }
     </style>
 </head>
-
-<body class="min-h-screen text-gray-900">
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-200">
+<body class="bg-gothic-black text-white">
+    <!-- 导航栏 -->
+    <nav class="bg-dark-purple/90 backdrop-blur-sm sticky top-0 z-50 border-b border-vampire-red/30">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex items-center">
-                    <h1 class="text-2xl font-bold gradient-text">Survivors Like</h1>
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo居中在小屏幕，左对齐在大屏幕 -->
+                <div class="flex items-center flex-1 justify-center md:justify-start">
+                    <a href="/" class="text-2xl font-bold text-blood-red hover:text-white transition-colors">
+                        🧛 SurvivorsLike.xyz
+                    </a>
                 </div>
                 
-                <!-- Language Selector -->
-                <div class="flex items-center space-x-4">
-                    <select id="languageSelect" class="bg-apple-light-gray border border-gray-300 rounded-lg px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-apple-blue">
+                <!-- 语言切换选择器 -->
+                <div class="flex items-center space-x-2">
+                    <select id="languageSelect" class="bg-dark-purple/50 border border-vampire-red/30 rounded-lg px-3 py-1 text-sm text-white focus:outline-none focus:ring-2 focus:ring-blood-red">
                         <option value="en">🇺🇸 English</option>
                         <option value="zh">🇨🇳 中文</option>
                         <option value="ja">🇯🇵 日本語</option>
@@ -125,93 +115,190 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="pt-20 pb-12 medieval-gradient">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h1 class="text-6xl md:text-7xl font-black text-white mb-6" data-translate="main-title">
-                    Physics-based Medieval Melee
+    <!-- Hero 区域 -->
+    <section class="gradient-bg py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="floating-animation">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6">
+                    <span class="text-blood-red">Vampire Survivors</span>
+                    <span class="text-white">Like Games</span>
                 </h1>
-                <p class="text-2xl md:text-3xl text-gray-200 mb-8 font-light" data-translate="subtitle">
-                    Experience authentic medieval combat with realistic physics and dynamic sword fighting!
-                </p>
-                <div class="flex flex-col sm:flex-row justify-center gap-4 mb-8">
-                    <button onclick="playOnlineGame()" class="px-8 py-4 bg-medieval-gold text-white font-bold rounded-2xl hover:bg-yellow-600 transform hover:scale-105 transition-all duration-300 shadow-lg" data-translate="play-now">
-                        ⚔️ Play Medieval Combat Now
-                    </button>
-                </div>
-                <p class="text-lg text-gray-300" data-translate="no-download">
-                    No download required! Experience realistic medieval warfare in your browser
-                </p>
             </div>
+            <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto" 
+               data-en="Explore the ultimate collection of Vampire Survivors like games! Enjoy thrilling survival bullet hell experiences, challenge endless enemy waves, and upgrade your characters and weapons!" 
+               data-zh="探索最全的吸血鬼生存者类游戏合集！享受刺激的生存弹幕体验，挑战无尽的敌人波浪，升级你的角色和武器!"
+               data-ja="バンパイアサバイバーズ系ゲームの究極コレクションを探索！スリリングなサバイバル弾幕体験、無限の敵の波への挑戦、キャラクターと武器のアップグレードをお楽しみください！"
+               data-ko="뱀파이어 서바이버즈 류 게임의 궁극적인 컬렉션을 탐험하세요! 스릴 넘치는 서바이벌 탄막 경험, 무한한 적의 파도에 도전하고 캐릭터와 무기를 업그레이드하세요!"
+               data-es="¡Explora la colección definitiva de juegos tipo Vampire Survivors! ¡Disfruta de emocionantes experiencias de supervivencia bullet hell, desafía oleadas infinitas de enemigos y mejora tus personajes y armas!"
+               data-fr="Explorez la collection ultime de jeux type Vampire Survivors ! Profitez d'expériences de survie bullet hell palpitantes, affrontez des vagues infinies d'ennemis et améliorez vos personnages et armes !"
+               data-de="Erkunde die ultimative Sammlung von Vampire Survivors-ähnlichen Spielen! Genieße aufregende Survival-Bullet-Hell-Erfahrungen, stelle dich endlosen Feindwellen und verbessere deine Charaktere und Waffen!"
+               data-it="Esplora la collezione definitiva di giochi tipo Vampire Survivors! Goditi emozionanti esperienze di sopravvivenza bullet hell, sfida ondate infinite di nemici e migliora i tuoi personaggi e armi!">
+                Explore the ultimate collection of Vampire Survivors like games! Enjoy thrilling survival bullet hell experiences, challenge endless enemy waves, and upgrade your characters and weapons!
+            </p>
+            <div class="flex justify-center">
+                <a href="#featured-games" class="bg-blood-red hover:bg-vampire-red text-white font-bold py-4 px-8 rounded-lg transition-colors inline-flex items-center" 
+                   data-en="🎮 Start Playing" 
+                   data-zh="🎮 开始游戏"
+                   data-ja="🎮 プレイ開始"
+                   data-ko="🎮 플레이 시작"
+                   data-es="🎮 Empezar a Jugar"
+                   data-fr="🎮 Commencer à Jouer"
+                   data-de="🎮 Spielen Beginnen"
+                   data-it="🎮 Inizia a Giocare">
+                    🎮 Start Playing
+                </a>
+            </div>
+        </div>
+    </section>
 
-            <!-- Game Container -->
-            <div class="max-w-5xl mx-auto">
-                <div class="relative">
-                    <!-- Loading Indicator -->
-                    <div id="loading-indicator" class="flex flex-col items-center justify-center py-12">
-                        <div class="w-16 h-16 border-4 border-white/30 border-t-white rounded-full animate-spin mb-4"></div>
-                        <p class="text-white text-lg" data-translate="loading-text">Loading Medieval Combat Game...</p>
-                        <p class="text-gray-300 text-sm mt-2" data-translate="loading-wait">This may take a few seconds</p>
+    <!-- 统计数据 -->
+    <section class="bg-dark-purple/30 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="text-3xl font-bold text-blood-red">5+</div>
+                    <div class="text-gray-300" data-en="Featured Games" data-zh="精选游戏" data-ja="厳選ゲーム" data-ko="추천 게임" data-es="Juegos Destacados" data-fr="Jeux Vedettes" data-de="Ausgewählte Spiele" data-it="Giochi in Evidenza">Featured Games</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold text-blood-red">10K+</div>
+                    <div class="text-gray-300" data-en="Monthly Players" data-zh="月活玩家" data-ja="月間プレイヤー" data-ko="월간 플레이어" data-es="Jugadores Mensuales" data-fr="Joueurs Mensuels" data-de="Monatliche Spieler" data-it="Giocatori Mensili">Monthly Players</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold text-blood-red">24/7</div>
+                    <div class="text-gray-300" data-en="Free to Play" data-zh="免费畅玩" data-ja="無料プレイ" data-ko="무료 플레이" data-es="Gratis para Jugar" data-fr="Gratuit à Jouer" data-de="Kostenlos Spielen" data-it="Gratuito da Giocare">Free to Play</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-bold text-blood-red" data-en="Regular" data-zh="持续" data-ja="定期" data-ko="정기" data-es="Regular" data-fr="Régulier" data-de="Regelmäßig" data-it="Regolare">Regular</div>
+                    <div class="text-gray-300" data-en="Game Updates" data-zh="更新游戏" data-ja="ゲーム更新" data-ko="게임 업데이트" data-es="Actualizaciones" data-fr="Mises à Jour" data-de="Spiel-Updates" data-it="Aggiornamenti">Game Updates</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 精选游戏 -->
+    <section id="featured-games" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-12">
+                🔥 <span class="text-blood-red" data-en="Featured Games" data-zh="精选游戏" data-ja="厳選ゲーム" data-ko="추천 게임" data-es="Juegos Destacados" data-fr="Jeux Vedettes" data-de="Ausgewählte Spiele" data-it="Giochi in Evidenza">Featured Games</span>
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 游戏卡片 1: 10 Minutes Till Dawn -->
+                <div class="bg-dark-purple/50 rounded-xl overflow-hidden game-card-hover transition-all duration-300 border border-vampire-red/20">
+                    <div class="aspect-video bg-gradient-to-br from-purple-900 to-blue-900 flex items-center justify-center">
+                        <span class="text-4xl">🌅</span>
                     </div>
-                    
-                    <!-- Game Canvas Warning -->
-                    <div id="canvas-warning" class="canvas-warning hidden">
-                        <div class="flex items-center justify-center gap-2">
-                            <span>⚠️</span>
-                            <span data-translate="canvas-warning">Your browser needs Canvas support for this game. Please try a modern browser like Chrome, Firefox, or Safari.</span>
-                        </div>
-                    </div>
-                    
-                    <!-- Game iframe -->
-                    <iframe id="game-iframe"
-                        class="game-iframe w-full h-96 md:h-[700px] border-0 rounded-16 shadow-2xl hidden"
-                        allowfullscreen
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="no-referrer"
-                        sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-top-navigation"
-                        loading="lazy"
-                        title="Physics-based Medieval Melee Online Game"
-                        src="https://html-classic.itch.zone/html/13774666/index.html">
-                        <p class="text-white text-center p-8" data-translate="iframe-fallback">
-                            Your browser doesn't support iframes. <a href="https://html-classic.itch.zone/html/13774666/index.html" target="_blank" class="text-medieval-gold underline">Click here to play directly</a>.
-                        </p>
-                    </iframe>
-                    
-                    <!-- Fallback Options -->
-                    <div id="fallback-options" class="hidden mt-6 p-6 bg-yellow-50 border border-yellow-200 rounded-lg">
-                        <div class="text-center">
-                            <div class="text-4xl mb-4">⚠️</div>
-                            <h3 class="text-lg font-bold text-yellow-800 mb-2" data-translate="game-loading-issue">Game Loading Issues</h3>
-                            <p class="text-yellow-700 mb-4" data-translate="try-alternatives">Please try one of these alternatives:</p>
-                            <div class="space-x-4">
-                                <button onclick="playOnlineGame()" 
-                                        class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors" data-translate="new-window">
-                                    🚀 Open in New Window
-                                </button>
-                                <a href="https://html-classic.itch.zone/html/13774666/index.html" target="_blank"
-                                   class="inline-block px-6 py-3 bg-medieval-gold text-white rounded-lg hover:bg-yellow-600 transition-colors" data-translate="direct-access">
-                                    🎮 Direct Game Access
-                                </a>
-                                <button onclick="retryLoad()" 
-                                        class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 transition-colors" data-translate="retry-loading">
-                                    🔄 Retry Loading
-                                </button>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">10 Minutes Till Dawn</h3>
+                        <p class="text-gray-300 mb-4" data-en="Survive the endless night! Intense bullet hell survival game, fight monster waves until dawn!" data-zh="在无尽的黑夜中生存！激烈的弹幕生存游戏，对抗怪物潮直到黎明！">Survive the endless night! Intense bullet hell survival game, fight monster waves until dawn!</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-2">
+                                <span class="text-yellow-400">⭐</span>
+                                <span class="text-sm text-gray-300">4.8 (1.2K)</span>
                             </div>
+                            <a href="/games/10-minutes-till-dawn.html" class="bg-blood-red hover:bg-vampire-red text-white px-4 py-2 rounded-lg transition-colors" data-en="Play Now" data-zh="立即游玩" data-ja="今すぐプレイ" data-ko="지금 플레이" data-es="Jugar Ahora" data-fr="Jouer Maintenant" data-de="Jetzt Spielen" data-it="Gioca Ora">
+                                Play Now
+                            </a>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Game Info -->
-                <div class="mt-8 max-w-3xl mx-auto p-4 bg-blue-50 border border-blue-200 rounded-lg">
-                    <div class="flex items-start">
-                        <div class="text-2xl mr-3">ℹ️</div>
-                        <div>
-                            <h4 class="font-bold text-blue-800 mb-1" data-translate="game-info-title">Game Information</h4>
-                            <p class="text-sm text-blue-700" data-translate="game-info-desc">
-                                This medieval combat game features advanced physics simulation for realistic sword fighting and weapon dynamics. 
-                                Best experienced on desktop with a modern browser supporting HTML5 Canvas.
-                            </p>
+                <!-- 游戏卡片 2: Physics-based Medieval Melee -->
+                <div class="bg-dark-purple/50 rounded-xl overflow-hidden game-card-hover transition-all duration-300 border border-vampire-red/20">
+                    <div class="aspect-video bg-gradient-to-br from-gray-800 to-yellow-700 flex items-center justify-center">
+                        <span class="text-4xl">⚔️</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Physics-based Medieval Melee</h3>
+                        <p class="text-gray-300 mb-4" data-en="Experience realistic medieval combat! Sword fighting game with authentic physics effects!" data-zh="体验真实的中世纪战斗！具有逼真物理效果的剑战游戏！">Experience realistic medieval combat! Sword fighting game with authentic physics effects!</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-2">
+                                <span class="text-yellow-400">⭐</span>
+                                <span class="text-sm text-gray-300">4.7 (980)</span>
+                            </div>
+                            <a href="/games/Physics-based.html" class="bg-blood-red hover:bg-vampire-red text-white px-4 py-2 rounded-lg transition-colors" data-en="Play Now" data-zh="立即游玩" data-ja="今すぐプレイ" data-ko="지금 플레이" data-es="Jugar Ahora" data-fr="Jouer Maintenant" data-de="Jetzt Spielen" data-it="Gioca Ora">
+                                Play Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 游戏卡片 3: Die in the Dungeon -->
+                <div class="bg-dark-purple/50 rounded-xl overflow-hidden game-card-hover transition-all duration-300 border border-vampire-red/20">
+                    <div class="aspect-video bg-gradient-to-br from-purple-800 to-indigo-900 flex items-center justify-center">
+                        <span class="text-4xl">🃏</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Die in the Dungeon</h3>
+                        <p class="text-gray-300 mb-4" data-en="Strategic roguelike card game! Build your deck, explore dungeons, and survive the challenges!" data-zh="策略类Roguelike卡牌游戏！构建牌组，探索地牢，在挑战中生存！">Strategic roguelike card game! Build your deck, explore dungeons, and survive the challenges!</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-2">
+                                <span class="text-yellow-400">⭐</span>
+                                <span class="text-sm text-gray-300">4.9 (1.5K)</span>
+                            </div>
+                            <a href="/games/die-in-the-dungeon.html" class="bg-blood-red hover:bg-vampire-red text-white px-4 py-2 rounded-lg transition-colors" data-en="Play Now" data-zh="立即游玩" data-ja="今すぐプレイ" data-ko="지금 플레이" data-es="Jugar Ahora" data-fr="Jouer Maintenant" data-de="Jetzt Spielen" data-it="Gioca Ora">
+                                Play Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 游戏卡片 4: Red Handed -->
+                <div class="bg-dark-purple/50 rounded-xl overflow-hidden game-card-hover transition-all duration-300 border border-vampire-red/20">
+                    <div class="aspect-video bg-gradient-to-br from-red-800 to-black flex items-center justify-center">
+                        <span class="text-4xl">🕵️</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Red Handed</h3>
+                        <p class="text-gray-300 mb-4" data-en="Thrilling action crime game! Master stealth and strategy to complete dangerous missions!" data-zh="紧张刺激的动作犯罪游戏！掌握潜行和策略，完成惊险任务！">Thrilling action crime game! Master stealth and strategy to complete dangerous missions!</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-2">
+                                <span class="text-yellow-400">⭐</span>
+                                <span class="text-sm text-gray-300">4.6 (756)</span>
+                            </div>
+                            <a href="/games/red-handed.html" class="bg-blood-red hover:bg-vampire-red text-white px-4 py-2 rounded-lg transition-colors" data-en="Play Now" data-zh="立即游玩" data-ja="今すぐプレイ" data-ko="지금 플레이" data-es="Jugar Ahora" data-fr="Jouer Maintenant" data-de="Jetzt Spielen" data-it="Gioca Ora">
+                                Play Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 游戏卡片 5: Kong Arcade Game -->
+                <div class="bg-dark-purple/50 rounded-xl overflow-hidden game-card-hover transition-all duration-300 border border-vampire-red/20">
+                    <div class="aspect-video bg-gradient-to-br from-yellow-800 to-red-700 flex items-center justify-center">
+                        <span class="text-4xl">🦍</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Kong Arcade Game</h3>
+                        <p class="text-gray-300 mb-4" data-en="Classic arcade-style game! Challenge Kong levels and experience retro gaming fun!" data-zh="经典街机风格游戏！挑战金刚关卡，体验复古游戏乐趣！">Classic arcade-style game! Challenge Kong levels and experience retro gaming fun!</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-2">
+                                <span class="text-yellow-400">⭐</span>
+                                <span class="text-sm text-gray-300">4.5 (623)</span>
+                            </div>
+                            <a href="/games/kong-arcade-game.html" class="bg-blood-red hover:bg-vampire-red text-white px-4 py-2 rounded-lg transition-colors" data-en="Play Now" data-zh="立即游玩" data-ja="今すぐプレイ" data-ko="지금 플레이" data-es="Jugar Ahora" data-fr="Jouer Maintenant" data-de="Jetzt Spielen" data-it="Gioca Ora">
+                                Play Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 即将推出游戏卡片 -->
+                <div class="bg-dark-purple/50 rounded-xl overflow-hidden game-card-hover transition-all duration-300 border border-vampire-red/20">
+                    <div class="aspect-video bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center">
+                        <span class="text-4xl">🚀</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2" data-en="More Exciting Games" data-zh="更多精彩游戏">More Exciting Games</h3>
+                        <p class="text-gray-300 mb-4" data-en="More exciting Vampire Survivors like games are coming soon, stay tuned!" data-zh="更多精彩的吸血鬼生存者类游戏即将上线，敬请期待！">More exciting Vampire Survivors like games are coming soon, stay tuned!</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-2">
+                                <span class="text-yellow-400">⭐</span>
+                                <span class="text-sm text-gray-300" data-en="Coming Soon" data-zh="敬请期待">Coming Soon</span>
+                            </div>
+                            <button class="bg-gray-600 text-white px-4 py-2 rounded-lg cursor-not-allowed" disabled data-en="Coming Soon" data-zh="即将推出">
+                                Coming Soon
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -219,361 +306,200 @@
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="py-16 bg-white">
+    <!-- 游戏特性 -->
+    <section class="bg-dark-purple/30 py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-5xl font-bold text-center text-gray-900 mb-12" data-translate="about-game">
-                About the Game
+            <h2 class="text-4xl font-bold text-center mb-12">
+                ⚡ <span class="text-blood-red" data-en="Game Features" data-zh="游戏特色" data-ja="ゲーム機能" data-ko="게임 특징" data-es="Características del Juego" data-fr="Fonctionnalités du Jeu" data-de="Spiel-Features" data-it="Caratteristiche del Gioco">Game Features</span>
             </h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="feature-card p-8 rounded-2xl">
-                    <div class="text-5xl mb-6">⚔️</div>
-                    <h3 class="text-2xl font-bold mb-4 gradient-text" data-translate="physics-combat-title">
-                        Realistic Physics Combat
-                    </h3>
-                    <p class="text-gray-700 text-lg leading-relaxed" data-translate="physics-combat-desc">
-                        Experience authentic medieval combat with advanced physics simulation. Every sword swing, shield block, and weapon collision feels realistic and impactful.
-                    </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="bg-blood-red/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl">🎯</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2" data-en="Easy to Play" data-zh="简单易上手">Easy to Play</h3>
+                    <p class="text-gray-300" data-en="No complex controls needed, just move your mouse to start playing, suitable for all ages" data-zh="无需复杂操作，鼠标移动即可开始游戏，适合所有年龄段玩家">No complex controls needed, just move your mouse to start playing, suitable for all ages</p>
                 </div>
-                <div class="feature-card p-8 rounded-2xl">
-                    <div class="text-5xl mb-6">🏰</div>
-                    <h3 class="text-2xl font-bold mb-4 gradient-text" data-translate="medieval-setting-title">
-                        Immersive Medieval Setting
-                    </h3>
-                    <p class="text-gray-700 text-lg leading-relaxed" data-translate="medieval-setting-desc">
-                        Battle in authentic medieval environments with period-accurate weapons, armor, and combat techniques that transport you to the Middle Ages.
-                    </p>
+                
+                <div class="text-center">
+                    <div class="bg-blood-red/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl">🚀</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2" data-en="Endless Upgrades" data-zh="无尽升级">Endless Upgrades</h3>
+                    <p class="text-gray-300" data-en="Rich weapon and skill upgrade system, every game offers a different experience" data-zh="丰富的武器和技能升级系统，每次游戏都有不同的体验">Rich weapon and skill upgrade system, every game offers a different experience</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Grid -->
-    <section class="py-16 bg-apple-light-gray">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-5xl font-bold text-center text-gray-900 mb-12" data-translate="features">
-                Game Features
-            </h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="feature-card p-8 text-center rounded-2xl">
-                    <div class="text-6xl mb-6">🗡️</div>
-                    <h3 class="text-xl font-bold mb-4 gradient-text" data-translate="feature1-title">Dynamic Weapon System</h3>
-                    <p class="text-gray-600" data-translate="feature1-desc">Master different medieval weapons each with unique physics properties and combat styles</p>
-                </div>
-                <div class="feature-card p-8 text-center rounded-2xl">
-                    <div class="text-6xl mb-6">⚡</div>
-                    <h3 class="text-xl font-bold mb-4 gradient-text" data-translate="feature2-title">Advanced Physics Engine</h3>
-                    <p class="text-gray-600" data-translate="feature2-desc">Realistic collision detection, momentum, and force simulation for authentic combat feel</p>
-                </div>
-                <div class="feature-card p-8 text-center rounded-2xl">
-                    <div class="text-6xl mb-6">🏆</div>
-                    <h3 class="text-xl font-bold mb-4 gradient-text" data-translate="feature3-title">Skill-Based Combat</h3>
-                    <p class="text-gray-600" data-translate="feature3-desc">Master timing, distance, and technique to become a legendary medieval warrior</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Tips Section -->
-    <section class="py-16 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-5xl font-bold text-center text-gray-900 mb-12" data-translate="tips">
-                Combat Tips
-            </h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="feature-card p-8 rounded-2xl">
-                    <div class="text-4xl mb-4">🛡️</div>
-                    <h3 class="text-2xl font-bold mb-6 gradient-text" data-translate="tip1-title">Master Defense</h3>
-                    <p class="text-gray-700 text-lg" data-translate="tip1-desc">Perfect your blocking and parrying timing. A well-timed defense can create openings for devastating counterattacks.</p>
-                </div>
-                <div class="feature-card p-8 rounded-2xl">
-                    <div class="text-4xl mb-4">⚔️</div>
-                    <h3 class="text-2xl font-bold mb-6 gradient-text" data-translate="tip2-title">Weapon Reach</h3>
-                    <p class="text-gray-700 text-lg" data-translate="tip2-desc">Understanding each weapon's reach and swing arc is crucial. Longer weapons have advantages at distance but are slower to recover.</p>
-                </div>
-                <div class="feature-card p-8 rounded-2xl">
-                    <div class="text-4xl mb-4">💨</div>
-                    <h3 class="text-2xl font-bold mb-6 gradient-text" data-translate="tip3-title">Movement Matters</h3>
-                    <p class="text-gray-700 text-lg" data-translate="tip3-desc">Use footwork to your advantage. Circle around enemies, maintain optimal distance, and use terrain to your benefit.</p>
-                </div>
-                <div class="feature-card p-8 rounded-2xl">
-                    <div class="text-4xl mb-4">🎯</div>
-                    <h3 class="text-2xl font-bold mb-6 gradient-text" data-translate="tip4-title">Target Weak Points</h3>
-                    <p class="text-gray-700 text-lg" data-translate="tip4-desc">Aim for gaps in armor and unprotected areas. Precision strikes deal more damage than wild swinging.</p>
+                
+                <div class="text-center">
+                    <div class="bg-blood-red/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl">💻</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2" data-en="Free Online" data-zh="免费在线">Free Online</h3>
+                    <p class="text-gray-300" data-en="No download or installation required, play directly in your browser anytime, anywhere" data-zh="无需下载安装，直接在浏览器中游玩，随时随地享受游戏乐趣">No download or installation required, play directly in your browser anytime, anywhere</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-12 medieval-gradient text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="glass-card p-8 max-w-2xl mx-auto rounded-2xl">
-                <h3 class="text-2xl font-bold mb-4 gradient-text">Ready for Medieval Combat?</h3>
-                <p class="mb-6 text-lg" data-translate="footer-text">
-                    Step into the arena and test your skills in realistic physics-based medieval combat!
-                </p>
-                <p class="text-sm opacity-75 border-t border-white/20 pt-4" data-translate="disclaimer">
-                    This is an unofficial game portal. All games are property of their respective developers.
-                </p>
+    <footer class="bg-gothic-black py-12 border-t border-vampire-red/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h3 class="text-xl font-bold text-blood-red mb-4">SurvivorsLike.xyz</h3>
+                <p class="text-gray-300 mb-6" data-en="The ultimate collection of Vampire Survivors like games, providing free online gaming experience." data-zh="最全的吸血鬼生存者类游戏合集，提供免费在线游戏体验。" data-ja="バンパイアサバイバーズ系ゲームの究極コレクション、無料オンラインゲーム体験を提供。" data-ko="뱀파이어 서바이버즈 류 게임의 궁극적인 컬렉션, 무료 온라인 게임 경험을 제공합니다." data-es="La colección definitiva de juegos tipo Vampire Survivors, brindando experiencia de juego en línea gratuita." data-fr="La collection ultime de jeux type Vampire Survivors, offrant une expérience de jeu en ligne gratuite." data-de="Die ultimative Sammlung von Vampire Survivors-ähnlichen Spielen, bietet kostenloses Online-Spielerlebnis." data-it="La collezione definitiva di giochi tipo Vampire Survivors, fornendo esperienza di gioco online gratuita.">The ultimate collection of Vampire Survivors like games, providing free online gaming experience.</p>
+                
+                <div class="border-t border-vampire-red/30 pt-6 text-gray-400">
+                    <p>&copy; 2024 SurvivorsLike.xyz - <span data-en="The Ultimate Collection of Vampire Survivors Like Games" data-zh="最全的吸血鬼生存者类游戏合集" data-ja="バンパイアサバイバーズ系ゲームの究極コレクション" data-ko="뱀파이어 서바이버즈 류 게임의 궁극적인 컬렉션" data-es="La Colección Definitiva de Juegos Tipo Vampire Survivors" data-fr="La Collection Ultime de Jeux Type Vampire Survivors" data-de="Die Ultimative Sammlung von Vampire Survivors-ähnlichen Spielen" data-it="La Collezione Definitiva di Giochi Tipo Vampire Survivors">The Ultimate Collection of Vampire Survivors Like Games</span></p>
+                    <p class="mt-2">Vampire Survivors Like Games | <span data-en="Free Online Games" data-zh="免费在线游戏" data-ja="無料オンラインゲーム" data-ko="무료 온라인 게임" data-es="Juegos En Línea Gratis" data-fr="Jeux En Ligne Gratuits" data-de="Kostenlose Online-Spiele" data-it="Giochi Online Gratuiti">Free Online Games</span></p>
+                </div>
             </div>
         </div>
     </footer>
 
+    <!-- 多语言切换JavaScript -->
     <script>
-        // Multi-language support
+        // 多语言数据
         const translations = {
             en: {
-                "main-title": "Physics-based Medieval Melee",
-                "subtitle": "Experience authentic medieval combat with realistic physics and dynamic sword fighting!",
-                "play-now": "⚔️ Play Medieval Combat Now",
-                "no-download": "No download required! Experience realistic medieval warfare in your browser",
-                "loading-text": "Loading Medieval Combat Game...",
-                "loading-wait": "This may take a few seconds",
-                "canvas-warning": "Your browser needs Canvas support for this game. Please try a modern browser like Chrome, Firefox, or Safari.",
-                "iframe-fallback": "Your browser doesn't support iframes. Click here to play directly.",
-                "game-loading-issue": "Game Loading Issues",
-                "try-alternatives": "Please try one of these alternatives:",
-                "new-window": "🚀 Open in New Window",
-                "direct-access": "🎮 Direct Game Access",
-                "retry-loading": "🔄 Retry Loading",
-                "game-info-title": "Game Information",
-                "game-info-desc": "This medieval combat game features advanced physics simulation for realistic sword fighting and weapon dynamics. Best experienced on desktop with a modern browser supporting HTML5 Canvas.",
-                "about-game": "About the Game",
-                "physics-combat-title": "Realistic Physics Combat",
-                "physics-combat-desc": "Experience authentic medieval combat with advanced physics simulation. Every sword swing, shield block, and weapon collision feels realistic and impactful.",
-                "medieval-setting-title": "Immersive Medieval Setting",
-                "medieval-setting-desc": "Battle in authentic medieval environments with period-accurate weapons, armor, and combat techniques that transport you to the Middle Ages.",
-                "features": "Game Features",
-                "feature1-title": "Dynamic Weapon System",
-                "feature1-desc": "Master different medieval weapons each with unique physics properties and combat styles",
-                "feature2-title": "Advanced Physics Engine",
-                "feature2-desc": "Realistic collision detection, momentum, and force simulation for authentic combat feel",
-                "feature3-title": "Skill-Based Combat",
-                "feature3-desc": "Master timing, distance, and technique to become a legendary medieval warrior",
-                "tips": "Combat Tips",
-                "tip1-title": "Master Defense",
-                "tip1-desc": "Perfect your blocking and parrying timing. A well-timed defense can create openings for devastating counterattacks.",
-                "tip2-title": "Weapon Reach",
-                "tip2-desc": "Understanding each weapon's reach and swing arc is crucial. Longer weapons have advantages at distance but are slower to recover.",
-                "tip3-title": "Movement Matters",
-                "tip3-desc": "Use footwork to your advantage. Circle around enemies, maintain optimal distance, and use terrain to your benefit.",
-                "tip4-title": "Target Weak Points",
-                "tip4-desc": "Aim for gaps in armor and unprotected areas. Precision strikes deal more damage than wild swinging.",
-                "footer-text": "Step into the arena and test your skills in realistic physics-based medieval combat!",
-                "disclaimer": "This is an unofficial game portal. All games are property of their respective developers."
+                title: "Vampire Survivors Like Games Collection | SurvivorsLike.xyz",
+                description: "The ultimate collection of Vampire Survivors like games! Play free online Vampire Survivors-style games including survival, bullet hell, and roguelike games. Constantly updated with the latest popular games!",
+                keywords: "Vampire Survivors like, vampire survivors games, survival games, bullet hell games, roguelike, free online games, similar games"
             },
             zh: {
-                "main-title": "基于物理的中世纪近战",
-                "subtitle": "体验真实的中世纪战斗，具有逼真的物理效果和动态剑战！",
-                "play-now": "⚔️ 立即开始中世纪战斗",
-                "no-download": "无需下载！在浏览器中体验真实的中世纪战争",
-                "loading-text": "正在加载中世纪战斗游戏...",
-                "loading-wait": "这可能需要几秒钟",
-                "canvas-warning": "您的浏览器需要Canvas支持才能运行此游戏。请尝试Chrome、Firefox或Safari等现代浏览器。",
-                "iframe-fallback": "您的浏览器不支持iframe。点击这里直接游戏。",
-                "game-loading-issue": "游戏加载问题",
-                "try-alternatives": "请尝试以下替代方案：",
-                "new-window": "🚀 在新窗口打开",
-                "direct-access": "🎮 直接访问游戏",
-                "retry-loading": "🔄 重新加载",
-                "game-info-title": "游戏信息",
-                "game-info-desc": "这款中世纪战斗游戏具有先进的物理模拟，可实现逼真的剑战和武器动力学。在支持HTML5 Canvas的现代浏览器上桌面体验最佳。",
-                "about-game": "关于游戏",
-                "physics-combat-title": "真实物理战斗",
-                "physics-combat-desc": "通过先进的物理模拟体验真实的中世纪战斗。每次挥剑、盾牌格挡和武器碰撞都感觉真实而有冲击力。",
-                "medieval-setting-title": "沉浸式中世纪设定",
-                "medieval-setting-desc": "在真实的中世纪环境中战斗，配备符合时代的武器、盔甲和战斗技术，将您带入中世纪。",
-                "features": "游戏特色",
-                "feature1-title": "动态武器系统",
-                "feature1-desc": "掌握不同的中世纪武器，每种都有独特的物理属性和战斗风格",
-                "feature2-title": "先进物理引擎",
-                "feature2-desc": "真实的碰撞检测、动量和力的模拟，带来真实的战斗感受",
-                "feature3-title": "技能型战斗",
-                "feature3-desc": "掌握时机、距离和技巧，成为传奇的中世纪战士",
-                "tips": "战斗技巧",
-                "tip1-title": "掌握防御",
-                "tip1-desc": "完善您的格挡和招架时机。适时的防御可以为毁灭性的反击创造机会。",
-                "tip2-title": "武器射程",
-                "tip2-desc": "了解每种武器的射程和挥舞弧度至关重要。较长的武器在远距离有优势，但恢复较慢。",
-                "tip3-title": "移动很重要",
-                "tip3-desc": "利用步法优势。绕着敌人转圈，保持最佳距离，利用地形为自己谋利。",
-                "tip4-title": "瞄准弱点",
-                "tip4-desc": "瞄准盔甲的缝隙和无保护区域。精确打击比胡乱挥舞造成更多伤害。",
-                "footer-text": "踏入竞技场，在基于真实物理的中世纪战斗中测试您的技能！",
-                "disclaimer": "这是一个非官方游戏门户。所有游戏均为其各自开发者的财产。"
+                title: "吸血鬼生存者类游戏大全 - Vampire Survivors Like Games | SurvivorsLike.xyz",
+                description: "最全的吸血鬼生存者类游戏合集！免费在线游玩Vampire Survivors Like游戏，包括类似玩法的生存、弹幕、Roguelike游戏。持续更新最新热门游戏！",
+                keywords: "Vampire Survivors like, 吸血鬼生存者, 生存游戏, 弹幕游戏, Roguelike, 免费在线游戏, 类似游戏"
+            },
+            ja: {
+                title: "バンパイアサバイバーズ系ゲームコレクション | SurvivorsLike.xyz",
+                description: "究極のバンパイアサバイバーズ系ゲームコレクション！サバイバル、弾幕、ローグライクゲームを無料でオンラインプレイ。最新人気ゲームを継続更新！",
+                keywords: "バンパイアサバイバーズ, サバイバルゲーム, 弾幕ゲーム, ローグライク, 無料オンラインゲーム, 類似ゲーム"
+            },
+            ko: {
+                title: "뱀파이어 서바이버즈 류 게임 컬렉션 | SurvivorsLike.xyz",
+                description: "최고의 뱀파이어 서바이버즈 류 게임 컬렉션! 서바이벌, 탄막, 로그라이크 게임을 무료 온라인으로 플레이하세요. 최신 인기 게임을 지속 업데이트!",
+                keywords: "뱀파이어 서바이버즈, 서바이벌 게임, 탄막 게임, 로그라이크, 무료 온라인 게임, 유사 게임"
+            },
+            es: {
+                title: "Colección de Juegos Tipo Vampire Survivors | SurvivorsLike.xyz",
+                description: "¡La mejor colección de juegos tipo Vampire Survivors! Juega gratis online juegos de supervivencia, bullet hell y roguelike. ¡Actualizados constantemente con los últimos juegos populares!",
+                keywords: "Vampire Survivors, juegos de supervivencia, juegos bullet hell, roguelike, juegos online gratis, juegos similares"
+            },
+            fr: {
+                title: "Collection de Jeux Type Vampire Survivors | SurvivorsLike.xyz",
+                description: "La collection ultime de jeux type Vampire Survivors ! Jouez gratuitement en ligne à des jeux de survie, bullet hell et roguelike. Constamment mis à jour avec les derniers jeux populaires !",
+                keywords: "Vampire Survivors, jeux de survie, jeux bullet hell, roguelike, jeux en ligne gratuits, jeux similaires"
+            },
+            de: {
+                title: "Vampire Survivors-ähnliche Spiele Sammlung | SurvivorsLike.xyz",
+                description: "Die ultimative Sammlung von Vampire Survivors-ähnlichen Spielen! Spiele kostenlos online Survival-, Bullet-Hell- und Roguelike-Spiele. Ständig aktualisiert mit den neuesten beliebten Spielen!",
+                keywords: "Vampire Survivors, Survival-Spiele, Bullet-Hell-Spiele, Roguelike, kostenlose Online-Spiele, ähnliche Spiele"
+            },
+            it: {
+                title: "Collezione di Giochi Tipo Vampire Survivors | SurvivorsLike.xyz",
+                description: "La collezione definitiva di giochi tipo Vampire Survivors! Gioca gratuitamente online a giochi di sopravvivenza, bullet hell e roguelike. Costantemente aggiornati con gli ultimi giochi popolari!",
+                keywords: "Vampire Survivors, giochi di sopravvivenza, giochi bullet hell, roguelike, giochi online gratuiti, giochi simili"
             }
         };
 
-        // Language functionality
-        const languageSelect = document.getElementById('languageSelect');
-        const savedLanguage = localStorage.getItem('selectedLanguage') || 'en';
-        languageSelect.value = savedLanguage;
+        let currentLang = 'en';
 
-        function changeLanguage(lang) {
-            const elements = document.querySelectorAll('[data-translate]');
+        // 语言内容翻译表
+        const contentTranslations = {
+            en: {},
+            zh: {},
+            ja: {},
+            ko: {},
+            es: {},
+            fr: {},
+            de: {},
+            it: {}
+        };
+
+        // 初始化内容翻译
+        function initContentTranslations() {
+            // 提取页面中所有带多语言属性的元素并创建翻译表
+            const elements = document.querySelectorAll('[data-en]');
             elements.forEach(element => {
-                const key = element.getAttribute('data-translate');
-                if (translations[lang] && translations[lang][key]) {
-                    if (element.tagName === 'INPUT' && element.type === 'placeholder') {
-                        element.placeholder = translations[lang][key];
+                const key = element.textContent.trim();
+                if (key) {
+                    const enText = element.getAttribute('data-en');
+                    const zhText = element.getAttribute('data-zh');
+                    
+                    if (enText) contentTranslations.en[key] = enText;
+                    if (zhText) contentTranslations.zh[key] = zhText;
+                    
+                    // 为其他语言提供基础翻译
+                    contentTranslations.ja[key] = element.getAttribute('data-ja') || enText;
+                    contentTranslations.ko[key] = element.getAttribute('data-ko') || enText;
+                    contentTranslations.es[key] = element.getAttribute('data-es') || enText;
+                    contentTranslations.fr[key] = element.getAttribute('data-fr') || enText;
+                    contentTranslations.de[key] = element.getAttribute('data-de') || enText;
+                    contentTranslations.it[key] = element.getAttribute('data-it') || enText;
+                }
+            });
+        }
+
+        // 切换语言函数
+        function switchLanguage(lang) {
+            currentLang = lang;
+            
+            // 更新HTML lang属性
+            document.documentElement.lang = lang;
+            
+            // 更新所有带有多语言数据的元素
+            const elements = document.querySelectorAll('[data-en][data-zh]');
+            elements.forEach(element => {
+                const text = element.getAttribute(`data-${lang}`);
+                if (text) {
+                    if (element.tagName === 'INPUT' && element.placeholder !== undefined) {
+                        element.placeholder = text;
+                    } else if (element.tagName === 'META') {
+                        element.content = text;
+                    } else if (element.tagName === 'TITLE') {
+                        element.textContent = text;
                     } else {
-                        element.textContent = translations[lang][key];
+                        element.textContent = text;
                     }
                 }
             });
 
-            // Update page title and meta description
-            if (lang === 'zh') {
-                document.title = '基于物理的中世纪近战 - 免费在线游戏 | Survivors Like';
-                document.querySelector('meta[name="description"]').setAttribute('content', '体验真实的中世纪战斗！具有逼真物理效果和动态剑战的在线游戏。无需下载，立即开始游戏！');
-            } else {
-                document.title = 'Physics-based Medieval Melee - Free Online Game | Survivors Like';
-                document.querySelector('meta[name="description"]').setAttribute('content', 'Experience the ultimate physics-based medieval combat! Fight with realistic weapon mechanics, dynamic battles, and immersive medieval warfare. Play free online now!');
-            }
-            
-            localStorage.setItem('selectedLanguage', lang);
-        }
-
-        languageSelect.addEventListener('change', (e) => {
-            changeLanguage(e.target.value);
-        });
-
-        // Initialize language
-        changeLanguage(savedLanguage);
-
-        // Game loading functionality
-        let loadingTimeout;
-        
-        function handleGameLoad() {
-            const loadingIndicator = document.getElementById('loading-indicator');
-            const gameIframe = document.getElementById('game-iframe');
-            const canvasWarning = document.getElementById('canvas-warning');
-            
-            console.log('Game iframe loaded successfully');
-            
-            // Clear loading timeout
-            if (loadingTimeout) {
-                clearTimeout(loadingTimeout);
-            }
-            
-            if (loadingIndicator) {
-                loadingIndicator.style.display = 'none';
-            }
-            if (gameIframe) {
-                gameIframe.classList.remove('hidden');
-            }
-            
-            // Check if canvas is supported
-            try {
-                const canvas = document.createElement('canvas');
-                const ctx = canvas.getContext('2d');
-                if (!ctx) {
-                    if (canvasWarning) {
-                        canvasWarning.classList.remove('hidden');
-                    }
-                }
-            } catch (e) {
-                if (canvasWarning) {
-                    canvasWarning.classList.remove('hidden');
-                }
-            }
-        }
-
-        function handleGameError() {
-            console.log('Game iframe failed to load');
-            const loadingIndicator = document.getElementById('loading-indicator');
-            const fallbackOptions = document.getElementById('fallback-options');
-            
-            // Clear loading timeout
-            if (loadingTimeout) {
-                clearTimeout(loadingTimeout);
-            }
-            
-            if (loadingIndicator) {
-                loadingIndicator.style.display = 'none';
-            }
-            if (fallbackOptions) {
-                fallbackOptions.classList.remove('hidden');
-            }
-        }
-
-        function startLoadingTimeout() {
-            // Set a 15-second timeout for loading
-            loadingTimeout = setTimeout(() => {
-                console.log('Game loading timeout - showing fallback options');
-                handleGameError();
-            }, 15000);
-        }
-
-        function playOnlineGame() {
-            const gameUrl = 'https://html-classic.itch.zone/html/13774666/index.html';
-            const gameWindow = window.open(
-                gameUrl,
-                'medieval-melee-game',
-                'width=1200,height=800,scrollbars=no,toolbar=no,location=no,status=no,menubar=no,resizable=yes'
-            );
-            
-            if (gameWindow) {
-                gameWindow.focus();
-            } else {
-                if (confirm('弹窗被浏览器阻止。在新标签页打开游戏吗？')) {
-                    window.open(gameUrl, '_blank');
-                }
-            }
-        }
-
-        function retryLoad() {
-            // Reset UI state
-            const loadingIndicator = document.getElementById('loading-indicator');
-            const fallbackOptions = document.getElementById('fallback-options');
-            const iframe = document.getElementById('game-iframe');
-            
-            if (loadingIndicator) {
-                loadingIndicator.style.display = 'flex';
-            }
-            if (fallbackOptions) {
-                fallbackOptions.classList.add('hidden');
-            }
-            if (iframe) {
-                iframe.classList.add('hidden');
-                iframe.src = 'about:blank'; // Clear iframe
+            // 更新页面标题和meta信息
+            if (translations[lang]) {
+                document.title = translations[lang].title;
+                document.querySelector('meta[name="description"]').content = translations[lang].description;
+                document.querySelector('meta[name="keywords"]').content = translations[lang].keywords;
                 
-                // Reload iframe after short delay
-                setTimeout(() => {
-                    iframe.src = 'https://html-classic.itch.zone/html/13774666/index.html';
-                    startLoadingTimeout();
-                }, 500);
+                // 更新Open Graph和Twitter meta
+                document.querySelector('meta[property="og:title"]').content = translations[lang].title;
+                document.querySelector('meta[property="og:description"]').content = translations[lang].description;
+                document.querySelector('meta[property="twitter:title"]').content = translations[lang].title;
+                document.querySelector('meta[property="twitter:description"]').content = translations[lang].description;
             }
+
+            // 保存语言偏好到localStorage
+            localStorage.setItem('preferred-language', lang);
         }
 
-        // Page load initialization
+        // 页面加载时初始化语言
         document.addEventListener('DOMContentLoaded', function() {
-            const iframe = document.getElementById('game-iframe');
+            // 初始化内容翻译
+            initContentTranslations();
             
-            // Set up iframe event listeners
-            iframe.addEventListener('load', function() {
-                // Small delay to ensure iframe content is actually loaded
-                setTimeout(handleGameLoad, 1000);
-            });
-            iframe.addEventListener('error', handleGameError);
+            // 检查localStorage中的语言偏好
+            const savedLang = localStorage.getItem('preferred-language') || 'en';
+            const languageSelect = document.getElementById('languageSelect');
             
-            // Start loading timeout
-            startLoadingTimeout();
-            
-            // Load game immediately
-            iframe.src = 'https://html-classic.itch.zone/html/13774666/index.html';
-        });
-
-        // Keyboard shortcuts
-        document.addEventListener('keydown', function(e) {
-            if (e.key.toLowerCase() === 'p' && !e.ctrlKey && !e.altKey && !e.shiftKey) {
-                const activeElement = document.activeElement;
-                if (activeElement.tagName !== 'INPUT' && activeElement.tagName !== 'TEXTAREA') {
-                    playOnlineGame();
-                }
+            if (languageSelect) {
+                languageSelect.value = savedLang;
+                switchLanguage(savedLang);
+                
+                // 绑定语言切换选择器事件
+                languageSelect.addEventListener('change', (e) => {
+                    switchLanguage(e.target.value);
+                });
             }
         });
     </script>
 </body>
-</html> 
+</html>
