@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd
+        http://www.google.com/schemas/sitemap-image/1.1
+        http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd">
+
+    <!-- 主页 - 最高优先级 -->
+    <url>
+        <loc>https://survivorslike.xyz/</loc>
+        <lastmod>2024-03-19</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://survivorslike.xyz/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://survivorslike.xyz/zh/"/>
+        <image:image>
+            <image:loc>https://survivorslike.xyz/images/logo.png</image:loc>
+            <image:title>Survivors Like Logo</image:title>
+        </image:image>
+    </url>
+
+    <!-- 游戏页面 - 高优先级 -->
+    <url>
+        <loc>https://survivorslike.xyz/games/vampire-survivors.html</loc>
+        <lastmod>2024-03-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.95</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://survivorslike.xyz/games/vampire-survivors.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://survivorslike.xyz/zh/games/vampire-survivors.html"/>
+        <image:image>
+            <image:loc>https://survivorslike.xyz/images/games/vampire-survivors.jpg</image:loc>
+            <image:title>Vampire Survivors Game Screenshot</image:title>
+        </image:image>
+    </url>
+
+    <url>
+        <loc>https://survivorslike.xyz/games/10-minutes-till-dawn.html</loc>
+        <lastmod>2024-03-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://survivorslike.xyz/games/10-minutes-till-dawn.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://survivorslike.xyz/zh/games/10-minutes-till-dawn.html"/>
+        <image:image>
+            <image:loc>https://survivorslike.xyz/images/games/10-minutes-till-dawn.jpg</image:loc>
+            <image:title>10 Minutes Till Dawn Game Screenshot</image:title>
+        </image:image>
+    </url>
+
+    <url>
+        <loc>https://survivorslike.xyz/games/Physics-based.html</loc>
+        <lastmod>2024-03-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://survivorslike.xyz/games/Physics-based.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://survivorslike.xyz/zh/games/Physics-based.html"/>
+        <image:image>
+            <image:loc>https://survivorslike.xyz/images/games/physics-based.jpg</image:loc>
+            <image:title>Physics-based Medieval Melee Game Screenshot</image:title>
+        </image:image>
+    </url>
+
+    <url>
+        <loc>https://survivorslike.xyz/games/die-in-the-dungeon.html</loc>
+        <lastmod>2024-03-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://survivorslike.xyz/games/die-in-the-dungeon.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://survivorslike.xyz/zh/games/die-in-the-dungeon.html"/>
+        <image:image>
+            <image:loc>https://survivorslike.xyz/images/games/die-in-the-dungeon.jpg</image:loc>
+            <image:title>Die in the Dungeon Game Screenshot</image:title>
+        </image:image>
+    </url>
+
+    <url>
+        <loc>https://survivorslike.xyz/games/red-handed.html</loc>
+        <lastmod>2024-03-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://survivorslike.xyz/games/red-handed.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://survivorslike.xyz/zh/games/red-handed.html"/>
+        <image:image>
+            <image:loc>https://survivorslike.xyz/images/games/red-handed.jpg</image:loc>
+            <image:title>Red Handed Game Screenshot</image:title>
+        </image:image>
+    </url>
+
+    <url>
+        <loc>https://survivorslike.xyz/games/kong-arcade-game.html</loc>
+        <lastmod>2024-03-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://survivorslike.xyz/games/kong-arcade-game.html"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://survivorslike.xyz/zh/games/kong-arcade-game.html"/>
+        <image:image>
+            <image:loc>https://survivorslike.xyz/images/games/kong-arcade.jpg</image:loc>
+            <image:title>Kong Arcade Game Screenshot</image:title>
+        </image:image>
+    </url>
+
+    <!-- 游戏分类页面 - 中等优先级 -->
+    <url>
+        <loc>https://survivorslike.xyz/games</loc>
+        <lastmod>2024-03-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://survivorslike.xyz/games"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://survivorslike.xyz/zh/games"/>
+    </url>
+
+    <url>
+        <loc>https://survivorslike.xyz/games/survival</loc>
+        <lastmod>2024-03-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://survivorslike.xyz/games/survival"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://survivorslike.xyz/zh/games/survival"/>
+    </url>
+
+    <url>
+        <loc>https://survivorslike.xyz/games/roguelike</loc>
+        <lastmod>2024-03-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://survivorslike.xyz/games/roguelike"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://survivorslike.xyz/zh/games/roguelike"/>
+    </url>
+
+    <url>
+        <loc>https://survivorslike.xyz/games/bullet-hell</loc>
+        <lastmod>2024-03-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://survivorslike.xyz/games/bullet-hell"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://survivorslike.xyz/zh/games/bullet-hell"/>
+    </url>
+
+    <url>
+        <loc>https://survivorslike.xyz/games/action</loc>
+        <lastmod>2024-03-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://survivorslike.xyz/games/action"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://survivorslike.xyz/zh/games/action"/>
+    </url>
+
+    <!-- 新增游戏分类页面 -->
+    <url>
+        <loc>https://survivorslike.xyz/games/medieval</loc>
+        <lastmod>2024-03-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://survivorslike.xyz/games/medieval"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://survivorslike.xyz/zh/games/medieval"/>
+    </url>
+
+    <url>
+        <loc>https://survivorslike.xyz/games/arcade</loc>
+        <lastmod>2024-03-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://survivorslike.xyz/games/arcade"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://survivorslike.xyz/zh/games/arcade"/>
+    </url>
+
+    <!-- 功能页面 - 中低优先级 -->
+    <url>
+        <loc>https://survivorslike.xyz/latest</loc>
+        <lastmod>2024-03-19</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.6</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://survivorslike.xyz/latest"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://survivorslike.xyz/zh/latest"/>
+    </url>
+
+    <url>
+        <loc>https://survivorslike.xyz/popular</loc>
+        <lastmod>2024-03-19</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.6</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://survivorslike.xyz/popular"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://survivorslike.xyz/zh/popular"/>
+    </url>
+
+    <url>
+        <loc>https://survivorslike.xyz/random</loc>
+        <lastmod>2024-03-19</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.5</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://survivorslike.xyz/random"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://survivorslike.xyz/zh/random"/>
+    </url>
+
+    <!-- 信息页面 - 低优先级 -->
+    <url>
+        <loc>https://survivorslike.xyz/about</loc>
+        <lastmod>2024-03-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.4</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://survivorslike.xyz/about"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://survivorslike.xyz/zh/about"/>
+    </url>
+
+    <url>
+        <loc>https://survivorslike.xyz/contact</loc>
+        <lastmod>2024-03-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.3</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://survivorslike.xyz/contact"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://survivorslike.xyz/zh/contact"/>
+    </url>
+
+    <url>
+        <loc>https://survivorslike.xyz/privacy</loc>
+        <lastmod>2024-03-19</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.2</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://survivorslike.xyz/privacy"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://survivorslike.xyz/zh/privacy"/>
+    </url>
+
+    <url>
+        <loc>https://survivorslike.xyz/terms</loc>
+        <lastmod>2024-03-19</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.2</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://survivorslike.xyz/terms"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://survivorslike.xyz/zh/terms"/>
+    </url>
+
+</urlset> 
