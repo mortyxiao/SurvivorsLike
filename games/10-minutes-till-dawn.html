@@ -108,6 +108,71 @@
 </head>
 
 <body class="min-h-screen text-gray-900">
+    <!-- 语言切换脚本 -->
+    <script>
+        // 语言翻译数据
+        const pageTranslations = {
+            en: {
+                "main-title": "10 Minutes Till Dawn",
+                "subtitle": "Survive the endless night! Fight monster waves in this intense bullet-hell survival game!",
+                "play-on-itch": "Play on itch.io",
+                "itch-description": "Experience the full game with better performance and latest updates on the official itch.io page!",
+                "play-now": "Play Now on itch.io",
+                "no-download": "Play directly in your browser or download for the best experience",
+                "feature1": "Fast-paced Action",
+                "feature2": "Roguelike Elements",
+                "feature3": "Strategic Upgrades"
+            },
+            zh: {
+                "main-title": "黎明前10分钟",
+                "subtitle": "在无尽的黑夜中生存！在这款激烈的弹幕生存游戏中对抗怪物潮！",
+                "play-on-itch": "在itch.io上游玩",
+                "itch-description": "在官方itch.io页面体验完整游戏，享受更好的性能和最新更新！",
+                "play-now": "立即在itch.io上游玩",
+                "no-download": "直接在浏览器中游玩或下载以获得最佳体验",
+                "feature1": "快节奏动作",
+                "feature2": "Roguelike元素",
+                "feature3": "策略升级"
+            }
+        };
+
+        // 语言切换功能
+        function changeLanguage(lang) {
+            // 更新所有带data-translate属性的元素
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (pageTranslations[lang] && pageTranslations[lang][key]) {
+                    element.textContent = pageTranslations[lang][key];
+                }
+            });
+
+            // 更新页面标题和meta信息
+            if (lang === 'zh') {
+                document.title = '黎明前10分钟 - 生存游戏 | 类吸血鬼生存者体验';
+                document.querySelector('meta[name="description"]').content = '在无尽的黑夜中生存！在这款激烈的弹幕生存游戏中对抗怪物潮。免费在线体验！';
+            } else {
+                document.title = '10 Minutes Till Dawn - Survive the Night | Vampire Survivors Like Game';
+                document.querySelector('meta[name="description"]').content = 'Survive 10 minutes until dawn in this intense bullet-hell survival game! Fight waves of monsters, upgrade weapons, and escape the darkness. Play free online now!';
+            }
+
+            // 保存语言偏好
+            localStorage.setItem('preferred-language', lang);
+        }
+
+        // 页面加载时初始化语言
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('preferred-language') || 'en';
+            const languageSelect = document.getElementById('languageSelect');
+            languageSelect.value = savedLang;
+            changeLanguage(savedLang);
+
+            // 添加语言切换事件监听
+            languageSelect.addEventListener('change', function(e) {
+                changeLanguage(e.target.value);
+            });
+        });
+    </script>
+
     <!-- Navigation -->
     <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

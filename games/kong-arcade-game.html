@@ -108,6 +108,71 @@
 </head>
 
 <body class="min-h-screen text-gray-900">
+    <!-- 语言切换脚本 -->
+    <script>
+        // 语言翻译数据
+        const pageTranslations = {
+            en: {
+                "main-title": "Kong Arcade Game",
+                "subtitle": "Experience classic arcade gaming with modern graphics and engaging gameplay!",
+                "play-on-itch": "Play on itch.io",
+                "itch-description": "Experience the full game with better performance and latest updates on the official itch.io page!",
+                "play-now": "Play Now on itch.io",
+                "no-download": "Play directly in your browser or download for the best experience",
+                "feature1": "Classic Arcade",
+                "feature2": "Modern Graphics",
+                "feature3": "Score Competition"
+            },
+            zh: {
+                "main-title": "Kong街机游戏",
+                "subtitle": "体验经典街机游戏，具有现代图形和引人入胜的游戏玩法！",
+                "play-on-itch": "在itch.io上游玩",
+                "itch-description": "在官方itch.io页面体验完整游戏，享受更好的性能和最新更新！",
+                "play-now": "立即在itch.io上游玩",
+                "no-download": "直接在浏览器中游玩或下载以获得最佳体验",
+                "feature1": "经典街机",
+                "feature2": "现代图形",
+                "feature3": "分数竞争"
+            }
+        };
+
+        // 语言切换功能
+        function changeLanguage(lang) {
+            // 更新所有带data-translate属性的元素
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (pageTranslations[lang] && pageTranslations[lang][key]) {
+                    element.textContent = pageTranslations[lang][key];
+                }
+            });
+
+            // 更新页面标题和meta信息
+            if (lang === 'zh') {
+                document.title = 'Kong街机游戏 - 免费在线街机游戏 | Survivors Like';
+                document.querySelector('meta[name="description"]').content = '玩终极Kong街机游戏在线！体验经典街机游戏与现代图形和引人入胜的游戏玩法。现在免费在浏览器中游戏！';
+            } else {
+                document.title = 'Kong Arcade Game - Free Online Arcade Gaming | Survivors Like';
+                document.querySelector('meta[name="description"]').content = 'Play the ultimate Kong arcade game online! Experience classic arcade gaming with modern graphics and engaging gameplay. Free to play in your browser now!';
+            }
+
+            // 保存语言偏好
+            localStorage.setItem('preferred-language', lang);
+        }
+
+        // 页面加载时初始化语言
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('preferred-language') || 'en';
+            const languageSelect = document.getElementById('languageSelect');
+            languageSelect.value = savedLang;
+            changeLanguage(savedLang);
+
+            // 添加语言切换事件监听
+            languageSelect.addEventListener('change', function(e) {
+                changeLanguage(e.target.value);
+            });
+        });
+    </script>
+
     <!-- Navigation -->
     <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

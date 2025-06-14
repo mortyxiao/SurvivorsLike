@@ -108,6 +108,71 @@
 </head>
 
 <body class="min-h-screen text-gray-900">
+    <!-- 语言切换脚本 -->
+    <script>
+        // 语言翻译数据
+        const pageTranslations = {
+            en: {
+                "main-title": "Red Handed",
+                "subtitle": "Master the art of stealth! A tactical action game where getting caught is the key to victory!",
+                "play-on-itch": "Play on itch.io",
+                "itch-description": "Experience the full game with better performance and latest updates on the official itch.io page!",
+                "play-now": "Play Now on itch.io",
+                "no-download": "Play directly in your browser or download for the best experience",
+                "feature1": "Stealth Action",
+                "feature2": "Tactical Gameplay",
+                "feature3": "Reverse Logic"
+            },
+            zh: {
+                "main-title": "被当场抓获",
+                "subtitle": "掌握潜行艺术！一款战术动作游戏，被抓是胜利的关键！",
+                "play-on-itch": "在itch.io上游玩",
+                "itch-description": "在官方itch.io页面体验完整游戏，享受更好的性能和最新更新！",
+                "play-now": "立即在itch.io上游玩",
+                "no-download": "直接在浏览器中游玩或下载以获得最佳体验",
+                "feature1": "潜行动作",
+                "feature2": "战术玩法",
+                "feature3": "逆向逻辑"
+            }
+        };
+
+        // 语言切换功能
+        function changeLanguage(lang) {
+            // 更新所有带data-translate属性的元素
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (pageTranslations[lang] && pageTranslations[lang][key]) {
+                    element.textContent = pageTranslations[lang][key];
+                }
+            });
+
+            // 更新页面标题和meta信息
+            if (lang === 'zh') {
+                document.title = '被当场抓获 - 动作犯罪游戏 | 类吸血鬼生存者强度';
+                document.querySelector('meta[name="description"]').content = '被当场抓获！具有潜行机制、策略玩法和惊险任务的紧张动作犯罪游戏。免费在线体验类吸血鬼生存者的刺激！';
+            } else {
+                document.title = 'Red Handed - Action Crime Game | Vampire Survivors Like Intensity';
+                document.querySelector('meta[name="description"]').content = 'Get caught Red Handed! Intense action crime game with stealth mechanics, strategic gameplay, and thrilling missions. Experience vampire survivors like excitement online free!';
+            }
+
+            // 保存语言偏好
+            localStorage.setItem('preferred-language', lang);
+        }
+
+        // 页面加载时初始化语言
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('preferred-language') || 'en';
+            const languageSelect = document.getElementById('languageSelect');
+            languageSelect.value = savedLang;
+            changeLanguage(savedLang);
+
+            // 添加语言切换事件监听
+            languageSelect.addEventListener('change', function(e) {
+                changeLanguage(e.target.value);
+            });
+        });
+    </script>
+
     <!-- Navigation -->
     <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

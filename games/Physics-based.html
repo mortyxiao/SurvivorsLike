@@ -108,6 +108,71 @@
 </head>
 
 <body class="min-h-screen text-gray-900">
+    <!-- 语言切换脚本 -->
+    <script>
+        // 语言翻译数据
+        const pageTranslations = {
+            en: {
+                "main-title": "Physics-based Medieval Melee",
+                "subtitle": "Experience realistic medieval combat with dynamic physics and sword fighting!",
+                "play-on-itch": "Play on itch.io",
+                "itch-description": "Experience the full game with better performance and latest updates on the official itch.io page!",
+                "play-now": "Play Now on itch.io",
+                "no-download": "Play directly in your browser or download for the best experience",
+                "feature1": "Physics Combat",
+                "feature2": "Medieval Setting",
+                "feature3": "Dynamic Weapons"
+            },
+            zh: {
+                "main-title": "基于物理的中世纪近战",
+                "subtitle": "体验真实的中世纪战斗，具有逼真的物理效果和动态剑战！",
+                "play-on-itch": "在itch.io上游玩",
+                "itch-description": "在官方itch.io页面体验完整游戏，享受更好的性能和最新更新！",
+                "play-now": "立即在itch.io上游玩",
+                "no-download": "直接在浏览器中游玩或下载以获得最佳体验",
+                "feature1": "物理战斗",
+                "feature2": "中世纪设定",
+                "feature3": "动态武器"
+            }
+        };
+
+        // 语言切换功能
+        function changeLanguage(lang) {
+            // 更新所有带data-translate属性的元素
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (pageTranslations[lang] && pageTranslations[lang][key]) {
+                    element.textContent = pageTranslations[lang][key];
+                }
+            });
+
+            // 更新页面标题和meta信息
+            if (lang === 'zh') {
+                document.title = '基于物理的中世纪近战 - 免费在线游戏 | Survivors Like';
+                document.querySelector('meta[name="description"]').content = '体验真实的中世纪战斗！具有逼真物理效果和动态剑战的在线游戏。无需下载，立即开始游戏！';
+            } else {
+                document.title = 'Physics-based Medieval Melee - Free Online Game | Survivors Like';
+                document.querySelector('meta[name="description"]').content = 'Experience the ultimate physics-based medieval combat! Fight with realistic weapon mechanics, dynamic battles, and immersive medieval warfare. Play free online now!';
+            }
+
+            // 保存语言偏好
+            localStorage.setItem('preferred-language', lang);
+        }
+
+        // 页面加载时初始化语言
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('preferred-language') || 'en';
+            const languageSelect = document.getElementById('languageSelect');
+            languageSelect.value = savedLang;
+            changeLanguage(savedLang);
+
+            // 添加语言切换事件监听
+            languageSelect.addEventListener('change', function(e) {
+                changeLanguage(e.target.value);
+            });
+        });
+    </script>
+
     <!-- Navigation -->
     <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -108,6 +108,71 @@
 </head>
 
 <body class="min-h-screen text-gray-900">
+    <!-- 语言切换脚本 -->
+    <script>
+        // 语言翻译数据
+        const pageTranslations = {
+            en: {
+                "main-title": "Die in the Dungeon",
+                "subtitle": "Conquer the dungeon with dice! Turn-based roguelike game where strategy meets luck in epic card battles!",
+                "play-on-itch": "Play on itch.io",
+                "itch-description": "Experience the full game with better performance and latest updates on the official itch.io page!",
+                "play-now": "Play Now on itch.io",
+                "no-download": "Play directly in your browser or download for the best experience",
+                "feature1": "Dice Combat",
+                "feature2": "Dungeon Crawler",
+                "feature3": "Strategic Gameplay"
+            },
+            zh: {
+                "main-title": "地牢求死",
+                "subtitle": "用骰子征服地牢！回合制Roguelike游戏，策略与运气在史诗卡牌战斗中相遇！",
+                "play-on-itch": "在itch.io上游玩",
+                "itch-description": "在官方itch.io页面体验完整游戏，享受更好的性能和最新更新！",
+                "play-now": "立即在itch.io上游玩",
+                "no-download": "直接在浏览器中游玩或下载以获得最佳体验",
+                "feature1": "骰子战斗",
+                "feature2": "地牢爬行者",
+                "feature3": "策略玩法"
+            }
+        };
+
+        // 语言切换功能
+        function changeLanguage(lang) {
+            // 更新所有带data-translate属性的元素
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (pageTranslations[lang] && pageTranslations[lang][key]) {
+                    element.textContent = pageTranslations[lang][key];
+                }
+            });
+
+            // 更新页面标题和meta信息
+            if (lang === 'zh') {
+                document.title = '地牢求死 - Roguelike卡牌游戏 | 类吸血鬼生存者体验';
+                document.querySelector('meta[name="description"]').content = '进入致命地牢！策略类Roguelike卡牌游戏，具有组牌构建、怪物战斗和无尽探索。免费在线游戏！';
+            } else {
+                document.title = 'Die in the Dungeon - Roguelike Card Game | Vampire Survivors Like Experience';
+                document.querySelector('meta[name="description"]').content = 'Enter the deadly dungeon! Strategic roguelike card game with deck building, monster battles, and endless exploration. Play this unique vampire survivors like experience online free!';
+            }
+
+            // 保存语言偏好
+            localStorage.setItem('preferred-language', lang);
+        }
+
+        // 页面加载时初始化语言
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('preferred-language') || 'en';
+            const languageSelect = document.getElementById('languageSelect');
+            languageSelect.value = savedLang;
+            changeLanguage(savedLang);
+
+            // 添加语言切换事件监听
+            languageSelect.addEventListener('change', function(e) {
+                changeLanguage(e.target.value);
+            });
+        });
+    </script>
+
     <!-- Navigation -->
     <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
