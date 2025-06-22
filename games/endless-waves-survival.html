@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Endless Waves Survival - Survivors Likes Online Game | SurvivorsLike.xyz</title>
+    <meta name="description" content="Play Endless Waves Survival online! Experience intense survivors likes online gameplay with endless enemy waves, strategic upgrades, and thrilling survival action. Free to play now!">
+    <meta name="keywords" content="endless waves survival, survivors likes online, survival game, wave shooter, bullet hell, roguelike, free online game, endless survival">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://survivorslike.xyz/games/endless-waves-survival.html">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Endless Waves Survival - Survivors Likes Online Game">
+    <meta property="og:description" content="Experience intense survivors likes online gameplay with endless enemy waves and strategic upgrades. Play free now!">
+    <meta property="og:url" content="https://survivorslike.xyz/games/endless-waves-survival.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Survivors Like">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Endless Waves Survival - Survivors Likes Online Game">
+    <meta name="twitter:description" content="Experience intense survivors likes online gameplay with endless enemy waves and strategic upgrades.">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NNRJBXXV0M"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-NNRJBXXV0M');
+    </script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'apple-blue': '#007AFF',
+                        'apple-indigo': '#5856D6',
+                        'apple-purple': '#AF52DE',
+                        'apple-pink': '#FF2D92',
+                        'apple-red': '#FF3B30',
+                        'apple-orange': '#FF9500',
+                        'apple-yellow': '#FFCC00',
+                        'apple-green': '#34C759',
+                        'apple-mint': '#00C7BE',
+                        'apple-teal': '#59C2A6',
+                        'apple-cyan': '#64D2FF',
+                        'apple-gray': '#8E8E93',
+                        'apple-light-gray': '#F2F2F7',
+                        'apple-dark': '#1C1C1E',
+                        'apple-secondary': '#F2F2F7'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .apple-gradient {
+            background: linear-gradient(135deg, #007AFF 0%, #5856D6 50%, #AF52DE 100%);
+        }
+        
+        .waves-gradient {
+            background: linear-gradient(135deg, #64D2FF 0%, #007AFF 50%, #5856D6 100%);
+        }
+        
+        .feature-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 122, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 122, 255, 0.15);
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #007AFF, #5856D6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .waves-text {
+            background: linear-gradient(135deg, #64D2FF, #007AFF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .game-iframe {
+            min-height: 600px;
+            border-radius: 16px;
+            box-shadow: 0 25px 50px rgba(0, 122, 255, 0.25);
+            border: 2px solid rgba(0, 122, 255, 0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .game-iframe {
+                min-height: 400px;
+                border-radius: 12px;
+            }
+        }
+        
+        .loading-spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #007AFF;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .floating-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen bg-white text-apple-dark">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-apple-light-gray">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="/" class="text-2xl font-bold gradient-text">🌊 Survivors Like</a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <a href="/" class="text-apple-blue hover:text-apple-indigo transition-colors font-medium">Home</a>
+                    <a href="#game" class="bg-apple-blue text-white px-4 py-2 rounded-lg hover:bg-apple-indigo transition-colors">Play Now</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen py-16 waves-gradient relative overflow-hidden">
+        <!-- Animated Background Elements -->
+        <div class="absolute inset-0">
+            <div class="absolute top-20 left-10 w-4 h-4 bg-apple-cyan rounded-full animate-pulse"></div>
+            <div class="absolute top-40 right-20 w-2 h-2 bg-white rounded-full animate-ping"></div>
+            <div class="absolute bottom-32 left-1/4 w-3 h-3 bg-apple-blue rounded-full floating-animation"></div>
+            <div class="absolute top-60 left-1/2 w-2 h-2 bg-white rounded-full animate-pulse"></div>
+            <div class="absolute bottom-20 right-1/3 w-4 h-4 bg-apple-cyan rounded-full animate-ping"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-12 pt-16">
+                <h1 class="text-6xl md:text-7xl font-bold text-white mb-6 floating-animation">
+                    🌊 <span class="waves-text">Endless Waves</span> <span class="text-white">Survival</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed mb-8">
+                    Experience the ultimate survivors likes online adventure! Battle endless enemy waves, upgrade your arsenal, and test your survival skills in this intense action-packed game.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="#game" class="bg-white text-apple-blue px-8 py-4 rounded-2xl font-bold text-lg hover:bg-apple-light-gray transition-all duration-300 transform hover:scale-105 shadow-lg">
+                        🎮 Play Now Free
+                    </a>
+                    <a href="#features" class="bg-apple-blue/20 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-apple-blue/30 transition-all duration-300 border border-white/20">
+                        📖 Learn More
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Game Section -->
+    <section id="game" class="py-16 bg-apple-secondary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-8">
+                <h2 class="text-4xl font-bold text-apple-dark mb-4">🎯 Play Endless Waves Survival</h2>
+                <p class="text-xl text-apple-gray max-w-3xl mx-auto">
+                    Dive into the action with this free survivors likes online game. No downloads required - play instantly in your browser!
+                </p>
+            </div>
+            
+            <div class="max-w-5xl mx-auto">
+                <div class="bg-white rounded-3xl p-4 shadow-2xl">
+                    <div id="game-loading" class="text-center py-8">
+                        <div class="loading-spinner"></div>
+                        <p class="text-apple-gray mt-4">Loading Endless Waves Survival...</p>
+                    </div>
+                    <iframe 
+                        id="game-frame"
+                        src="https://endless-waves-survival.game-files.crazygames.com/endless-waves-survival/21/index.html"
+                        class="w-full game-iframe"
+                        frameborder="0"
+                        allowfullscreen
+                        style="display: none;"
+                        onload="document.getElementById('game-loading').style.display='none'; this.style.display='block';">
+                    </iframe>
+                </div>
+                
+                <!-- Game Controls Info -->
+                <div class="mt-6 text-center">
+                    <div class="inline-flex items-center space-x-4 bg-white rounded-2xl px-6 py-3 shadow-lg">
+                        <span class="text-apple-gray">Controls:</span>
+                        <span class="bg-apple-light-gray px-3 py-1 rounded-lg text-sm font-mono">WASD</span>
+                        <span class="text-apple-gray">or</span>
+                        <span class="bg-apple-light-gray px-3 py-1 rounded-lg text-sm font-mono">Arrow Keys</span>
+                        <span class="text-apple-gray">to move</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-apple-dark mb-4">
+                    ⚡ Why Choose Endless Waves Survival?
+                </h2>
+                <p class="text-xl text-apple-gray max-w-3xl mx-auto">
+                    Discover what makes this survivors likes online game a must-play experience for action game enthusiasts.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="feature-card p-8 rounded-3xl text-center">
+                    <div class="text-5xl mb-4">🌊</div>
+                    <h3 class="text-2xl font-bold text-apple-dark mb-4">Endless Wave Action</h3>
+                    <p class="text-apple-gray leading-relaxed">
+                        Face infinite waves of increasingly challenging enemies. Each wave brings new threats and requires strategic thinking to survive.
+                    </p>
+                </div>
+                
+                <div class="feature-card p-8 rounded-3xl text-center">
+                    <div class="text-5xl mb-4">⚔️</div>
+                    <h3 class="text-2xl font-bold text-apple-dark mb-4">Strategic Upgrades</h3>
+                    <p class="text-apple-gray leading-relaxed">
+                        Enhance your weapons and abilities between waves. Choose your upgrades wisely to create powerful combinations.
+                    </p>
+                </div>
+                
+                <div class="feature-card p-8 rounded-3xl text-center">
+                    <div class="text-5xl mb-4">🎯</div>
+                    <h3 class="text-2xl font-bold text-apple-dark mb-4">Skill-Based Combat</h3>
+                    <p class="text-apple-gray leading-relaxed">
+                        Master precise movement and timing. Your survival depends on quick reflexes and smart positioning.
+                    </p>
+                </div>
+                
+                <div class="feature-card p-8 rounded-3xl text-center">
+                    <div class="text-5xl mb-4">🏆</div>
+                    <h3 class="text-2xl font-bold text-apple-dark mb-4">Achievement System</h3>
+                    <p class="text-apple-gray leading-relaxed">
+                        Unlock achievements and track your progress. Compete with friends to see who can survive the longest.
+                    </p>
+                </div>
+                
+                <div class="feature-card p-8 rounded-3xl text-center">
+                    <div class="text-5xl mb-4">📱</div>
+                    <h3 class="text-2xl font-bold text-apple-dark mb-4">Cross-Platform Play</h3>
+                    <p class="text-apple-gray leading-relaxed">
+                        Play seamlessly on desktop, tablet, or mobile. Optimized for all devices with responsive controls.
+                    </p>
+                </div>
+                
+                <div class="feature-card p-8 rounded-3xl text-center">
+                    <div class="text-5xl mb-4">🆓</div>
+                    <h3 class="text-2xl font-bold text-apple-dark mb-4">Completely Free</h3>
+                    <p class="text-apple-gray leading-relaxed">
+                        No downloads, no payments, no registration required. Jump straight into the action and start playing now!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Game Description Section -->
+    <section class="py-20 bg-apple-secondary">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-apple-dark mb-6">
+                    🎮 About Endless Waves Survival
+                </h2>
+            </div>
+            
+            <div class="bg-white rounded-3xl p-8 md:p-12 shadow-xl">
+                <div class="prose prose-lg max-w-none">
+                    <p class="text-apple-gray leading-relaxed mb-6">
+                        <strong>Endless Waves Survival</strong> represents the pinnacle of survivors likes online gaming. This intense action game challenges players to withstand increasingly difficult waves of enemies while strategically upgrading their arsenal and abilities.
+                    </p>
+                    
+                    <h3 class="text-2xl font-bold text-apple-dark mb-4">🌟 Game Overview</h3>
+                    <p class="text-apple-gray leading-relaxed mb-6">
+                        Set in a dynamic battlefield where survival is your only goal, Endless Waves Survival combines fast-paced action with strategic depth. Players must navigate through endless enemy encounters, making split-second decisions that determine their fate. The game's intuitive controls make it accessible to newcomers while offering the depth that experienced players crave.
+                    </p>
+                    
+                    <h3 class="text-2xl font-bold text-apple-dark mb-4">⚡ Gameplay Mechanics</h3>
+                    <ul class="text-apple-gray leading-relaxed mb-6 space-y-2">
+                        <li><strong>Wave-Based Progression:</strong> Each wave introduces new enemy types and increased difficulty</li>
+                        <li><strong>Upgrade System:</strong> Collect resources to enhance weapons, abilities, and defensive capabilities</li>
+                        <li><strong>Strategic Positioning:</strong> Use the environment to your advantage and control enemy movement</li>
+                        <li><strong>Power-Up Collection:</strong> Gather temporary boosts and permanent improvements during combat</li>
+                        <li><strong>Score Competition:</strong> Track your best runs and compete for high scores</li>
+                    </ul>
+                    
+                    <h3 class="text-2xl font-bold text-apple-dark mb-4">🎯 Why Play Survivors Likes Online Games?</h3>
+                    <p class="text-apple-gray leading-relaxed mb-6">
+                        The survivors likes online genre has exploded in popularity due to its perfect balance of accessibility and depth. These games offer immediate gratification through simple controls while providing long-term engagement through progression systems and skill development. Endless Waves Survival exemplifies these qualities, delivering an experience that's easy to start but challenging to master.
+                    </p>
+                    
+                    <h3 class="text-2xl font-bold text-apple-dark mb-4">🏆 Tips for Success</h3>
+                    <ul class="text-apple-gray leading-relaxed space-y-2">
+                        <li>Focus on movement - staying mobile is crucial for survival</li>
+                        <li>Prioritize area-of-effect upgrades for crowd control</li>
+                        <li>Learn enemy patterns to predict their movements</li>
+                        <li>Balance offensive and defensive upgrades based on your playstyle</li>
+                        <li>Use the environment to funnel enemies into manageable groups</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Games Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-apple-dark mb-4">
+                    🎲 More Survivors Likes Online Games
+                </h2>
+                <p class="text-xl text-apple-gray">
+                    Explore our collection of similar survival action games
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <a href="/games/vampire-survivors.html" class="feature-card p-6 rounded-2xl hover:scale-105 transition-all duration-300">
+                    <div class="text-4xl mb-4">🧛</div>
+                    <h3 class="text-xl font-bold text-apple-dark mb-2">Vampire Survivors</h3>
+                    <p class="text-apple-gray">Classic gothic survival action</p>
+                </a>
+                
+                <a href="/games/10-minutes-till-dawn.html" class="feature-card p-6 rounded-2xl hover:scale-105 transition-all duration-300">
+                    <div class="text-4xl mb-4">🌅</div>
+                    <h3 class="text-xl font-bold text-apple-dark mb-2">10 Minutes Till Dawn</h3>
+                    <p class="text-apple-gray">Survive until sunrise</p>
+                </a>
+                
+                <a href="/games/die-in-the-dungeon.html" class="feature-card p-6 rounded-2xl hover:scale-105 transition-all duration-300">
+                    <div class="text-4xl mb-4">⚔️</div>
+                    <h3 class="text-xl font-bold text-apple-dark mb-2">Die in the Dungeon</h3>
+                    <p class="text-apple-gray">Dungeon survival adventure</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-apple-dark text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h3 class="text-2xl font-bold mb-4">🌊 SurvivorsLike.xyz</h3>
+                <p class="text-gray-300 mb-6">Your destination for the best survivors likes online games</p>
+                <div class="flex justify-center space-x-6">
+                    <a href="/" class="text-apple-blue hover:text-apple-cyan transition-colors">Home</a>
+                    <a href="/sitemap.xml" class="text-apple-blue hover:text-apple-cyan transition-colors">Sitemap</a>
+                </div>
+                <div class="mt-8 pt-8 border-t border-gray-700">
+                    <p class="text-gray-400 text-sm">© 2024 SurvivorsLike.xyz - All rights reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "VideoGame",
+        "name": "Endless Waves Survival",
+        "description": "Experience intense survivors likes online gameplay with endless enemy waves and strategic upgrades. Free to play browser game.",
+        "url": "https://survivorslike.xyz/games/endless-waves-survival.html",
+        "image": "https://survivorslike.xyz/images/endless-waves-survival.jpg",
+        "genre": ["Action", "Survival", "Shooter"],
+        "gamePlatform": ["Web Browser", "PC", "Mobile"],
+        "applicationCategory": "Game",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.5",
+            "ratingCount": "1000"
+        }
+    }
+    </script>
+</body>
+</html>
