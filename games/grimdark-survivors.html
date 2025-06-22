@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grimdark Survivors - Dark Fantasy Survivors Likes Online Game | SurvivorsLike.xyz</title>
+    <meta name="description" content="Play Grimdark Survivors online! Experience intense dark fantasy survivors likes online gameplay with gothic atmosphere, endless enemy hordes, and strategic upgrades. Free to play now!">
+    <meta name="keywords" content="grimdark survivors, survivors likes online, dark fantasy game, gothic survival, wave shooter, bullet hell, roguelike, free online game, dark survival">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://survivorslike.xyz/games/grimdark-survivors.html">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Grimdark Survivors - Dark Fantasy Survivors Likes Online Game">
+    <meta property="og:description" content="Experience intense dark fantasy survivors likes online gameplay with gothic atmosphere and endless enemy hordes. Play free now!">
+    <meta property="og:url" content="https://survivorslike.xyz/games/grimdark-survivors.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Survivors Like">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Grimdark Survivors - Dark Fantasy Survivors Likes Online Game">
+    <meta name="twitter:description" content="Experience intense dark fantasy survivors likes online gameplay with gothic atmosphere and endless enemy hordes.">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NNRJBXXV0M"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-NNRJBXXV0M');
+    </script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'apple-blue': '#007AFF',
+                        'apple-indigo': '#5856D6',
+                        'apple-purple': '#AF52DE',
+                        'apple-pink': '#FF2D92',
+                        'apple-red': '#FF3B30',
+                        'apple-orange': '#FF9500',
+                        'apple-yellow': '#FFCC00',
+                        'apple-green': '#34C759',
+                        'apple-mint': '#00C7BE',
+                        'apple-teal': '#59C2A6',
+                        'apple-cyan': '#64D2FF',
+                        'apple-gray': '#8E8E93',
+                        'apple-light-gray': '#F2F2F7',
+                        'apple-dark': '#1C1C1E',
+                        'apple-secondary': '#F2F2F7',
+                        'grimdark-purple': '#2D1B69',
+                        'grimdark-red': '#8B0000',
+                        'grimdark-black': '#0A0A0A'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .grimdark-gradient {
+            background: linear-gradient(135deg, #2D1B69 0%, #8B0000 50%, #0A0A0A 100%);
+        }
+        
+        .dark-fantasy-gradient {
+            background: linear-gradient(135deg, #1C1C1E 0%, #2D1B69 50%, #8B0000 100%);
+        }
+        
+        .feature-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(175, 82, 222, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(175, 82, 222, 0.15);
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #AF52DE, #5856D6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .grimdark-text {
+            background: linear-gradient(135deg, #8B0000, #2D1B69);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .game-iframe {
+            min-height: 600px;
+            border-radius: 16px;
+            box-shadow: 0 25px 50px rgba(175, 82, 222, 0.25);
+            border: 2px solid rgba(175, 82, 222, 0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .game-iframe {
+                min-height: 400px;
+                border-radius: 12px;
+            }
+        }
+        
+        .loading-spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #AF52DE;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .floating-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .dark-particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #AF52DE;
+            border-radius: 50%;
+            animation: darkFloat 4s ease-in-out infinite;
+        }
+        
+        @keyframes darkFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.3; }
+            50% { transform: translateY(-20px) rotate(180deg); opacity: 1; }
+        }
+    </style>
+</head>
+
+<body class="min-h-screen bg-white text-apple-dark">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-apple-light-gray">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="/" class="text-2xl font-bold gradient-text">🌑 Survivors Like</a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <a href="/" class="text-apple-purple hover:text-apple-indigo transition-colors font-medium">Home</a>
+                    <a href="#game" class="bg-apple-purple text-white px-4 py-2 rounded-lg hover:bg-apple-indigo transition-colors">Play Now</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen py-16 grimdark-gradient relative overflow-hidden">
+        <!-- Animated Background Elements -->
+        <div class="absolute inset-0">
+            <div class="dark-particle top-20 left-10"></div>
+            <div class="dark-particle top-40 right-20" style="animation-delay: 1s;"></div>
+            <div class="dark-particle bottom-32 left-1/4" style="animation-delay: 2s;"></div>
+            <div class="dark-particle top-60 left-1/2" style="animation-delay: 3s;"></div>
+            <div class="dark-particle bottom-20 right-1/3" style="animation-delay: 0.5s;"></div>
+            <div class="absolute top-32 right-10 w-2 h-2 bg-apple-red rounded-full animate-pulse"></div>
+            <div class="absolute bottom-40 left-16 w-3 h-3 bg-grimdark-red rounded-full animate-ping"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-12 pt-16">
+                <h1 class="text-6xl md:text-7xl font-bold text-white mb-6 floating-animation">
+                    🌑 <span class="grimdark-text">Grimdark</span> <span class="text-white">Survivors</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed mb-8">
+                    Embrace the darkness in this intense survivors likes online experience! Battle through gothic realms, face endless hordes of nightmarish enemies, and survive in the most challenging dark fantasy adventure.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="#game" class="bg-white text-apple-purple px-8 py-4 rounded-2xl font-bold text-lg hover:bg-apple-light-gray transition-all duration-300 transform hover:scale-105 shadow-lg">
+                        🎮 Enter the Darkness
+                    </a>
+                    <a href="#features" class="bg-apple-purple/20 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-apple-purple/30 transition-all duration-300 border border-white/20">
+                        🌙 Explore Features
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Game Section -->
+    <section id="game" class="py-16 bg-apple-secondary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-8">
+                <h2 class="text-4xl font-bold text-apple-dark mb-4">🎯 Play Grimdark Survivors</h2>
+                <p class="text-xl text-apple-gray max-w-3xl mx-auto">
+                    Dive into the darkest survivors likes online experience. Face your fears and survive the grimdark world - no downloads required!
+                </p>
+            </div>
+            
+            <div class="max-w-5xl mx-auto">
+                <div class="bg-white rounded-3xl p-4 shadow-2xl">
+                    <div id="game-loading" class="text-center py-8">
+                        <div class="loading-spinner"></div>
+                        <p class="text-apple-gray mt-4">Loading Grimdark Survivors...</p>
+                    </div>
+                    <iframe 
+                        id="game-frame"
+                        src="https://games.crazygames.com/en_US/grimdark-survivors/index.html?v=1.333"
+                        class="w-full game-iframe"
+                        frameborder="0"
+                        allowfullscreen
+                        style="display: none;"
+                        onload="document.getElementById('game-loading').style.display='none'; this.style.display='block';">
+                    </iframe>
+                </div>
+                
+                <!-- Game Controls Info -->
+                <div class="mt-6 text-center">
+                    <div class="inline-flex items-center space-x-4 bg-white rounded-2xl px-6 py-3 shadow-lg">
+                        <span class="text-apple-gray">Controls:</span>
+                        <span class="bg-apple-light-gray px-3 py-1 rounded-lg text-sm font-mono">WASD</span>
+                        <span class="text-apple-gray">or</span>
+                        <span class="bg-apple-light-gray px-3 py-1 rounded-lg text-sm font-mono">Arrow Keys</span>
+                        <span class="text-apple-gray">to move</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-apple-dark mb-4">
+                    🌙 Why Choose Grimdark Survivors?
+                </h2>
+                <p class="text-xl text-apple-gray max-w-3xl mx-auto">
+                    Discover what makes this dark fantasy survivors likes online game the ultimate test of your survival skills.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="feature-card p-8 rounded-3xl text-center">
+                    <div class="text-5xl mb-4">🌑</div>
+                    <h3 class="text-2xl font-bold text-apple-dark mb-4">Dark Fantasy Setting</h3>
+                    <p class="text-apple-gray leading-relaxed">
+                        Immerse yourself in a gothic world filled with nightmare creatures, dark magic, and atmospheric horror that creates an unforgettable gaming experience.
+                    </p>
+                </div>
+                
+                <div class="feature-card p-8 rounded-3xl text-center">
+                    <div class="text-5xl mb-4">👹</div>
+                    <h3 class="text-2xl font-bold text-apple-dark mb-4">Nightmarish Enemies</h3>
+                    <p class="text-apple-gray leading-relaxed">
+                        Face hordes of terrifying creatures from the depths of darkness. Each enemy type requires different strategies to defeat.
+                    </p>
+                </div>
+                
+                <div class="feature-card p-8 rounded-3xl text-center">
+                    <div class="text-5xl mb-4">🗡️</div>
+                    <h3 class="text-2xl font-bold text-apple-dark mb-4">Dark Magic Arsenal</h3>
+                    <p class="text-apple-gray leading-relaxed">
+                        Wield powerful dark magic spells and cursed weapons. Upgrade your supernatural abilities to survive the endless onslaught.
+                    </p>
+                </div>
+                
+                <div class="feature-card p-8 rounded-3xl text-center">
+                    <div class="text-5xl mb-4">🏰</div>
+                    <h3 class="text-2xl font-bold text-apple-dark mb-4">Gothic Atmosphere</h3>
+                    <p class="text-apple-gray leading-relaxed">
+                        Experience authentic grimdark aesthetics with haunting visuals, atmospheric sound design, and immersive environmental storytelling.
+                    </p>
+                </div>
+                
+                <div class="feature-card p-8 rounded-3xl text-center">
+                    <div class="text-5xl mb-4">⚡</div>
+                    <h3 class="text-2xl font-bold text-apple-dark mb-4">Intense Gameplay</h3>
+                    <p class="text-apple-gray leading-relaxed">
+                        Fast-paced action combined with strategic depth. Every decision matters in this unforgiving world of darkness and survival.
+                    </p>
+                </div>
+                
+                <div class="feature-card p-8 rounded-3xl text-center">
+                    <div class="text-5xl mb-4">🆓</div>
+                    <h3 class="text-2xl font-bold text-apple-dark mb-4">Free Dark Adventure</h3>
+                    <p class="text-apple-gray leading-relaxed">
+                        Experience the full grimdark adventure completely free. No downloads, no subscriptions - just pure dark fantasy gaming.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Game Description Section -->
+    <section class="py-20 bg-apple-secondary">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-apple-dark mb-6">
+                    🎮 About Grimdark Survivors
+                </h2>
+            </div>
+            
+            <div class="bg-white rounded-3xl p-8 md:p-12 shadow-xl">
+                <div class="prose prose-lg max-w-none">
+                    <p class="text-apple-gray leading-relaxed mb-6">
+                        <strong>Grimdark Survivors</strong> stands as the ultimate dark fantasy entry in the survivors likes online genre. This atmospheric horror game plunges players into a world where light has failed and only the strongest can endure the endless night filled with supernatural terrors.
+                    </p>
+                    
+                    <h3 class="text-2xl font-bold text-apple-dark mb-4">🌟 Game Overview</h3>
+                    <p class="text-apple-gray leading-relaxed mb-6">
+                        Set in a gothic realm where darkness reigns supreme, Grimdark Survivors challenges players to survive against overwhelming odds. The game masterfully blends classic survival mechanics with dark fantasy elements, creating an experience that's both familiar and uniquely terrifying. Players must navigate through cursed landscapes, battle demonic creatures, and harness forbidden powers to stay alive.
+                    </p>
+                    
+                    <h3 class="text-2xl font-bold text-apple-dark mb-4">⚡ Core Gameplay Mechanics</h3>
+                    <ul class="text-apple-gray leading-relaxed mb-6 space-y-2">
+                        <li><strong>Dark Magic System:</strong> Unlock and upgrade powerful spells drawn from forbidden knowledge</li>
+                        <li><strong>Creature Variety:</strong> Face diverse nightmarish enemies, each with unique attack patterns and weaknesses</li>
+                        <li><strong>Gothic Progression:</strong> Enhance your character with dark artifacts and cursed equipment</li>
+                        <li><strong>Atmospheric Survival:</strong> Manage resources while surviving in increasingly hostile environments</li>
+                        <li><strong>Strategic Combat:</strong> Combine spells, positioning, and timing to overcome overwhelming odds</li>
+                    </ul>
+                    
+                    <h3 class="text-2xl font-bold text-apple-dark mb-4">🎯 What Makes Survivors Likes Online Games Special?</h3>
+                    <p class="text-apple-gray leading-relaxed mb-6">
+                        The survivors likes online genre has captured gamers worldwide with its perfect blend of accessibility and depth. These games offer immediate engagement through intuitive controls while providing lasting appeal through complex progression systems. Grimdark Survivors elevates this formula by introducing rich atmospheric storytelling and dark fantasy elements that create an immersive experience unlike any other in the genre.
+                    </p>
+                    
+                    <h3 class="text-2xl font-bold text-apple-dark mb-4">🏆 Survival Strategies</h3>
+                    <ul class="text-apple-gray leading-relaxed space-y-2">
+                        <li>Master the dark magic system - some spells are more effective against specific enemy types</li>
+                        <li>Prioritize defensive upgrades early to survive the initial waves</li>
+                        <li>Learn enemy spawn patterns to position yourself strategically</li>
+                        <li>Experiment with spell combinations to discover powerful synergies</li>
+                        <li>Use the gothic environment to your advantage - walls and obstacles can provide protection</li>
+                        <li>Balance offensive and defensive capabilities based on your playstyle preferences</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Games Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-apple-dark mb-4">
+                    🎲 More Survivors Likes Online Games
+                </h2>
+                <p class="text-xl text-apple-gray">
+                    Explore our collection of survival action games
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <a href="/games/vampire-survivors.html" class="feature-card p-6 rounded-2xl hover:scale-105 transition-all duration-300">
+                    <div class="text-4xl mb-4">🧛</div>
+                    <h3 class="text-xl font-bold text-apple-dark mb-2">Vampire Survivors</h3>
+                    <p class="text-apple-gray">Classic gothic survival action</p>
+                </a>
+                
+                <a href="/games/endless-waves-survival.html" class="feature-card p-6 rounded-2xl hover:scale-105 transition-all duration-300">
+                    <div class="text-4xl mb-4">🌊</div>
+                    <h3 class="text-xl font-bold text-apple-dark mb-2">Endless Waves Survival</h3>
+                    <p class="text-apple-gray">Ultimate wave survival experience</p>
+                </a>
+                
+                <a href="/games/10-minutes-till-dawn.html" class="feature-card p-6 rounded-2xl hover:scale-105 transition-all duration-300">
+                    <div class="text-4xl mb-4">🌅</div>
+                    <h3 class="text-xl font-bold text-apple-dark mb-2">10 Minutes Till Dawn</h3>
+                    <p class="text-apple-gray">Survive until sunrise</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-apple-dark text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h3 class="text-2xl font-bold mb-4">🌑 SurvivorsLike.xyz</h3>
+                <p class="text-gray-300 mb-6">Your destination for the best survivors likes online games</p>
+                <div class="flex justify-center space-x-6">
+                    <a href="/" class="text-apple-purple hover:text-apple-cyan transition-colors">Home</a>
+                    <a href="/sitemap.xml" class="text-apple-purple hover:text-apple-cyan transition-colors">Sitemap</a>
+                </div>
+                <div class="mt-8 pt-8 border-t border-gray-700">
+                    <p class="text-gray-400 text-sm">© 2024 SurvivorsLike.xyz - All rights reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "VideoGame",
+        "name": "Grimdark Survivors",
+        "description": "Experience intense dark fantasy survivors likes online gameplay with gothic atmosphere and endless enemy hordes. Free to play browser game.",
+        "url": "https://survivorslike.xyz/games/grimdark-survivors.html",
+        "image": "https://survivorslike.xyz/images/grimdark-survivors.jpg",
+        "genre": ["Action", "Survival", "Dark Fantasy", "Horror"],
+        "gamePlatform": ["Web Browser", "PC", "Mobile"],
+        "applicationCategory": "Game",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.6",
+            "ratingCount": "750"
+        }
+    }
+    </script>
+</body>
+</html>

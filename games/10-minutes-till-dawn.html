@@ -104,6 +104,20 @@
             text-align: center;
             font-weight: 600;
         }
+        
+        .loading-spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #007AFF;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
     </style>
 </head>
 
@@ -115,10 +129,11 @@
             en: {
                 "main-title": "10 Minutes Till Dawn",
                 "subtitle": "Survive the endless night! Fight monster waves in this intense bullet-hell survival game!",
-                "play-on-itch": "Play on itch.io",
-                "itch-description": "Experience the full game with better performance and latest updates on the official itch.io page!",
-                "play-now": "Play Now on itch.io",
-                "no-download": "Play directly in your browser or download for the best experience",
+                "play-online": "Play 10 Minutes Till Dawn Online",
+                "online-description": "Survive the endless night in this intense bullet-hell survival game! Fight monster waves until dawn breaks. Play directly in your browser - no downloads required!",
+                "download-full": "Download Full Version",
+                "more-games": "More Survival Games",
+                "game-tips-title": "💫 Pro Gaming Tips",
                 "feature1": "Fast-paced Action",
                 "feature2": "Roguelike Elements",
                 "feature3": "Strategic Upgrades"
@@ -126,10 +141,11 @@
             zh: {
                 "main-title": "黎明前10分钟",
                 "subtitle": "在无尽的黑夜中生存！在这款激烈的弹幕生存游戏中对抗怪物潮！",
-                "play-on-itch": "在itch.io上游玩",
-                "itch-description": "在官方itch.io页面体验完整游戏，享受更好的性能和最新更新！",
-                "play-now": "立即在itch.io上游玩",
-                "no-download": "直接在浏览器中游玩或下载以获得最佳体验",
+                "play-online": "在线游玩黎明前10分钟",
+                "online-description": "在这款激烈的弹幕生存游戏中度过无尽的黑夜！对抗怪物潮直到黎明破晓。直接在浏览器中游玩 - 无需下载！",
+                "download-full": "下载完整版",
+                "more-games": "更多生存游戏",
+                "game-tips-title": "💫 专业游戏技巧",
                 "feature1": "快节奏动作",
                 "feature2": "Roguelike元素",
                 "feature3": "策略升级"
@@ -219,35 +235,46 @@
                 </p>
             </div>
             
-            <!-- 游戏跳转区域 -->
+            <!-- 在线游戏区域 -->
             <div class="max-w-4xl mx-auto">
                 <div class="glass-card p-8 rounded-3xl text-center">
                     <!-- 游戏图标和描述 -->
                     <div class="mb-8">
                         <div class="text-8xl mb-6">🌅</div>
-                        <h3 class="text-3xl font-bold text-white mb-4 gradient-text" data-translate="play-on-itch">
-                            Play on itch.io
+                        <h3 class="text-3xl font-bold text-white mb-4 gradient-text" data-translate="play-online">
+                            Play 10 Minutes Till Dawn Online
                         </h3>
-                        <p class="text-white/80 text-lg mb-6" data-translate="itch-description">
-                            Experience the full game with better performance and latest updates on the official itch.io page!
+                        <p class="text-white/80 text-lg mb-6" data-translate="online-description">
+                            Survive the endless night in this intense bullet-hell survival game! Fight monster waves until dawn breaks. Play directly in your browser - no downloads required!
                         </p>
                     </div>
                     
-                    <!-- 主要游玩按钮 -->
-                    <div class="space-y-4">
-                        <a href="https://flanne.itch.io/10-minutes-till-dawn" 
-                           target="_blank" 
-                           class="inline-block w-full max-w-md px-8 py-6 bg-dawn-gold text-black text-xl font-bold rounded-2xl hover:bg-yellow-400 transition-all duration-300 transform hover:scale-105 shadow-2xl border-4 border-yellow-300">
-                            <div class="flex items-center justify-center space-x-3">
-                                <span class="text-2xl">🎮</span>
-                                <span data-translate="play-now">Play Now on itch.io</span>
-                                <span class="text-2xl">🚀</span>
-                            </div>
-                        </a>
-                        
-                        <p class="text-sm text-white/60" data-translate="no-download">
-                            Play directly in your browser or download for the best experience
-                        </p>
+                    <!-- 游戏iframe区域 -->
+                    <div class="bg-white rounded-2xl p-4 shadow-2xl">
+                        <div id="game-loading" class="text-center py-8">
+                            <div class="loading-spinner mx-auto mb-4"></div>
+                            <p class="text-gray-600">Loading 10 Minutes Till Dawn...</p>
+                        </div>
+                        <iframe 
+                            id="game-frame"
+                            src="https://games.crazygames.com/en_US/10-minutes-till-dawn/index.html?v=1.333"
+                            class="w-full game-iframe"
+                            frameborder="0"
+                            allowfullscreen
+                            style="display: none;"
+                            onload="document.getElementById('game-loading').style.display='none'; this.style.display='block';">
+                        </iframe>
+                    </div>
+                    
+                    <!-- 游戏控制说明 -->
+                    <div class="mt-6 text-center">
+                        <div class="inline-flex items-center space-x-4 bg-white/10 rounded-2xl px-6 py-3">
+                            <span class="text-white font-semibold">Controls:</span>
+                            <span class="bg-white/20 px-3 py-1 rounded-lg text-sm font-mono text-white">WASD</span>
+                            <span class="text-white">or</span>
+                            <span class="bg-white/20 px-3 py-1 rounded-lg text-sm font-mono text-white">Arrow Keys</span>
+                            <span class="text-white">to move</span>
+                        </div>
                     </div>
                     
                     <!-- 游戏特色 -->
@@ -267,18 +294,36 @@
                     </div>
                 </div>
                 
-                <!-- Game Info -->
-                <div class="mt-8 max-w-3xl mx-auto p-4 bg-blue-50 border border-blue-200 rounded-lg">
+                <!-- Game Tips -->
+                <div class="mt-8 max-w-3xl mx-auto p-6 bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200 rounded-2xl">
                     <div class="flex items-start">
-                        <div class="text-2xl mr-3">ℹ️</div>
+                        <div class="text-2xl mr-3">💡</div>
                         <div>
-                            <h4 class="font-bold text-blue-800 mb-1" data-translate="game-info-title">Game Information</h4>
-                            <p class="text-sm text-blue-700" data-translate="game-info-desc">
-                                10 Minutes Till Dawn is an intense bullet-hell survival game inspired by Vampire Survivors. 
-                                Fight endless waves of monsters, collect power-ups, and survive until dawn breaks. 
-                                Best experienced on desktop with keyboard and mouse.
-                            </p>
+                            <h4 class="font-bold text-blue-800 mb-3" data-translate="game-tips-title">💫 Pro Gaming Tips</h4>
+                            <ul class="text-sm text-blue-700 space-y-2">
+                                <li>• <strong>Stay Mobile:</strong> Constant movement is key to avoiding enemy attacks</li>
+                                <li>• <strong>Focus Fire:</strong> Prioritize dangerous enemies first</li>
+                                <li>• <strong>Smart Upgrades:</strong> Choose upgrades that synergize with your playstyle</li>
+                                <li>• <strong>Map Awareness:</strong> Use the environment to your advantage</li>
+                                <li>• <strong>Resource Management:</strong> Balance offensive and defensive upgrades</li>
+                            </ul>
                         </div>
+                    </div>
+                </div>
+                
+                <!-- External Links -->
+                <div class="mt-6 text-center">
+                    <div class="inline-flex items-center space-x-4">
+                        <a href="https://flanne.itch.io/10-minutes-till-dawn" 
+                           target="_blank" 
+                           class="bg-dawn-gold text-black px-6 py-3 rounded-xl font-bold hover:bg-yellow-400 transition-colors inline-flex items-center space-x-2">
+                            <span>🎮</span>
+                            <span data-translate="download-full">Download Full Version</span>
+                        </a>
+                        <span class="text-white/60 text-sm">|</span>
+                        <a href="/" class="text-white/80 hover:text-white transition-colors font-medium">
+                            <span data-translate="more-games">More Survival Games</span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -387,119 +432,6 @@
     </footer>
 
     <script>
-        // Multi-language support
-        const translations = {
-            en: {
-                "main-title": "10 Minutes Till Dawn",
-                "subtitle": "Survive the endless night! Fight monster waves in this intense bullet-hell survival game!",
-                "play-on-itch": "Play on itch.io",
-                "itch-description": "Experience the full game with better performance and latest updates on the official itch.io page!",
-                "play-now": "Play Now on itch.io",
-                "no-download": "Play directly in your browser or download for the best experience",
-                "feature1": "Fast-paced Action",
-                "feature2": "Roguelike Elements",
-                "feature3": "Strategic Upgrades",
-                "game-info-title": "Game Information",
-                "game-info-desc": "10 Minutes Till Dawn is an intense bullet-hell survival game inspired by Vampire Survivors. Fight endless waves of monsters, collect power-ups, and survive until dawn breaks. Best experienced on desktop with keyboard and mouse.",
-                "about-game": "About the Game",
-                "survival-combat-title": "Intense Survival Combat",
-                "survival-combat-desc": "Face relentless waves of monsters in fast-paced bullet-hell combat. Every second counts as you fight to survive until dawn breaks.",
-                "weapon-system-title": "Dynamic Weapon System",
-                "weapon-system-desc": "Collect and upgrade powerful weapons and abilities. Create devastating combinations to mow down hordes of enemies.",
-                "features": "Game Features",
-                "feature1-title": "Bullet-Hell Action",
-                "feature1-desc": "Fast-paced combat with hundreds of projectiles and explosive effects",
-                "feature2-title": "Progressive Upgrades",
-                "feature2-desc": "Unlock new weapons and abilities as you gain experience and level up",
-                "feature3-title": "Strategic Gameplay",
-                "feature3-desc": "Choose your upgrades wisely to create powerful synergies and survive",
-                "tips": "Survival Tips",
-                "tip1-title": "Focus on Movement",
-                "tip1-desc": "Keep moving constantly! Standing still is certain death. Learn to navigate through bullet patterns while dealing damage.",
-                "tip2-title": "Prioritize Upgrades",
-                "tip2-desc": "Choose upgrades that complement each other. Area damage and projectile speed are often more valuable than raw damage.",
-                "tip3-title": "Learn Enemy Patterns",
-                "tip3-desc": "Each enemy type has unique behavior. Understanding their movement and attack patterns is key to survival.",
-                "tip4-title": "Collect Experience",
-                "tip4-desc": "Don't ignore experience gems! They're crucial for leveling up and gaining new abilities to survive longer.",
-                "footer-text": "Test your skills in this intense bullet-hell survival challenge! Can you last 10 minutes till dawn?",
-                "disclaimer": "This is an unofficial game portal. All games are property of their respective developers."
-            },
-            zh: {
-                "main-title": "黎明前10分钟",
-                "subtitle": "在无尽的黑夜中生存！在这款激烈的弹幕生存游戏中对抗怪物潮！",
-                "play-on-itch": "在itch.io上游玩",
-                "itch-description": "在官方itch.io页面体验完整游戏，享受更好的性能和最新更新！",
-                "play-now": "立即在itch.io上游玩",
-                "no-download": "直接在浏览器中游玩或下载以获得最佳体验",
-                "feature1": "快节奏动作",
-                "feature2": "Roguelike元素",
-                "feature3": "策略升级",
-                "game-info-title": "游戏信息",
-                "game-info-desc": "黎明前10分钟是一款受吸血鬼生存者启发的激烈弹幕生存游戏。对抗无尽的怪物潮，收集强化道具，生存到黎明。在桌面上使用键盘和鼠标体验最佳。",
-                "about-game": "关于游戏",
-                "survival-combat-title": "激烈生存战斗",
-                "survival-combat-desc": "在快节奏的弹幕战斗中面对无情的怪物潮。每一秒都很重要，你要战斗到黎明。",
-                "weapon-system-title": "动态武器系统",
-                "weapon-system-desc": "收集和升级强大的武器和能力。创造毁灭性的组合来清除成群的敌人。",
-                "features": "游戏特色",
-                "feature1-title": "弹幕动作",
-                "feature1-desc": "快节奏战斗，数百发射弹和爆炸效果",
-                "feature2-title": "渐进式升级",
-                "feature2-desc": "随着获得经验和升级解锁新武器和能力",
-                "feature3-title": "策略玩法",
-                "feature3-desc": "明智地选择升级以创造强大的协同效应并生存",
-                "tips": "生存技巧",
-                "tip1-title": "专注移动",
-                "tip1-desc": "持续移动！站着不动就是死路一条。学会在造成伤害的同时穿越弹幕模式。",
-                "tip2-title": "优先升级",
-                "tip2-desc": "选择相互补充的升级。范围伤害和射弹速度通常比纯伤害更有价值。",
-                "tip3-title": "学习敌人模式",
-                "tip3-desc": "每种敌人类型都有独特的行为。了解它们的移动和攻击模式是生存的关键。",
-                "tip4-title": "收集经验",
-                "tip4-desc": "不要忽视经验宝石！它们对于升级和获得新能力以延长生存时间至关重要。",
-                "footer-text": "在这个激烈的弹幕生存挑战中测试你的技能！你能坚持10分钟直到黎明吗？",
-                "disclaimer": "这是一个非官方游戏门户。所有游戏均为其各自开发者的财产。"
-            }
-        };
-
-        // Language functionality
-        const languageSelect = document.getElementById('languageSelect');
-        const savedLanguage = localStorage.getItem('selectedLanguage') || 'en';
-        languageSelect.value = savedLanguage;
-
-        function changeLanguage(lang) {
-            const elements = document.querySelectorAll('[data-translate]');
-            elements.forEach(element => {
-                const key = element.getAttribute('data-translate');
-                if (translations[lang] && translations[lang][key]) {
-                    if (element.tagName === 'INPUT' && element.type === 'placeholder') {
-                        element.placeholder = translations[lang][key];
-                    } else {
-                        element.textContent = translations[lang][key];
-                    }
-                }
-            });
-
-            // Update page title and meta description
-            if (lang === 'zh') {
-                document.title = '黎明前10分钟 - 生存夜晚 | 类吸血鬼生存者游戏';
-                document.querySelector('meta[name="description"]').setAttribute('content', '在黎明前10分钟生存！在这款激烈的弹幕生存游戏中对抗怪物潮！免费在线游戏，立即开始！');
-            } else {
-                document.title = '10 Minutes Till Dawn - Survive the Night | Vampire Survivors Like Game';
-                document.querySelector('meta[name="description"]').setAttribute('content', 'Survive 10 minutes until dawn in this intense bullet-hell survival game! Fight waves of monsters, upgrade weapons, and escape the darkness. Play free online now!');
-            }
-            
-            localStorage.setItem('selectedLanguage', lang);
-        }
-
-        languageSelect.addEventListener('change', (e) => {
-            changeLanguage(e.target.value);
-        });
-
-        // Initialize language
-        changeLanguage(savedLanguage);
-
         // Page initialization
         document.addEventListener('DOMContentLoaded', function() {
             console.log('10 Minutes Till Dawn page loaded successfully');
